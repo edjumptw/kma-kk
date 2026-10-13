@@ -21,7 +21,7 @@
             <div class="opts">
               <label class="opt"><input type="radio" name="plan" value="個人報名" checked required><span><b>個人報名</b><br><small class="addr">開課前 4 週以上報名享早鳥價、3 週以上享晚鳥價，其餘為一般價</small></span></label>
               <label class="opt"><input type="radio" name="plan" value="協會會員"><span><b>高雄市行銷人協會會員</b><br><small class="addr">不論何時報名，一律早鳥價</small></span></label>
-              <label class="opt"><input type="radio" name="plan" value="團體報名"><span><b>團體報名（2 人以上）</b><br><small class="addr">2 人以上同行，不論何時報名，一律晚鳥價</small></span></label>
+              <label class="opt"><input type="radio" name="plan" value="團體報名"><span><b>團體報名（2 人以上）</b><br><small class="addr">2 人以上同行，不論何時報名，至少享晚鳥價（早鳥期間適用早鳥價）</small></span></label>
             </div>
           </div>
           <div id="group-field" class="field hidden"><label for="f-group">同行報名者姓名 <span class="req">*</span></label>
@@ -109,6 +109,8 @@
             <textarea id="f-note" name="note" rows="3" placeholder="例：想替自家產品開直播、想學 AI 做社群圖文"></textarea></div>
         </fieldset>
 
+        <div id="order-summary" class="order-summary" aria-live="polite"></div>
+
         <div class="privacy" id="privacy" tabindex="0">
           <h4>個人資料蒐集告知事項</h4>
           <p>社團法人高雄市行銷人協會（以下稱本會）依《個人資料保護法》第 8 條規定，告知下列事項：</p>
@@ -138,7 +140,7 @@
       <div id="thanks" class="thanks hidden" role="status" aria-live="polite">
         <div class="ok">✓</div>
         <h3>報名資料已送出，謝謝你，<span id="thanks-name"></span>！</h3>
-        <p>報名場次：<b id="thanks-session"></b><br>適用價格：<b id="thanks-price"></b></p>
+        <p>報名場次：<b id="thanks-session"></b></p><p class="thanks-amt">應繳金額：<b id="thanks-price"></b></p>
         <ol id="thanks-steps">
           <li>協會將以 Email 寄送繳費連結（線上刷卡或匯款）。</li>
           <li>請於報名後 3 天內完成繳費，逾期將釋出名額。</li>
@@ -161,7 +163,7 @@
         <li>繳費方式：線上刷卡或匯款，報名後協會提供繳費連結。</li>
         <li>繳費期限：報名後 3 天內完成繳費，逾期視同放棄，名額釋出。</li>
         <li>每梯次名額上限 50 位，依完成繳費順序保留。兩天課程皆含午餐。</li>
-        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）一律晚鳥價。</li>
+        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）至少享晚鳥價（早鳥期間適用早鳥價）。</li>
         <li>可開立發票或收據。</li>
         <li>改期：可申請改報下一梯次。</li>
       </ul>

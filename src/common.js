@@ -75,20 +75,51 @@
     };
     $$('input[name="diet"]',form).forEach(function(r){r.addEventListener('change',diet)}); diet();
 
-    // 報名方案與適用價格
+    // 報名方案與適用價格：依「身分」＋「報名當天距開課週數」自動計算，顯示在方案下方與送出按鈕前
+    var nt = function(n){ return 'NT$'+Number(n).toLocaleString('en-US'); };
     var applied = function(){
       var sEl=form.querySelector('input[name="session"]:checked');
       var plan=(form.querySelector('input[name="plan"]:checked')||{}).value||'個人報名';
       if(!sEl) return null;
       var s=live[+sEl.getAttribute('data-idx')];
-      var t = plan==='協會會員' ? 'early' : (plan==='團體報名' ? 'late' : tierOf(s));
-      return {tier:t, text:TN[t]+' '+strip(money(t)), html:TN[t]+' '+money(t)};
+      var dateTier=tierOf(s), t, reason;
+      if(plan==='協會會員'){ t='early'; reason='協會會員不論何時報名，一律早鳥價（會員資格由協會核對）'; }
+      else if(plan==='團體報名'){
+        if(dateTier==='early'){ t='early'; reason='目前仍在早鳥期，團體報名同樣適用早鳥價'+(deadlineText(s,'early')?'（'+deadlineText(s,'early')+'）':'')+'，金額為每人費用'; }
+        else { t='late'; reason='團體報名（2 人以上）不論何時報名，至少享晚鳥價，金額為每人費用'; }
+      }
+      else {
+        t=dateTier;
+        var dl=deadlineText(s,t);
+        reason = t==='early' ? '開課前 4 週以上報名，適用早鳥價'+(dl?'（'+dl+'）':'')
+               : t==='late' ? '開課前 3 週以上報名，適用晚鳥價'+(dl?'（'+dl+'）':'')
+               : '距開課已不到 3 週，適用一般價（定價）';
+      }
+      var amt=P[t]||null, save=(amt&&P.regular)?P.regular-amt:0;
+      return {tier:t, plan:plan, session:strip(s.date)+'｜'+strip(s.place), amount:amt, save:save, reason:reason,
+              text:TN[t]+' '+(amt?nt(amt):'金額待確認'), html:TN[t]+' '+money(t)};
     };
     var priceUpd = function(){
       var plan=(form.querySelector('input[name="plan"]:checked')||{}).value;
       var g=$('#group-field'); if(g){ g.classList.toggle('hidden', plan!=='團體報名'); $('#f-group').required = (plan==='團體報名'); }
-      var a=applied(), box=$('#price-summary');
-      if(box){ box.innerHTML = a ? '依目前選擇，適用 <b>'+a.html+'</b>' : '請先選擇場次，系統會顯示適用價格。'; }
+      var a=applied(), box=$('#price-summary'), card=$('#order-summary'), btn=$('#submit-btn');
+      if(box){ box.innerHTML = a ? '依目前選擇，你的報名費用是 <b>'+a.html+'</b>'+(a.save>0?'，比定價省 '+nt(a.save):'')+'<br><small>'+a.reason+'</small>' : '請先選擇場次，系統會自動計算你的報名費用。'; }
+      if(card){
+        if(!a){ card.innerHTML='<div class="os-empty">選擇場次與報名方案後，這裡會顯示你要繳的金額。</div>'; }
+        else {
+          card.innerHTML='<div class="os-head">報名費用確認</div>'+
+            '<div class="os-row"><span>課程</span><b>'+(C.courseName||'')+'</b></div>'+
+            '<div class="os-row"><span>場次</span><b>'+a.session+'</b></div>'+
+            '<div class="os-row"><span>報名方案</span><b>'+a.plan+'</b></div>'+
+            '<div class="os-row"><span>適用價格</span><b>'+TN[a.tier]+'</b></div>'+
+            (P.regular?'<div class="os-row"><span>定價</span><b>'+nt(P.regular)+'</b></div>':'')+
+            '<div class="os-total"><span>應繳金額'+(a.plan==='團體報名'?'（每人）':'')+'</span><strong>'+(a.amount?nt(a.amount):money(a.tier))+'</strong></div>'+
+            (a.save>0?'<div class="os-save">比定價省 '+nt(a.save)+'</div>':'')+
+            '<p class="os-note">'+a.reason+'。送出後協會寄送繳費連結（線上刷卡或匯款），請於 3 天內完成繳費。</p>';
+        }
+      }
+      if(btn && !btn.disabled){ btn.textContent = a&&a.amount ? '確認送出報名（應繳 '+nt(a.amount)+(a.plan==='團體報名'?'／人':'')+'）' : '送出報名'; }
+      var mb=$('.mbar .p b'); if(mb && a && a.amount){ mb.textContent='你的價格 '+nt(a.amount); }
     };
     $$('input[name="plan"],input[name="session"]',form).forEach(function(r){r.addEventListener('change',priceUpd)}); priceUpd();
 
@@ -151,7 +182,7 @@
       if(!C.endpoint){ console.warn('[報名表] 尚未設定 COURSE.endpoint，資料未送出（展示模式）。'); setTimeout(done,500); return; }
       fetch(C.endpoint,{method:'POST',mode:'no-cors',body:body})
         .then(done)
-        .catch(function(){ btn.disabled=false; btn.textContent='送出報名'; alertBox('網路連線異常，請稍後再試，或直接聯繫協會。'); });
+        .catch(function(){ btn.disabled=false; priceUpd(); alertBox('網路連線異常，請稍後再試，或直接聯繫協會。'); });
     });
   }
   function alertBox(msg){

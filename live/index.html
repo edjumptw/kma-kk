@@ -317,6 +317,22 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 @media(max-width:959px){.org-card{max-width:none}}
 .brand-logo{flex:none;height:34px;width:auto;display:block}
 .foot-logo{height:52px;width:auto;margin-bottom:14px}
+
+/* ===== 報名費用確認 ===== */
+.price-summary small{color:var(--muted)}
+.order-summary{border:2px solid var(--ink);border-radius:16px;padding:18px 20px;margin:4px 0 22px;background:#fff}
+.order-summary .os-empty{color:var(--muted);font-size:14px;text-align:center;padding:8px 0}
+.os-head{font-weight:900;font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.os-head::before{content:"";width:6px;height:18px;background:var(--accent);border-radius:3px}
+.os-row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.os-row span{color:var(--muted);flex:none}
+.os-row b{text-align:right;font-weight:700}
+.os-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:12px}
+.os-total span{font-weight:900}
+.os-total strong{font-size:32px;font-weight:900;color:var(--accent);line-height:1.1}
+.os-save{text-align:right;font-size:14px;font-weight:700;color:#2e7d32;margin-top:2px}
+.os-note{font-size:13px;color:var(--muted);margin-top:10px}
+.thanks-amt b{color:var(--accent);font-size:20px}
 </style>
 <script>
 /* ===== 可編輯設定：場次、表單後端 =====
@@ -536,7 +552,7 @@ window.COURSE = {
         </ul>
         <ul>
           <li>協會會員：不論何時報名，一律早鳥價</li>
-          <li>團體報名（2 人以上）：不論何時報名，一律晚鳥價</li>
+          <li>團體報名（2 人以上）：不論何時報名，至少享晚鳥價（早鳥期間適用早鳥價）</li>
           <li>每梯次名額上限 50 位</li>
           <li>兩天課程皆含午餐</li>
           <li>含課後一個月群組陪跑</li>
@@ -589,7 +605,7 @@ window.COURSE = {
       <details><summary>有供應午餐嗎？</summary><div>有，兩天課程皆含午餐。請在報名表填寫飲食需求（葷、蛋奶素、全素或過敏食材）。</div></details>
       <details><summary>可以開發票或收據嗎？</summary><div>可以。公司報銷請在報名表選擇「公司」並填寫統一編號與抬頭。</div></details>
       <details><summary>報名後如何繳費？</summary><div>送出報名表後，協會會提供繳費連結，可線上刷卡或匯款。請於報名後 3 天內完成繳費，完成繳費才算保留名額，逾期將釋出名額。</div></details>
-      <details><summary>早鳥價、晚鳥價怎麼算？</summary><div>開課前 4 週以上報名適用早鳥價，3 週以上適用晚鳥價，其餘期間為一般價（定價）。協會會員不論何時報名都是早鳥價；團體報名（2 人以上）不論何時報名都是晚鳥價。報名表會依你選的場次自動顯示適用價格。</div></details>
+      <details><summary>早鳥價、晚鳥價怎麼算？</summary><div>開課前 4 週以上報名適用早鳥價，3 週以上適用晚鳥價，其餘期間為一般價（定價）。協會會員不論何時報名都是早鳥價；團體報名（2 人以上）不論何時報名至少享晚鳥價，早鳥期間則適用早鳥價。報名表會依你選的場次與身分，自動計算並顯示應繳金額。</div></details>
       <details><summary>報名後臨時不能來，可以改期或退費嗎？</summary><div>可以申請改報下一梯次。退費依頁面下方〈退費辦法〉辦理：開課前 7 天（含）以前全額退費（扣手續費 NT$300），開課前 3～6 天退 50%，開課前 2 天內恕不退費但可轉讓名額。</div></details>
     </div>
     <div class="cta-row" style="justify-content:center"><a class="btn" href="#signup">問題都清楚了，我要報名</a></div>
@@ -619,7 +635,7 @@ window.COURSE = {
             <div class="opts">
               <label class="opt"><input type="radio" name="plan" value="個人報名" checked required><span><b>個人報名</b><br><small class="addr">開課前 4 週以上報名享早鳥價、3 週以上享晚鳥價，其餘為一般價</small></span></label>
               <label class="opt"><input type="radio" name="plan" value="協會會員"><span><b>高雄市行銷人協會會員</b><br><small class="addr">不論何時報名，一律早鳥價</small></span></label>
-              <label class="opt"><input type="radio" name="plan" value="團體報名"><span><b>團體報名（2 人以上）</b><br><small class="addr">2 人以上同行，不論何時報名，一律晚鳥價</small></span></label>
+              <label class="opt"><input type="radio" name="plan" value="團體報名"><span><b>團體報名（2 人以上）</b><br><small class="addr">2 人以上同行，不論何時報名，至少享晚鳥價（早鳥期間適用早鳥價）</small></span></label>
             </div>
           </div>
           <div id="group-field" class="field hidden"><label for="f-group">同行報名者姓名 <span class="req">*</span></label>
@@ -707,6 +723,8 @@ window.COURSE = {
             <textarea id="f-note" name="note" rows="3" placeholder="例：想替自家產品開直播、想學 AI 做社群圖文"></textarea></div>
         </fieldset>
 
+        <div id="order-summary" class="order-summary" aria-live="polite"></div>
+
         <div class="privacy" id="privacy" tabindex="0">
           <h4>個人資料蒐集告知事項</h4>
           <p>社團法人高雄市行銷人協會（以下稱本會）依《個人資料保護法》第 8 條規定，告知下列事項：</p>
@@ -736,7 +754,7 @@ window.COURSE = {
       <div id="thanks" class="thanks hidden" role="status" aria-live="polite">
         <div class="ok">✓</div>
         <h3>報名資料已送出，謝謝你，<span id="thanks-name"></span>！</h3>
-        <p>報名場次：<b id="thanks-session"></b><br>適用價格：<b id="thanks-price"></b></p>
+        <p>報名場次：<b id="thanks-session"></b></p><p class="thanks-amt">應繳金額：<b id="thanks-price"></b></p>
         <ol id="thanks-steps">
           <li>協會將以 Email 寄送繳費連結（線上刷卡或匯款）。</li>
           <li>請於報名後 3 天內完成繳費，逾期將釋出名額。</li>
@@ -759,7 +777,7 @@ window.COURSE = {
         <li>繳費方式：線上刷卡或匯款，報名後協會提供繳費連結。</li>
         <li>繳費期限：報名後 3 天內完成繳費，逾期視同放棄，名額釋出。</li>
         <li>每梯次名額上限 50 位，依完成繳費順序保留。兩天課程皆含午餐。</li>
-        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）一律晚鳥價。</li>
+        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）至少享晚鳥價（早鳥期間適用早鳥價）。</li>
         <li>可開立發票或收據。</li>
         <li>改期：可申請改報下一梯次。</li>
       </ul>
@@ -881,20 +899,51 @@ window.COURSE = {
     };
     $$('input[name="diet"]',form).forEach(function(r){r.addEventListener('change',diet)}); diet();
 
-    // 報名方案與適用價格
+    // 報名方案與適用價格：依「身分」＋「報名當天距開課週數」自動計算，顯示在方案下方與送出按鈕前
+    var nt = function(n){ return 'NT$'+Number(n).toLocaleString('en-US'); };
     var applied = function(){
       var sEl=form.querySelector('input[name="session"]:checked');
       var plan=(form.querySelector('input[name="plan"]:checked')||{}).value||'個人報名';
       if(!sEl) return null;
       var s=live[+sEl.getAttribute('data-idx')];
-      var t = plan==='協會會員' ? 'early' : (plan==='團體報名' ? 'late' : tierOf(s));
-      return {tier:t, text:TN[t]+' '+strip(money(t)), html:TN[t]+' '+money(t)};
+      var dateTier=tierOf(s), t, reason;
+      if(plan==='協會會員'){ t='early'; reason='協會會員不論何時報名，一律早鳥價（會員資格由協會核對）'; }
+      else if(plan==='團體報名'){
+        if(dateTier==='early'){ t='early'; reason='目前仍在早鳥期，團體報名同樣適用早鳥價'+(deadlineText(s,'early')?'（'+deadlineText(s,'early')+'）':'')+'，金額為每人費用'; }
+        else { t='late'; reason='團體報名（2 人以上）不論何時報名，至少享晚鳥價，金額為每人費用'; }
+      }
+      else {
+        t=dateTier;
+        var dl=deadlineText(s,t);
+        reason = t==='early' ? '開課前 4 週以上報名，適用早鳥價'+(dl?'（'+dl+'）':'')
+               : t==='late' ? '開課前 3 週以上報名，適用晚鳥價'+(dl?'（'+dl+'）':'')
+               : '距開課已不到 3 週，適用一般價（定價）';
+      }
+      var amt=P[t]||null, save=(amt&&P.regular)?P.regular-amt:0;
+      return {tier:t, plan:plan, session:strip(s.date)+'｜'+strip(s.place), amount:amt, save:save, reason:reason,
+              text:TN[t]+' '+(amt?nt(amt):'金額待確認'), html:TN[t]+' '+money(t)};
     };
     var priceUpd = function(){
       var plan=(form.querySelector('input[name="plan"]:checked')||{}).value;
       var g=$('#group-field'); if(g){ g.classList.toggle('hidden', plan!=='團體報名'); $('#f-group').required = (plan==='團體報名'); }
-      var a=applied(), box=$('#price-summary');
-      if(box){ box.innerHTML = a ? '依目前選擇，適用 <b>'+a.html+'</b>' : '請先選擇場次，系統會顯示適用價格。'; }
+      var a=applied(), box=$('#price-summary'), card=$('#order-summary'), btn=$('#submit-btn');
+      if(box){ box.innerHTML = a ? '依目前選擇，你的報名費用是 <b>'+a.html+'</b>'+(a.save>0?'，比定價省 '+nt(a.save):'')+'<br><small>'+a.reason+'</small>' : '請先選擇場次，系統會自動計算你的報名費用。'; }
+      if(card){
+        if(!a){ card.innerHTML='<div class="os-empty">選擇場次與報名方案後，這裡會顯示你要繳的金額。</div>'; }
+        else {
+          card.innerHTML='<div class="os-head">報名費用確認</div>'+
+            '<div class="os-row"><span>課程</span><b>'+(C.courseName||'')+'</b></div>'+
+            '<div class="os-row"><span>場次</span><b>'+a.session+'</b></div>'+
+            '<div class="os-row"><span>報名方案</span><b>'+a.plan+'</b></div>'+
+            '<div class="os-row"><span>適用價格</span><b>'+TN[a.tier]+'</b></div>'+
+            (P.regular?'<div class="os-row"><span>定價</span><b>'+nt(P.regular)+'</b></div>':'')+
+            '<div class="os-total"><span>應繳金額'+(a.plan==='團體報名'?'（每人）':'')+'</span><strong>'+(a.amount?nt(a.amount):money(a.tier))+'</strong></div>'+
+            (a.save>0?'<div class="os-save">比定價省 '+nt(a.save)+'</div>':'')+
+            '<p class="os-note">'+a.reason+'。送出後協會寄送繳費連結（線上刷卡或匯款），請於 3 天內完成繳費。</p>';
+        }
+      }
+      if(btn && !btn.disabled){ btn.textContent = a&&a.amount ? '確認送出報名（應繳 '+nt(a.amount)+(a.plan==='團體報名'?'／人':'')+'）' : '送出報名'; }
+      var mb=$('.mbar .p b'); if(mb && a && a.amount){ mb.textContent='你的價格 '+nt(a.amount); }
     };
     $$('input[name="plan"],input[name="session"]',form).forEach(function(r){r.addEventListener('change',priceUpd)}); priceUpd();
 
@@ -957,7 +1006,7 @@ window.COURSE = {
       if(!C.endpoint){ console.warn('[報名表] 尚未設定 COURSE.endpoint，資料未送出（展示模式）。'); setTimeout(done,500); return; }
       fetch(C.endpoint,{method:'POST',mode:'no-cors',body:body})
         .then(done)
-        .catch(function(){ btn.disabled=false; btn.textContent='送出報名'; alertBox('網路連線異常，請稍後再試，或直接聯繫協會。'); });
+        .catch(function(){ btn.disabled=false; priceUpd(); alertBox('網路連線異常，請稍後再試，或直接聯繫協會。'); });
     });
   }
   function alertBox(msg){
