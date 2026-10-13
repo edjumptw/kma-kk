@@ -1,0 +1,206 @@
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Registration</span>
+      <h2>報名 {{COURSE_NAME}}</h2>
+      <p class="lead">台北場、高雄場都在這裡報名。送出後協會將寄送繳費連結（線上刷卡或匯款），請於報名後 3 天內完成繳費，完成繳費才算保留座位。每梯次名額上限 50 位。</p>
+    </div>
+
+    <div class="form-card">
+      <form id="signup-form" novalidate>
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="ref">
+
+        <fieldset class="fset">
+          <legend>選擇場次 <span class="req">*</span></legend>
+          <div class="field"><div id="session-opts" class="opts"></div><span class="err">請選擇場次</span></div>
+        </fieldset>
+
+        <fieldset class="fset">
+          <legend>報名方案 <span class="req">*</span></legend>
+          <div class="field">
+            <div class="opts">
+              <label class="opt"><input type="radio" name="plan" value="個人報名" checked required><span><b>個人報名</b><br><small class="addr">開課前 4 週以上報名享早鳥價、3 週以上享晚鳥價，其餘為一般價</small></span></label>
+              <label class="opt"><input type="radio" name="plan" value="協會會員"><span><b>高雄市行銷人協會會員</b><br><small class="addr">不論何時報名，一律早鳥價</small></span></label>
+              <label class="opt"><input type="radio" name="plan" value="團體報名"><span><b>團體報名（2 人以上）</b><br><small class="addr">2 人以上同行，不論何時報名，一律晚鳥價</small></span></label>
+            </div>
+          </div>
+          <div id="group-field" class="field hidden"><label for="f-group">同行報名者姓名 <span class="req">*</span></label>
+            <input id="f-group" name="groupMembers" placeholder="例：王小明、李小華（每位同行者也請各自填寫一份報名表）">
+            <span class="err">請填寫同行報名者姓名</span></div>
+          <div id="price-summary" class="price-summary" aria-live="polite"></div>
+        </fieldset>
+
+        <fieldset class="fset">
+          <legend>學員資料</legend>
+          <div class="row two">
+            <div class="field"><label for="f-name">姓名 <span class="req">*</span></label>
+              <input id="f-name" name="name" autocomplete="name" required placeholder="請填寫真實姓名（開立收據及結業證明用）">
+              <span class="err">請填寫姓名</span></div>
+            <div class="field"><label for="f-mobile">手機 <span class="req">*</span></label>
+              <input id="f-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" required placeholder="0912345678">
+              <span class="err">請填寫 09 開頭的 10 碼手機號碼</span></div>
+          </div>
+          <div class="row two">
+            <div class="field"><label for="f-email">Email <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com">
+              <span class="err">請填寫正確的 Email</span></div>
+            <div class="field"><label for="f-line">LINE ID</label>
+              <input id="f-line" name="lineId" placeholder="方便課前通知（選填）"></div>
+          </div>
+          <div class="row two">
+            <div class="field"><label for="f-company">公司／品牌名稱 <span class="req">*</span></label>
+              <input id="f-company" name="company" autocomplete="organization" required placeholder="個人報名請填「個人」">
+              <span class="err">請填寫公司或品牌名稱</span></div>
+            <div class="field"><label for="f-title">職稱 <span class="req">*</span></label>
+              <input id="f-title" name="jobTitle" autocomplete="organization-title" required placeholder="例：負責人、行銷經理">
+              <span class="err">請填寫職稱</span></div>
+          </div>
+          <div class="row two">
+            <div class="field"><label for="f-industry">產業別 <span class="req">*</span></label>
+              <select id="f-industry" name="industry" required>
+                <option value="">請選擇</option>
+                <option>零售／電商</option><option>食品／餐飲</option><option>美妝／保養</option><option>服飾／生活用品</option>
+                <option>農漁產業</option><option>製造業</option><option>服務業／顧問</option><option>教育／培訓</option>
+                <option>金融／保險／房仲</option><option>自媒體／創作者</option><option>學生／待業</option><option>其他</option>
+              </select><span class="err">請選擇產業別</span></div>
+            <div class="field"><label for="f-source">從哪裡得知課程</label>
+              <select id="f-source" name="source"><option value="">請選擇</option><option>協會通知／群組</option><option>理監事或會員推薦</option><option>Facebook</option><option>Instagram</option><option>LINE</option><option>朋友介紹</option><option>其他</option></select></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fset">
+          <legend>發票／收據</legend>
+          <div class="field"><span class="lbl">開立類型 <span class="req">*</span></span>
+            <div class="inline-opts">
+              <label class="opt"><input type="radio" name="invoiceType" value="二聯式（個人）" checked required>個人</label>
+              <label class="opt"><input type="radio" name="invoiceType" value="三聯式（公司）">公司（需統編）</label>
+            </div>
+            <span class="hint">可開立發票或收據</span>
+          </div>
+          <div id="inv-company" class="row two hidden">
+            <div class="field"><label for="f-taxid">統一編號 <span class="req">*</span></label>
+              <input id="f-taxid" name="taxId" inputmode="numeric" maxlength="8" placeholder="8 碼數字">
+              <span class="err">請填寫 8 碼統一編號</span></div>
+            <div class="field"><label for="f-taxtitle">抬頭 <span class="req">*</span></label>
+              <input id="f-taxtitle" name="taxTitle" placeholder="公司全名">
+              <span class="err">請填寫抬頭</span></div>
+          </div>
+        </fieldset>
+
+        <fieldset class="fset">
+          <legend>餐飲需求</legend>
+          <div class="field"><span class="lbl">午餐飲食 <span class="req">*</span></span>
+            <div class="inline-opts">
+              <label class="opt"><input type="radio" name="diet" value="葷食" checked required>葷食</label>
+              <label class="opt"><input type="radio" name="diet" value="蛋奶素">蛋奶素</label>
+              <label class="opt"><input type="radio" name="diet" value="全素">全素</label>
+              <label class="opt"><input type="radio" name="diet" value="其他">其他</label>
+            </div>
+            <span class="hint">兩天課程皆含午餐</span>
+          </div>
+          <div id="diet-other" class="field hidden"><label for="f-diet2">其他飲食需求或過敏食材</label>
+            <input id="f-diet2" name="dietNote" placeholder="例：不吃牛、海鮮過敏"></div>
+        </fieldset>
+
+        <fieldset class="fset">
+          <legend>其他</legend>
+
+          <div class="field"><label for="f-note">想在課程中解決的問題／備註</label>
+            <textarea id="f-note" name="note" rows="3" placeholder="例：想替自家產品開直播、想學 AI 做社群圖文"></textarea></div>
+        </fieldset>
+
+        <div class="privacy" id="privacy" tabindex="0">
+          <h4>個人資料蒐集告知事項</h4>
+          <p>社團法人高雄市行銷人協會（以下稱本會）依《個人資料保護法》第 8 條規定，告知下列事項：</p>
+          <ol>
+            <li>蒐集目的：課程報名、學員身分確認、課務聯繫與通知、繳費及開立憑證、結業證明、課程滿意度調查，以及本會後續活動與課程訊息通知。</li>
+            <li>個人資料類別：姓名、手機、Email、LINE ID、公司名稱、職稱、產業別、統一編號與抬頭、飲食需求及你於本表填寫的其他內容。</li>
+            <li>利用期間：自蒐集日起至蒐集目的消失為止，或依法令、契約所定保存期間。</li>
+            <li>利用地區：中華民國境內，以及本會使用之雲端服務（如表單、試算表、電子郵件服務）主機所在地。</li>
+            <li>利用對象：本會；為辦理課務之必要，本會將提供學員姓名、聯絡方式及場次資訊予課程合作單位破風者展娛文創股份有限公司；另依法令要求之機關。</li>
+            <li>利用方式：以電子文件、書面、電話、Email、簡訊、LINE 等方式利用。</li>
+            <li>你的權利：你可依《個人資料保護法》第 3 條，向本會請求查詢、閱覽、製給複製本、補充或更正、停止蒐集處理利用或刪除你的個人資料。聯絡窗口：電話 0972-234-716、Email tma77org@gmail.com。</li>
+            <li>不提供之影響：你可自由選擇是否提供資料；若未提供必填欄位，本會將無法完成報名及課務作業。</li>
+          </ol>
+          <p>課程現場可能進行拍照、錄影，作為本會活動紀錄與宣傳使用；若不同意入鏡，請於報到時告知工作人員。</p>
+        </div>
+        <div class="field">
+          <label class="agree"><input type="checkbox" name="privacyAgree" value="同意" required><span>我已閱讀並同意上述個人資料蒐集告知事項。 <span class="req">*</span></span></label>
+          <label class="agree"><input type="checkbox" name="refundAgree" value="同意" required><span>我已閱讀並同意頁面下方的〈報名須知與退費辦法〉。 <span class="req">*</span></span></label>
+          <label class="agree"><input type="checkbox" name="newsletter" value="願意"><span>我願意收到高雄市行銷人協會的課程與活動訊息（選填）。</span></label>
+        </div>
+
+        <p id="form-msg" class="hidden" style="background:#fdecea;color:#b71c1c;padding:12px 14px;border-radius:10px;font-size:14px;margin-bottom:12px"></p>
+        <button id="submit-btn" class="btn block" type="submit">送出報名</button>
+        <p class="hint center" style="font-size:12px;color:var(--muted);margin-top:10px">送出後並非完成報名，請留意協會寄出的繳費通知。</p>
+      </form>
+
+      <div id="thanks" class="thanks hidden" role="status" aria-live="polite">
+        <div class="ok">✓</div>
+        <h3>報名資料已送出，謝謝你，<span id="thanks-name"></span>！</h3>
+        <p>報名場次：<b id="thanks-session"></b><br>適用價格：<b id="thanks-price"></b></p>
+        <ol id="thanks-steps">
+          <li>協會將以 Email 寄送繳費連結（線上刷卡或匯款）。</li>
+          <li>請於報名後 3 天內完成繳費，逾期將釋出名額。</li>
+          <li>開課前會寄送上課提醒（地點、報到時間、須攜帶物品）。</li>
+          <li>若未收到信件，請檢查垃圾信匣，或聯繫協會：電話 0972-234-716、LINE 官方帳號 @bin1641t。</li>
+        </ol>
+        <ol id="thanks-tbd" class="hidden">
+          <li>你已完成高雄場「先登記」，目前不需繳費。</li>
+          <li>高雄場日期與場地確定後，協會會以 Email／電話優先通知你，並保留優先報名資格。</li>
+          <li>若想改報其他場次，請聯繫協會：電話 0972-234-716、LINE 官方帳號 @bin1641t。</li>
+        </ol>
+        <a class="btn ghost" href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener" style="color:var(--accent)">加入協會 LINE 官方帳號</a>
+      </div>
+    </div>
+
+    <div class="notice" id="notice">
+      <h3>報名須知與退費辦法</h3>
+      <ul>
+        <li>本頁為社團法人高雄市行銷人協會報名頁，課程由破風者展娛文創股份有限公司 KK 老師講師團隊授課。</li>
+        <li>繳費方式：線上刷卡或匯款，報名後協會提供繳費連結。</li>
+        <li>繳費期限：報名後 3 天內完成繳費，逾期視同放棄，名額釋出。</li>
+        <li>每梯次名額上限 50 位，依完成繳費順序保留。兩天課程皆含午餐。</li>
+        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）一律晚鳥價。</li>
+        <li>可開立發票或收據。</li>
+        <li>改期：可申請改報下一梯次。</li>
+      </ul>
+      <h4 style="margin-top:18px">退費辦法</h4>
+      <ul class="policy">
+        <li>開課前 7 天（含）以前申請：全額退費，扣除行政作業手續費 NT$300。</li>
+        <li>開課前 3～6 天申請：退還已繳費用 50%。</li>
+        <li>開課前 2 天內（含當日）申請：恕不退費；如無法出席，可於開課前 2 天完成名額轉讓。</li>
+        <li>開課當日無故未到：視同不出席，恕不退費且不接受轉讓。</li>
+        <li>因主辦單位或講師因素導致課程無法如期舉行：全額退還已繳費用。</li>
+        <li>退費申請審核通過後，於 7 個工作天內辦理退款。信用卡付款退回原卡，約需 7～14 個工作天（依銀行作業為準）；匯款付款請提供正確帳戶資訊。</li>
+        <li>課程內容、講義與現場教材僅供學員個人學習使用，未經同意請勿錄音、錄影或轉售。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <b>主辦單位｜社團法人高雄市行銷人協會</b>
+        <p style="margin-top:8px">課程合作：破風者展娛文創股份有限公司（統一編號 00145831）</p>
+        <p>協會地址：高雄市橋頭區經武路52號20樓之9</p>
+      </div>
+      <div>
+        <b>聯絡我們</b>
+        <p style="margin-top:8px">電話：<a href="tel:0972234716">0972-234-716</a><br>Email：<a href="mailto:tma77org@gmail.com">tma77org@gmail.com</a><br>LINE 官方帳號：<a href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener">@bin1641t</a></p>
+      </div>
+      <div>
+        <b>相關連結</b>
+        <p style="margin-top:8px"><a href="#privacy">個人資料蒐集告知</a><br><a href="#notice">報名須知與退費辦法</a><br><a href="{{OTHER_COURSE_URL}}">{{OTHER_COURSE_NAME}}</a></p>
+      </div>
+    </div>
+    <div class="copy">© 2026 社團法人高雄市行銷人協會</div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <div class="p"><small>{{COURSE_NAME}}｜定價 {{PRICE}}</small><b>早鳥 {{EARLY}} 起</b></div>
+  <a class="btn" href="#signup">立即報名</a>
+</div>
