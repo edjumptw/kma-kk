@@ -128,6 +128,9 @@
     ['utm_source','utm_medium','utm_campaign','ref'].forEach(function(k){
       var h=form.querySelector('input[name="'+k+'"]'); if(h) h.value=q.get(k)||'';
     });
+    // 推薦連結：網址帶 ?ref=推薦人姓名（可加 &refc=手機或推薦碼）會自動帶入推薦人欄位
+    if(q.get('ref') && $('#f-referrer') && !$('#f-referrer').value) $('#f-referrer').value=q.get('ref');
+    if(q.get('refc') && $('#f-referrer-phone') && !$('#f-referrer-phone').value) $('#f-referrer-phone').value=q.get('refc');
 
     var rules = {
       name: function(v){return v.trim().length>=2},

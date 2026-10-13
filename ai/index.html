@@ -694,6 +694,17 @@ window.COURSE = {
             <input id="f-diet2" name="dietNote" placeholder="例：不吃牛、海鮮過敏"></div>
         </fieldset>
 
+        <fieldset class="fset" id="referrer-set">
+          <legend>推薦人</legend>
+          <p class="hint" style="font-size:13px;color:var(--muted);margin:-4px 0 10px">如果是朋友、會員或合作夥伴介紹你來報名，請填寫推薦人資料，方便協會登記。</p>
+          <div class="row two">
+            <div class="field"><label for="f-referrer">推薦人姓名</label>
+              <input id="f-referrer" name="referrer" placeholder="選填，例：王小明"></div>
+            <div class="field"><label for="f-referrer-phone">推薦人手機或推薦碼</label>
+              <input id="f-referrer-phone" name="referrerContact" placeholder="選填，同名時協助辨識"></div>
+          </div>
+        </fieldset>
+
         <fieldset class="fset">
           <legend>其他</legend>
 
@@ -930,6 +941,9 @@ window.COURSE = {
     ['utm_source','utm_medium','utm_campaign','ref'].forEach(function(k){
       var h=form.querySelector('input[name="'+k+'"]'); if(h) h.value=q.get(k)||'';
     });
+    // 推薦連結：網址帶 ?ref=推薦人姓名（可加 &refc=手機或推薦碼）會自動帶入推薦人欄位
+    if(q.get('ref') && $('#f-referrer') && !$('#f-referrer').value) $('#f-referrer').value=q.get('ref');
+    if(q.get('refc') && $('#f-referrer-phone') && !$('#f-referrer-phone').value) $('#f-referrer-phone').value=q.get('refc');
 
     var rules = {
       name: function(v){return v.trim().length>=2},

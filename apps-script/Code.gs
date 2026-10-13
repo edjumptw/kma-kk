@@ -2,7 +2,7 @@
 var SHEET_ID = '1g0C9QCfEDqzjBtBxXHj9WBEwJC3oq0QD48UqhiVIxDQ';
 var NOTIFY_EMAIL = 'tma77org@gmail.com';
 var FIELDS = [
-['submittedAt','送出時間'],['course','課程'],['session','場次'],['plan','報名方案'],['priceApplied','適用價格'],['groupMembers','同行者'],
+['submittedAt','送出時間'],['course','課程'],['session','場次'],['plan','報名方案'],['priceApplied','適用價格'],['groupMembers','同行者'],['referrer','推薦人'],['referrerContact','推薦人手機／推薦碼'],
 ['name','姓名'],['mobile','手機'],['email','Email'],['lineId','LINE ID'],
 ['company','公司／品牌'],['jobTitle','職稱'],['industry','產業別'],
 ['invoiceType','發票／收據'],['taxId','統一編號'],['taxTitle','抬頭'],
@@ -18,15 +18,20 @@ var p = e.parameter || {};
 var ss = SpreadsheetApp.openById(SHEET_ID);
 var name = (p.course || '報名').slice(0, 30);
 var sh = ss.getSheetByName(name) || ss.insertSheet(name);
+var labels = FIELDS.map(function (f) { return f[1]; }).concat(['繳費狀態', '處理備註']);
 if (sh.getLastRow() === 0) {
-sh.appendRow(FIELDS.map(function (f) { return f[1]; }).concat(['繳費狀態', '處理備註']));
+sh.appendRow(labels);
 sh.setFrozenRows(1);
 }
-var row = FIELDS.map(function (f) {
+var header = sh.getRange(1, 1, 1, Math.max(sh.getLastColumn(), 1)).getValues()[0];
+labels.forEach(function (l) { if (header.indexOf(l) < 0) { header.push(l); sh.getRange(1, header.length).setValue(l); } });
+var vals = {};
+FIELDS.forEach(function (f) {
 var v = String(p[f[0]] || '');
-return (f[0] === 'mobile' || f[0] === 'taxId') && v ? "'" + v : v;
+vals[f[1]] = (f[0] === 'mobile' || f[0] === 'taxId' || f[0] === 'referrerContact') && v ? "'" + v : v;
 });
-sh.appendRow(row.concat(['未繳費', '']));
+vals['繳費狀態'] = '未繳費';
+sh.appendRow(header.map(function (h) { return vals.hasOwnProperty(h) ? vals[h] : ''; }));
 if (NOTIFY_EMAIL) {
 MailApp.sendEmail(NOTIFY_EMAIL, '【新報名】' + (p.course || '') + '｜' + (p.name || '') + '｜' + (p.session || ''),
 FIELDS.map(function (f) { return f[1] + '：' + (p[f[0]] || ''); }).join('\n'));
