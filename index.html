@@ -378,6 +378,11 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .talk b{margin-bottom:2px}
 .opt .ttitle{font-weight:700;color:var(--ink)}
 
+/* 協辦單位 */
+.partner-bar{background:#fff;color:#333;border-bottom:1px solid #e6e6e6;font-size:14px}
+.partner-bar .wrap{padding:7px 20px;text-align:center}
+.partner-bar b{font-weight:700}
+
 .home-cards{display:grid;gap:18px;margin-top:32px}
 @media(min-width:860px){.home-cards{grid-template-columns:1fr 1fr}}
 .home-cards a{text-decoration:none;color:inherit}
@@ -404,6 +409,21 @@ window.TALKS = {
     { id: "live-0107", course: "live", date: "2027/1/7（四）",   time: "19:30–20:30", start: "2027-01-07T19:30:00", end: "2027-01-07T20:30:00", tag: "" , title: "不是網紅也能開播：直播帶貨入門" },
     { id: "live-0120", course: "live", date: "2027/1/20（三）",  time: "19:30–20:30", start: "2027-01-20T19:30:00", end: "2027-01-20T20:30:00", tag: "學員心得分享" , title: "從獲客到成交，直播是最後一哩路" },
     { id: "live-0218", course: "live", date: "2027/2/18（四）",  time: "19:30–20:30", start: "2027-02-18T19:30:00", end: "2027-02-18T20:30:00", tag: "年後開工場" , title: "開工第一課：今年用直播把業績做起來" }
+  ]
+};
+</script>
+<script>/* ===== 協辦推廣協會（首頁、兩個課程頁、分享會報名頁共用） =====
+   code：協會代碼，用在專屬網址，只能用英文小寫、數字、減號，例：kh-ia
+         專屬網址會變成 https://edjumptw.github.io/tma-kk-courses/p/代碼/
+   name：協會全名（顯示在頁面上方「協辦單位」與報名表下拉選單）
+   active：true 才會出現在下拉選單、產生專屬網址；名稱未確認前請保持 false
+   新增協會：照格式多加一行，改完執行 python3 src/build.py */
+window.PARTNERS = {
+  list: [
+    { code: "partner-1", name: "【待確認：協辦協會一全名】", active: false },
+    { code: "partner-2", name: "【待確認：協辦協會二全名】", active: false },
+    { code: "partner-3", name: "【待確認：協辦協會三全名】", active: false },
+    { code: "partner-4", name: "【待確認：協辦協會四全名】", active: false }
   ]
 };
 </script>
@@ -460,6 +480,56 @@ window.TALKS = {
   });
   var more = document.getElementById('talk-more');
   if(more) more.href = base + 'talks/' + (only==='all' ? '' : '?c='+only) + (keep ? (only==='all' ? '?' : '&') + keep.slice(1) : '') + '#signup';
+})();
+</script>
+<script>/* 協辦協會：專屬網址（?org=代碼）顯示協辦單位、站內連結自動帶代碼、報名表「推薦單位」下拉選單自動帶入 */
+(function(){
+  var P = (window.PARTNERS && window.PARTNERS.list || []).filter(function(p){ return p.active; });
+  var byCode = {}; P.forEach(function(p){ byCode[p.code] = p; });
+  var q = new URLSearchParams(location.search);
+  var code = q.get('org') || '';
+  try {
+    if(code && byCode[code]) sessionStorage.setItem('tma_org', code);
+    else if(!code) code = sessionStorage.getItem('tma_org') || '';
+  } catch(e){}
+  var org = byCode[code] || null;
+
+  // 下拉選單（課程報名表與分享會報名表）
+  Array.prototype.forEach.call(document.querySelectorAll('.partner-field'), function(box){
+    var sel = box.querySelector('select'), hid = box.querySelector('input[type="hidden"]'),
+        otherWrap = box.querySelector('.partner-other'), other = otherWrap && otherWrap.querySelector('input');
+    if(!P.length){ box.classList.add('hidden'); return; }
+    P.forEach(function(p){ var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; sel.insertBefore(o, sel.lastElementChild); });
+    if(org) sel.value = org.name;
+    var form = box.closest('form');
+    var sync = function(){
+      var v = sel.value;
+      if(otherWrap) otherWrap.classList.toggle('hidden', v !== '其他');
+      hid.value = v === '其他' ? ('其他' + (other && other.value.trim() ? '：' + other.value.trim() : '')) : v;
+      // 試算表尚未更新欄位前的備援：來源欄沒有值時，記在 utm_source
+      var u = form && form.querySelector('input[name="utm_source"]');
+      if(u && !q.get('utm_source')) u.value = hid.value ? '推薦單位-' + hid.value : '';
+    };
+    sel.addEventListener('change', sync); if(other) other.addEventListener('input', sync); sync();
+  });
+
+  if(!org) return;
+  // 頁面上方顯示協辦單位
+  var nav = document.querySelector('.nav');
+  if(nav){
+    var bar = document.createElement('div');
+    bar.className = 'partner-bar';
+    bar.innerHTML = '<div class="wrap">協辦單位｜<b></b></div>';
+    bar.querySelector('b').textContent = org.name;
+    nav.parentNode.insertBefore(bar, nav.nextSibling);
+  }
+  // 站內連結自動帶協會代碼，學員換頁後仍記得從哪個協會進來
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){
+    var h = a.getAttribute('href');
+    if(!h || /^(#|https?:|mailto:|tel:|javascript:)/i.test(h) || /[?&]org=/.test(h)) return;
+    var hash = '', i = h.indexOf('#'); if(i >= 0){ hash = h.slice(i); h = h.slice(0, i); }
+    a.setAttribute('href', h + (h.indexOf('?') >= 0 ? '&' : '?') + 'org=' + encodeURIComponent(org.code) + hash);
+  });
 })();
 </script>
 </body>

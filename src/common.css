@@ -364,3 +364,8 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .talk .tdate{display:block;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:2px}
 .talk b{margin-bottom:2px}
 .opt .ttitle{font-weight:700;color:var(--ink)}
+
+/* 協辦單位 */
+.partner-bar{background:#fff;color:#333;border-bottom:1px solid #e6e6e6;font-size:14px}
+.partner-bar .wrap{padding:7px 20px;text-align:center}
+.partner-bar b{font-weight:700}

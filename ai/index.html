@@ -379,6 +379,11 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .talk .tdate{display:block;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:2px}
 .talk b{margin-bottom:2px}
 .opt .ttitle{font-weight:700;color:var(--ink)}
+
+/* 協辦單位 */
+.partner-bar{background:#fff;color:#333;border-bottom:1px solid #e6e6e6;font-size:14px}
+.partner-bar .wrap{padding:7px 20px;text-align:center}
+.partner-bar b{font-weight:700}
 </style>
 <script>/* ===== 線上分享會場次（首頁、兩個課程頁、分享會報名頁共用） =====
    id：場次代碼（報名連結 ?s=代碼 會自動勾選該場）
@@ -399,6 +404,21 @@ window.TALKS = {
     { id: "live-0107", course: "live", date: "2027/1/7（四）",   time: "19:30–20:30", start: "2027-01-07T19:30:00", end: "2027-01-07T20:30:00", tag: "" , title: "不是網紅也能開播：直播帶貨入門" },
     { id: "live-0120", course: "live", date: "2027/1/20（三）",  time: "19:30–20:30", start: "2027-01-20T19:30:00", end: "2027-01-20T20:30:00", tag: "學員心得分享" , title: "從獲客到成交，直播是最後一哩路" },
     { id: "live-0218", course: "live", date: "2027/2/18（四）",  time: "19:30–20:30", start: "2027-02-18T19:30:00", end: "2027-02-18T20:30:00", tag: "年後開工場" , title: "開工第一課：今年用直播把業績做起來" }
+  ]
+};
+</script>
+<script>/* ===== 協辦推廣協會（首頁、兩個課程頁、分享會報名頁共用） =====
+   code：協會代碼，用在專屬網址，只能用英文小寫、數字、減號，例：kh-ia
+         專屬網址會變成 https://edjumptw.github.io/tma-kk-courses/p/代碼/
+   name：協會全名（顯示在頁面上方「協辦單位」與報名表下拉選單）
+   active：true 才會出現在下拉選單、產生專屬網址；名稱未確認前請保持 false
+   新增協會：照格式多加一行，改完執行 python3 src/build.py */
+window.PARTNERS = {
+  list: [
+    { code: "partner-1", name: "【待確認：協辦協會一全名】", active: false },
+    { code: "partner-2", name: "【待確認：協辦協會二全名】", active: false },
+    { code: "partner-3", name: "【待確認：協辦協會三全名】", active: false },
+    { code: "partner-4", name: "【待確認：協辦協會四全名】", active: false }
   ]
 };
 </script>
@@ -776,7 +796,11 @@ window.COURSE = {
 
         <fieldset class="fset" id="referrer-set">
           <legend>推薦人</legend>
-          <p class="hint" style="font-size:13px;color:var(--muted);margin:-4px 0 10px">如果是朋友、會員或合作夥伴介紹你來報名，請填寫推薦人資料，方便協會登記。</p>
+          <p class="hint" style="font-size:13px;color:var(--muted);margin:-4px 0 10px">如果是協辦協會、朋友或會員介紹你來報名，請選擇推薦單位或填寫推薦人，方便協會登記。</p>
+          <div class="field partner-field"><label for="f-partner">推薦單位（協辦協會）</label>
+            <select id="f-partner"><option value="">無，自行報名</option><option value="其他">其他單位</option></select>
+            <input type="hidden" name="partnerOrg">
+            <div class="partner-other hidden" style="margin-top:8px"><input aria-label="其他單位名稱" placeholder="請填寫單位名稱"></div></div>
           <div class="row two">
             <div class="field"><label for="f-referrer">推薦人姓名</label>
               <input id="f-referrer" name="referrer" placeholder="選填，例：王小明"></div>
@@ -802,7 +826,7 @@ window.COURSE = {
             <li>個人資料類別：姓名、手機、Email、LINE ID、公司名稱、職稱、產業別、統一編號與抬頭、飲食需求及你於本表填寫的其他內容。</li>
             <li>利用期間：自蒐集日起至蒐集目的消失為止，或依法令、契約所定保存期間。</li>
             <li>利用地區：中華民國境內，以及本會使用之雲端服務（如表單、試算表、電子郵件服務）主機所在地。</li>
-            <li>利用對象：本會；為辦理課務之必要，本會將提供學員姓名、聯絡方式及場次資訊予課程合作單位破風者展娛文創股份有限公司；另依法令要求之機關。</li>
+            <li>利用對象：本會；為辦理課務之必要，本會將提供學員姓名、聯絡方式及場次資訊予課程合作單位破風者展娛文創股份有限公司；若你選填推薦單位或推薦人，本會將提供你的姓名及報名場次予該推薦單位或推薦人，用於核對推廣成果；另依法令要求之機關。</li>
             <li>利用方式：以電子文件、書面、電話、Email、簡訊、LINE 等方式利用。</li>
             <li>你的權利：你可依《個人資料保護法》第 3 條，向本會請求查詢、閱覽、製給複製本、補充或更正、停止蒐集處理利用或刪除你的個人資料。聯絡窗口：電話 0972-234-716、Email tma77org@gmail.com。</li>
             <li>不提供之影響：你可自由選擇是否提供資料；若未提供必填欄位，本會將無法完成報名及課務作業。</li>
@@ -1154,6 +1178,56 @@ window.COURSE = {
   });
   var more = document.getElementById('talk-more');
   if(more) more.href = base + 'talks/' + (only==='all' ? '' : '?c='+only) + (keep ? (only==='all' ? '?' : '&') + keep.slice(1) : '') + '#signup';
+})();
+
+/* 協辦協會：專屬網址（?org=代碼）顯示協辦單位、站內連結自動帶代碼、報名表「推薦單位」下拉選單自動帶入 */
+(function(){
+  var P = (window.PARTNERS && window.PARTNERS.list || []).filter(function(p){ return p.active; });
+  var byCode = {}; P.forEach(function(p){ byCode[p.code] = p; });
+  var q = new URLSearchParams(location.search);
+  var code = q.get('org') || '';
+  try {
+    if(code && byCode[code]) sessionStorage.setItem('tma_org', code);
+    else if(!code) code = sessionStorage.getItem('tma_org') || '';
+  } catch(e){}
+  var org = byCode[code] || null;
+
+  // 下拉選單（課程報名表與分享會報名表）
+  Array.prototype.forEach.call(document.querySelectorAll('.partner-field'), function(box){
+    var sel = box.querySelector('select'), hid = box.querySelector('input[type="hidden"]'),
+        otherWrap = box.querySelector('.partner-other'), other = otherWrap && otherWrap.querySelector('input');
+    if(!P.length){ box.classList.add('hidden'); return; }
+    P.forEach(function(p){ var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; sel.insertBefore(o, sel.lastElementChild); });
+    if(org) sel.value = org.name;
+    var form = box.closest('form');
+    var sync = function(){
+      var v = sel.value;
+      if(otherWrap) otherWrap.classList.toggle('hidden', v !== '其他');
+      hid.value = v === '其他' ? ('其他' + (other && other.value.trim() ? '：' + other.value.trim() : '')) : v;
+      // 試算表尚未更新欄位前的備援：來源欄沒有值時，記在 utm_source
+      var u = form && form.querySelector('input[name="utm_source"]');
+      if(u && !q.get('utm_source')) u.value = hid.value ? '推薦單位-' + hid.value : '';
+    };
+    sel.addEventListener('change', sync); if(other) other.addEventListener('input', sync); sync();
+  });
+
+  if(!org) return;
+  // 頁面上方顯示協辦單位
+  var nav = document.querySelector('.nav');
+  if(nav){
+    var bar = document.createElement('div');
+    bar.className = 'partner-bar';
+    bar.innerHTML = '<div class="wrap">協辦單位｜<b></b></div>';
+    bar.querySelector('b').textContent = org.name;
+    nav.parentNode.insertBefore(bar, nav.nextSibling);
+  }
+  // 站內連結自動帶協會代碼，學員換頁後仍記得從哪個協會進來
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){
+    var h = a.getAttribute('href');
+    if(!h || /^(#|https?:|mailto:|tel:|javascript:)/i.test(h) || /[?&]org=/.test(h)) return;
+    var hash = '', i = h.indexOf('#'); if(i >= 0){ hash = h.slice(i); h = h.slice(0, i); }
+    a.setAttribute('href', h + (h.indexOf('?') >= 0 ? '&' : '?') + 'org=' + encodeURIComponent(org.code) + hash);
+  });
 })();
 </script>
 </body>

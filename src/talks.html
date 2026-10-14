@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>{{CSS}}</style>
 <script>{{TALKS_DATA}}</script>
+<script>{{PARTNERS_DATA}}</script>
 </head>
 <body class="theme-ai">
 
@@ -96,7 +97,11 @@
 
         <fieldset class="fset">
           <legend>推薦人</legend>
-          <p class="hint" style="font-size:13px;color:var(--muted);margin:-4px 0 10px">如果是朋友、會員或合作夥伴邀請你來，請填寫推薦人資料。</p>
+          <p class="hint" style="font-size:13px;color:var(--muted);margin:-4px 0 10px">如果是協辦協會、朋友或會員邀請你來，請選擇推薦單位或填寫推薦人。</p>
+          <div class="field partner-field"><label for="t-partner">推薦單位（協辦協會）</label>
+            <select id="t-partner"><option value="">無，自行報名</option><option value="其他">其他單位</option></select>
+            <input type="hidden" name="partnerOrg">
+            <div class="partner-other hidden" style="margin-top:8px"><input aria-label="其他單位名稱" placeholder="請填寫單位名稱"></div></div>
           <div class="row two">
             <div class="field"><label for="t-referrer">推薦人姓名</label>
               <input id="t-referrer" name="referrer" placeholder="選填，例：王小明"></div>
@@ -113,7 +118,7 @@
             <li>個人資料類別：姓名、手機、Email、LINE ID、公司名稱，以及你於本表填寫的其他內容。</li>
             <li>利用期間：自蒐集日起至蒐集目的消失為止，或依法令所定保存期間。</li>
             <li>利用地區：中華民國境內，以及本會使用之雲端服務（如表單、試算表、電子郵件、線上會議服務）主機所在地。</li>
-            <li>利用對象：本會；另依法令要求之機關。</li>
+            <li>利用對象：本會；若你選填推薦單位或推薦人，本會將提供你的姓名及報名場次予該推薦單位或推薦人，用於核對推廣成果；另依法令要求之機關。</li>
             <li>利用方式：以電子文件、書面、電話、Email、簡訊、LINE 等方式利用。</li>
             <li>你的權利：你可依《個人資料保護法》第 3 條，向本會請求查詢、閱覽、製給複製本、補充或更正、停止蒐集處理利用或刪除你的個人資料。聯絡窗口：電話 0972-234-716、Email tma77org@gmail.com。</li>
             <li>不提供之影響：你可自由選擇是否提供資料；若未提供必填欄位，本會將無法完成分享會報名與通知。</li>
@@ -253,5 +258,6 @@
   });
 })();
 </script>
+<script>{{PARTNERS_JS}}</script>
 </body>
 </html>

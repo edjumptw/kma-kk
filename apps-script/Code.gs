@@ -2,7 +2,7 @@
 var SHEET_ID = '1g0C9QCfEDqzjBtBxXHj9WBEwJC3oq0QD48UqhiVIxDQ';
 var NOTIFY_EMAIL = 'tma77org@gmail.com';
 var FIELDS = [
-['submittedAt','送出時間'],['course','課程'],['session','場次'],['plan','報名方案'],['priceApplied','適用價格'],['groupMembers','同行者'],['referrer','推薦人'],['referrerContact','推薦人手機／推薦碼'],
+['submittedAt','送出時間'],['course','課程'],['session','場次'],['plan','報名方案'],['priceApplied','適用價格'],['groupMembers','同行者'],['referrer','推薦人'],['referrerContact','推薦人手機／推薦碼'],['partnerOrg','推薦單位'],
 ['name','姓名'],['mobile','手機'],['email','Email'],['lineId','LINE ID'],
 ['company','公司／品牌'],['jobTitle','職稱'],['industry','產業別'],
 ['invoiceType','發票／收據'],['taxId','統一編號'],['taxTitle','抬頭'],
