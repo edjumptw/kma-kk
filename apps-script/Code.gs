@@ -30,7 +30,7 @@ FIELDS.forEach(function (f) {
 var v = String(p[f[0]] || '');
 vals[f[1]] = (f[0] === 'mobile' || f[0] === 'taxId' || f[0] === 'referrerContact') && v ? "'" + v : v;
 });
-vals['繳費狀態'] = '未繳費';
+vals['繳費狀態'] = p.course === '線上分享會' ? '不適用' : '未繳費';
 sh.appendRow(header.map(function (h) { return vals.hasOwnProperty(h) ? vals[h] : ''; }));
 if (NOTIFY_EMAIL) {
 MailApp.sendEmail(NOTIFY_EMAIL, '【新報名】' + (p.course || '') + '｜' + (p.name || '') + '｜' + (p.session || ''),

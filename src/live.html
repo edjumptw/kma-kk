@@ -14,11 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>{{CSS}}</style>
+<script>{{TALKS_DATA}}</script>
 <script>
 /* ===== 可編輯設定：場次、表單後端 =====
    end：場次最後一天（YYYY-MM-DD），過了這天會自動從頁面與表單隱藏
    start：開課第一天，用來自動判斷早鳥／晚鳥／一般價
-   tbd：true 代表日期確認中，表單顯示為「先登記」 */
+   tbd：true 代表日期確認中，表單顯示為「先登記」
+   earlyUntil／lateUntil：（選填）指定早鳥、晚鳥最後一天（YYYY-MM-DD，含當天），有填就不套用 4 週／3 週規則 */
 window.COURSE = {
   courseName: "KK教母直播實戰二日課",
   endpoint: "https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec",
@@ -26,7 +28,7 @@ window.COURSE = {
   price: { early: 69800, late: 74800, regular: 79800 },
   sessions: [
     { region: "台北場", date: "2026/11/5–6（四、五）", start: "2026-11-05", time: "每日 09:00–17:00", place: "台北｜台北市松山區南京東路三段285號9樓之一", end: "2026-11-06" },
-    { region: "高雄場", date: "2027/3/6–7（六、日）", start: "2027-03-06", end: "2027-03-07", time: "每日 09:00–17:00", place: "高雄｜上課地點確認中，報名後通知" }
+    { region: "高雄場", date: "2027/3/6–7（六、日）", start: "2027-03-06", end: "2027-03-07", earlyUntil: "2027-02-06", lateUntil: "2027-02-20", time: "每日 09:00–17:00", place: "高雄｜上課地點確認中，報名後通知" }
   ]
 };
 </script>
@@ -40,6 +42,7 @@ window.COURSE = {
       <li><a href="#resources">商品與通路</a></li>
       <li><a href="#outline">課程大綱</a></li>
       <li><a href="#teachers">講師</a></li>
+      <li><a href="#talks">免費分享會</a></li>
       <li><a href="#pricing">場次與費用</a></li>
       <li><a href="#faq">常見問題</a></li>
     </ul>
@@ -216,6 +219,16 @@ window.COURSE = {
   </div>
 </section>
 
+<section id="talks" class="reveal" style="background:#fff">
+  <div class="wrap">
+    <span class="eyebrow">Free online talks</span>
+    <h2>還在考慮？先來聽免費線上分享會</h2>
+    <p class="lead">高雄場開課前有三場線上分享會，帶你了解課程內容、上課方式和費用，現場開放提問。點選場次就能免費報名。</p>
+    <div class="talks" id="talk-list" data-course="live" data-base="../"></div>
+    <p class="talk-note">每場約 60 分鐘，使用 Zoom。線上會議連結會在分享會前一天通知。<a id="talk-more" href="../talks/">看全部分享會場次</a></p>
+  </div>
+</section>
+
 <section id="pricing">
   <div class="wrap">
     <span class="eyebrow">Schedule &amp; fee</span>
@@ -226,8 +239,8 @@ window.COURSE = {
         <div class="label">KK教母直播實戰二日課（2 天）</div>
         <div class="price">NT$79,800 <small>定價／每人</small></div>
         <ul class="tiers">
-          <li><b>早鳥價</b><span>開課前 4 週以上報名</span><b id="tp-early"></b></li>
-          <li><b>晚鳥價</b><span>開課前 3 週以上報名</span><b id="tp-late"></b></li>
+          <li><b>早鳥價</b><span>開課前 4 週以上報名（高雄場至 2/6）</span><b id="tp-early"></b></li>
+          <li><b>晚鳥價</b><span>開課前 3 週以上報名（高雄場延長至 2/20 23:59）</span><b id="tp-late"></b></li>
           <li><b>一般價（定價）</b><span>其餘期間</span><b>NT$79,800</b></li>
         </ul>
         <ul>

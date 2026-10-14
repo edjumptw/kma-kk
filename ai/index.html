@@ -364,12 +364,46 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
  .theme-ai .hero{background:linear-gradient(180deg,rgba(7,13,28,.9),rgba(7,13,28,.82)),url(../static/bg-ai.jpg) 70% center/cover no-repeat,#0a1222}
  .theme-live .hero{background:linear-gradient(180deg,rgba(14,11,8,.88),rgba(14,11,8,.8)),url(../static/bg-live.jpg) center/cover no-repeat,#121212}
 }
+/* 線上分享會 */
+.talks{display:grid;gap:12px;margin-top:22px}
+@media(min-width:860px){.talks.cols2{grid-template-columns:1fr 1fr}}
+.talk{background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.talk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.talk b{display:block;font-size:17px}
+.talk span{font-size:14px;color:var(--muted)}
+.talk .flag{flex:none;font-size:12px;font-weight:900;padding:4px 10px;border-radius:999px;background:var(--accent);color:#fff}
+.talk-note{font-size:14px;color:var(--muted);margin-top:14px}
+.talk-points{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.talk-points{grid-template-columns:repeat(3,1fr)}}
+.opt .ttag{display:inline-block;font-size:12px;font-weight:700;background:#fff0ea;color:var(--accent-dk);padding:1px 8px;border-radius:999px;margin-left:6px}
 </style>
+<script>/* ===== 線上分享會場次（首頁、兩個課程頁、分享會報名頁共用） =====
+   id：場次代碼（報名連結 ?s=代碼 會自動勾選該場）
+   course：ai 或 live
+   start／end：開始與結束時間，過了 end 會自動從頁面與表單隱藏
+   tag：場次特色標籤（可留空） */
+window.TALKS = {
+  endpoint: "https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec",
+  courses: {
+    ai:   { name: "AI社群獲客變現實戰營", url: "ai/",   info: "高雄場 2027/1/16–17（六、日）正式授課" },
+    live: { name: "KK教母直播實戰二日課", url: "live/", info: "高雄場 2027/3/6–7（六、日）正式授課" }
+  },
+  sessions: [
+    { id: "ai-1119",   course: "ai",   date: "2026/11/19（四）", time: "19:30–20:30", start: "2026-11-19T19:30:00", end: "2026-11-19T20:30:00", tag: "" },
+    { id: "ai-1125",   course: "ai",   date: "2026/11/25（三）", time: "19:30–20:30", start: "2026-11-25T19:30:00", end: "2026-11-25T20:30:00", tag: "" },
+    { id: "ai-1215",   course: "ai",   date: "2026/12/15（二）", time: "14:30–15:30", start: "2026-12-15T14:30:00", end: "2026-12-15T15:30:00", tag: "下午場・老闆專場" },
+    { id: "live-0107", course: "live", date: "2027/1/7（四）",   time: "19:30–20:30", start: "2027-01-07T19:30:00", end: "2027-01-07T20:30:00", tag: "" },
+    { id: "live-0120", course: "live", date: "2027/1/20（三）",  time: "19:30–20:30", start: "2027-01-20T19:30:00", end: "2027-01-20T20:30:00", tag: "學員心得分享" },
+    { id: "live-0218", course: "live", date: "2027/2/18（四）",  time: "19:30–20:30", start: "2027-02-18T19:30:00", end: "2027-02-18T20:30:00", tag: "年後開工場" }
+  ]
+};
+</script>
 <script>
 /* ===== 可編輯設定：場次、表單後端 =====
    end：場次最後一天（YYYY-MM-DD），過了這天會自動從頁面與表單隱藏
    start：開課第一天，用來自動判斷早鳥／晚鳥／一般價
-   tbd：true 代表日期確認中，表單顯示為「先登記」 */
+   tbd：true 代表日期確認中，表單顯示為「先登記」
+   earlyUntil／lateUntil：（選填）指定早鳥、晚鳥最後一天（YYYY-MM-DD，含當天），有填就不套用 4 週／3 週規則 */
 window.COURSE = {
   courseName: "AI社群獲客變現實戰營",
   endpoint: "https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec",
@@ -378,7 +412,7 @@ window.COURSE = {
   sessions: [
     { region: "台北場", date: "2026/10/17–18（六、日）", start: "2026-10-17", time: "每日 09:00–16:00", place: "板橋｜新北市板橋區板新路101號4樓", end: "2026-10-18" },
     { region: "台北場", date: "2026/11/19–20（四、五）", start: "2026-11-19", time: "每日 09:00–16:00", place: "板橋｜新北市板橋區板新路101號4樓", end: "2026-11-20" },
-    { region: "高雄場", date: "2027/1/16–17（六、日）", start: "2027-01-16", end: "2027-01-17", time: "每日 09:00–16:00", place: "高雄｜上課地點確認中，報名後通知" }
+    { region: "高雄場", date: "2027/1/16–17（六、日）", start: "2027-01-16", end: "2027-01-17", earlyUntil: "2026-12-19", lateUntil: "2026-12-26", time: "每日 09:00–16:00", place: "高雄｜上課地點確認中，報名後通知" }
   ]
 };
 </script>
@@ -392,6 +426,7 @@ window.COURSE = {
       <li><a href="#abilities">五大能力</a></li>
       <li><a href="#outline">課程大綱</a></li>
       <li><a href="#teachers">講師</a></li>
+      <li><a href="#talks">免費分享會</a></li>
       <li><a href="#pricing">場次與費用</a></li>
       <li><a href="#faq">常見問題</a></li>
     </ul>
@@ -552,6 +587,16 @@ window.COURSE = {
   </div>
 </section>
 
+<section id="talks" class="reveal" style="background:#fff">
+  <div class="wrap">
+    <span class="eyebrow">Free online talks</span>
+    <h2>還在考慮？先來聽免費線上分享會</h2>
+    <p class="lead">高雄場開課前有三場線上分享會，帶你了解課程內容、上課方式和費用，現場開放提問。點選場次就能免費報名。</p>
+    <div class="talks" id="talk-list" data-course="ai" data-base="../"></div>
+    <p class="talk-note">每場約 60 分鐘，使用 Zoom。線上會議連結會在分享會前一天通知。<a id="talk-more" href="../talks/">看全部分享會場次</a></p>
+  </div>
+</section>
+
 <section id="pricing">
   <div class="wrap">
     <span class="eyebrow">Schedule &amp; fee</span>
@@ -562,8 +607,8 @@ window.COURSE = {
         <div class="label">AI社群獲客變現實戰營（2 天）</div>
         <div class="price">NT$39,800 <small>定價／每人</small></div>
         <ul class="tiers">
-          <li><b>早鳥價</b><span>開課前 4 週以上報名</span><b id="tp-early"></b></li>
-          <li><b>晚鳥價</b><span>開課前 3 週以上報名</span><b id="tp-late"></b></li>
+          <li><b>早鳥價</b><span>開課前 4 週以上報名（高雄場至 12/19）</span><b id="tp-early"></b></li>
+          <li><b>晚鳥價</b><span>開課前 3 週以上報名（高雄場 12/20–12/26）</span><b id="tp-late"></b></li>
           <li><b>一般價（定價）</b><span>其餘期間</span><b>NT$39,800</b></li>
         </ul>
         <ul>
@@ -797,7 +842,7 @@ window.COURSE = {
         <li>繳費方式：線上刷卡或匯款，報名後協會提供繳費連結。</li>
         <li>繳費期限：報名後 3 天內完成繳費，逾期視同放棄，名額釋出。</li>
         <li>每梯次名額上限 50 位，依完成繳費順序保留。兩天課程皆含午餐。</li>
-        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）至少享晚鳥價（早鳥期間適用早鳥價）。</li>
+        <li>價格：開課前 4 週以上報名適用早鳥價、3 週以上適用晚鳥價，其餘期間為一般價（定價）；協會會員一律早鳥價，團體報名（2 人以上）至少享晚鳥價（早鳥期間適用早鳥價）。高雄場的早鳥、晚鳥截止日，以「場次與費用」所列日期為準。</li>
         <li>可開立發票或收據。</li>
         <li>改期：可申請改報下一梯次。</li>
       </ul>
@@ -859,7 +904,15 @@ window.COURSE = {
   var TN = {early:'早鳥價', late:'晚鳥價', regular:'一般價（定價）'};
   var DAY = 864e5;
   var startOf = function(s){ return s.start ? new Date(s.start+'T00:00:00') : null; };
+  // 場次可用 earlyUntil／lateUntil 指定早鳥、晚鳥最後一天（含當天）；沒填才用 4 週／3 週規則
+  var dayOf = function(v){ return v ? new Date(v+'T00:00:00') : null; };
   var tierOf = function(s){
+    if(s.earlyUntil || s.lateUntil){
+      var e=dayOf(s.earlyUntil), l=dayOf(s.lateUntil);
+      if(e && today<=e) return 'early';
+      if(l && today<=l) return 'late';
+      return 'regular';
+    }
     var st=startOf(s); if(!st) return 'regular';
     var days=Math.round((st-today)/DAY);
     return days>=28?'early':(days>=21?'late':'regular');
@@ -867,6 +920,8 @@ window.COURSE = {
   var money = function(t){ return P[t] ? 'NT$'+Number(P[t]).toLocaleString('en-US') : '<em class="ph">【'+TN[t]+'金額待確認】</em>'; };
   var md = function(d){ return (d.getMonth()+1)+'/'+d.getDate(); };
   var deadlineText = function(s,t){
+    if(t==='early' && s.earlyUntil) return '早鳥價報名至 '+md(dayOf(s.earlyUntil))+' 23:59';
+    if(t==='late' && s.lateUntil) return '晚鳥價報名至 '+md(dayOf(s.lateUntil))+' 23:59';
     var st=startOf(s); if(!st) return '';
     if(t==='early') return '早鳥價報名至 '+md(new Date(st-28*DAY));
     if(t==='late') return '晚鳥價報名至 '+md(new Date(st-21*DAY));
@@ -935,9 +990,10 @@ window.COURSE = {
       else {
         t=dateTier;
         var dl=deadlineText(s,t);
-        reason = t==='early' ? '開課前 4 週以上報名，適用早鳥價'+(dl?'（'+dl+'）':'')
-               : t==='late' ? '開課前 3 週以上報名，適用晚鳥價'+(dl?'（'+dl+'）':'')
-               : '距開課已不到 3 週，適用一般價（定價）';
+        var fixed = s.earlyUntil || s.lateUntil;
+        reason = t==='early' ? (fixed?'目前為早鳥報名期間，適用早鳥價':'開課前 4 週以上報名，適用早鳥價')+(dl?'（'+dl+'）':'')
+               : t==='late' ? (fixed?'目前為晚鳥報名期間，適用晚鳥價':'開課前 3 週以上報名，適用晚鳥價')+(dl?'（'+dl+'）':'')
+               : (fixed?'早鳥、晚鳥報名期間已結束，適用一般價（定價）':'距開課已不到 3 週，適用一般價（定價）');
       }
       var amt=P[t]||null, save=(amt&&P.regular)?P.regular-amt:0;
       return {tier:t, plan:plan, session:strip(s.date)+'｜'+strip(s.place), amount:amt, save:save, reason:reason,
@@ -1066,6 +1122,34 @@ window.COURSE = {
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
     $$('.reveal').forEach(function(el){io.observe(el)});
   } else { $$('.reveal').forEach(function(el){el.classList.add('in')}); }
+})();
+
+/* 課程頁與首頁的「免費線上分享會」區塊：依 window.TALKS 產生，已結束的場次自動隱藏 */
+(function(){
+  var T = window.TALKS || {}, box = document.getElementById('talk-list');
+  if(!box) return;
+  var only = box.getAttribute('data-course') || 'all';
+  var base = box.getAttribute('data-base') || '';
+  var now = new Date();
+  var q = new URLSearchParams(location.search), keep = '';
+  ['ref','refc','utm_source','utm_medium','utm_campaign'].forEach(function(k){ if(q.get(k)) keep += '&'+k+'='+encodeURIComponent(q.get(k)); });
+  var list = (T.sessions||[]).filter(function(s){
+    return (only==='all' || s.course===only) && new Date(s.end) >= now;
+  });
+  var sec = box.closest('section');
+  if(!list.length){ if(sec) sec.classList.add('hidden'); return; }
+  list.forEach(function(s){
+    var c = (T.courses||{})[s.course] || {};
+    var a = document.createElement('a');
+    a.className = 'talk';
+    a.href = base + 'talks/?s=' + s.id + keep + '#signup';
+    a.innerHTML = '<div><b>'+s.date+'　'+s.time+'</b>'+
+      '<span>'+(only==='all' ? c.name+'｜' : '')+'線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : '')+'</span></div>'+
+      '<span class="flag">免費報名</span>';
+    box.appendChild(a);
+  });
+  var more = document.getElementById('talk-more');
+  if(more) more.href = base + 'talks/' + (only==='all' ? '' : '?c='+only) + (keep ? (only==='all' ? '?' : '&') + keep.slice(1) : '') + '#signup';
 })();
 </script>
 </body>

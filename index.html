@@ -362,6 +362,18 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
  .theme-ai .hero{background:linear-gradient(180deg,rgba(7,13,28,.9),rgba(7,13,28,.82)),url(../static/bg-ai.jpg) 70% center/cover no-repeat,#0a1222}
  .theme-live .hero{background:linear-gradient(180deg,rgba(14,11,8,.88),rgba(14,11,8,.8)),url(../static/bg-live.jpg) center/cover no-repeat,#121212}
 }
+/* 線上分享會 */
+.talks{display:grid;gap:12px;margin-top:22px}
+@media(min-width:860px){.talks.cols2{grid-template-columns:1fr 1fr}}
+.talk{background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.talk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.talk b{display:block;font-size:17px}
+.talk span{font-size:14px;color:var(--muted)}
+.talk .flag{flex:none;font-size:12px;font-weight:900;padding:4px 10px;border-radius:999px;background:var(--accent);color:#fff}
+.talk-note{font-size:14px;color:var(--muted);margin-top:14px}
+.talk-points{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.talk-points{grid-template-columns:repeat(3,1fr)}}
+.opt .ttag{display:inline-block;font-size:12px;font-weight:700;background:#fff0ea;color:var(--accent-dk);padding:1px 8px;border-radius:999px;margin-left:6px}
 
 .home-cards{display:grid;gap:18px;margin-top:32px}
 @media(min-width:860px){.home-cards{grid-template-columns:1fr 1fr}}
@@ -370,11 +382,32 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .home-cards .card:hover{transform:translateY(-3px)}
 .home-cards .card .btn{margin-top:auto;align-self:flex-start}
 </style>
+<script>/* ===== 線上分享會場次（首頁、兩個課程頁、分享會報名頁共用） =====
+   id：場次代碼（報名連結 ?s=代碼 會自動勾選該場）
+   course：ai 或 live
+   start／end：開始與結束時間，過了 end 會自動從頁面與表單隱藏
+   tag：場次特色標籤（可留空） */
+window.TALKS = {
+  endpoint: "https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec",
+  courses: {
+    ai:   { name: "AI社群獲客變現實戰營", url: "ai/",   info: "高雄場 2027/1/16–17（六、日）正式授課" },
+    live: { name: "KK教母直播實戰二日課", url: "live/", info: "高雄場 2027/3/6–7（六、日）正式授課" }
+  },
+  sessions: [
+    { id: "ai-1119",   course: "ai",   date: "2026/11/19（四）", time: "19:30–20:30", start: "2026-11-19T19:30:00", end: "2026-11-19T20:30:00", tag: "" },
+    { id: "ai-1125",   course: "ai",   date: "2026/11/25（三）", time: "19:30–20:30", start: "2026-11-25T19:30:00", end: "2026-11-25T20:30:00", tag: "" },
+    { id: "ai-1215",   course: "ai",   date: "2026/12/15（二）", time: "14:30–15:30", start: "2026-12-15T14:30:00", end: "2026-12-15T15:30:00", tag: "下午場・老闆專場" },
+    { id: "live-0107", course: "live", date: "2027/1/7（四）",   time: "19:30–20:30", start: "2027-01-07T19:30:00", end: "2027-01-07T20:30:00", tag: "" },
+    { id: "live-0120", course: "live", date: "2027/1/20（三）",  time: "19:30–20:30", start: "2027-01-20T19:30:00", end: "2027-01-20T20:30:00", tag: "學員心得分享" },
+    { id: "live-0218", course: "live", date: "2027/2/18（四）",  time: "19:30–20:30", start: "2027-02-18T19:30:00", end: "2027-02-18T20:30:00", tag: "年後開工場" }
+  ]
+};
+</script>
 </head>
 <body>
 <nav class="nav"><div class="wrap"><a class="brand" href="./"><img class="brand-logo" src="static/logo-mark.svg" alt="高雄市行銷人協會標誌" width="32" height="34"><span><b>社團法人高雄市行銷人協會</b><small>實戰課程報名</small></span></a></div></nav>
 <header class="hero"><div class="wrap">
-  <div class="tag"><span class="chip hot">台北場・高雄場報名中</span><span class="chip">早鳥優惠</span></div>
+  <div class="tag"><span class="chip hot">台北場・高雄場報名中</span><span class="chip">早鳥優惠</span><span class="chip">免費線上分享會</span></div>
   <p class="org-bar">社團法人高雄市行銷人協會　主辦</p>
   <h1>協會實戰課程<br><em>報名中</em></h1>
   <p class="sub">高雄市行銷人協會邀請 KK 老師講師團隊開設兩門兩天實戰課，台北場與高雄場都在這裡報名。協會會員一律早鳥價。</p>
@@ -385,10 +418,45 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
     <a href="live/"><div class="card"><div class="num">直播企劃 × 鏡頭互動 × 導購實戰</div><h3 style="font-size:26px">KK教母直播實戰二日課</h3><p>從選品、開播到成交，接上商品與供應鏈，含課後一個月群組陪跑。</p><p>高雄場 2027/3/6–7（六、日）｜早鳥 NT$69,800</p><span class="btn">看課程與報名</span></div></a>
   </div>
 </div></section>
+<section id="talks" style="background:#fff"><div class="wrap">
+  <span class="eyebrow">Free online talks</span>
+  <h2>高雄場課程・免費線上分享會</h2>
+  <p class="lead">先來聽分享會，了解課程內容、上課方式和費用，再決定要不要報名。每場約 60 分鐘，使用 Zoom，點選場次即可免費報名。</p>
+  <div class="talks cols2" id="talk-list" data-course="all" data-base=""></div>
+  <p class="talk-note"><a id="talk-more" href="talks/">前往分享會報名頁</a></p>
+</div></section>
 <footer class="site" style="padding-bottom:44px"><div class="wrap">
   <img src="static/logo-horizontal-white.svg" alt="社團法人高雄市行銷人協會" class="foot-logo"><br><b>主辦單位｜社團法人高雄市行銷人協會</b>
   <p style="margin-top:8px">電話：<a href="tel:0972234716">0972-234-716</a>　Email：<a href="mailto:tma77org@gmail.com">tma77org@gmail.com</a>　LINE：<a href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener">@bin1641t</a><br>地址：高雄市橋頭區經武路52號20樓之9</p>
   <div class="copy">© 2026 社團法人高雄市行銷人協會</div>
 </div></footer>
+<script>/* 課程頁與首頁的「免費線上分享會」區塊：依 window.TALKS 產生，已結束的場次自動隱藏 */
+(function(){
+  var T = window.TALKS || {}, box = document.getElementById('talk-list');
+  if(!box) return;
+  var only = box.getAttribute('data-course') || 'all';
+  var base = box.getAttribute('data-base') || '';
+  var now = new Date();
+  var q = new URLSearchParams(location.search), keep = '';
+  ['ref','refc','utm_source','utm_medium','utm_campaign'].forEach(function(k){ if(q.get(k)) keep += '&'+k+'='+encodeURIComponent(q.get(k)); });
+  var list = (T.sessions||[]).filter(function(s){
+    return (only==='all' || s.course===only) && new Date(s.end) >= now;
+  });
+  var sec = box.closest('section');
+  if(!list.length){ if(sec) sec.classList.add('hidden'); return; }
+  list.forEach(function(s){
+    var c = (T.courses||{})[s.course] || {};
+    var a = document.createElement('a');
+    a.className = 'talk';
+    a.href = base + 'talks/?s=' + s.id + keep + '#signup';
+    a.innerHTML = '<div><b>'+s.date+'　'+s.time+'</b>'+
+      '<span>'+(only==='all' ? c.name+'｜' : '')+'線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : '')+'</span></div>'+
+      '<span class="flag">免費報名</span>';
+    box.appendChild(a);
+  });
+  var more = document.getElementById('talk-more');
+  if(more) more.href = base + 'talks/' + (only==='all' ? '' : '?c='+only) + (keep ? (only==='all' ? '?' : '&') + keep.slice(1) : '') + '#signup';
+})();
+</script>
 </body>
 </html>

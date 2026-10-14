@@ -15,7 +15,15 @@
   var TN = {early:'早鳥價', late:'晚鳥價', regular:'一般價（定價）'};
   var DAY = 864e5;
   var startOf = function(s){ return s.start ? new Date(s.start+'T00:00:00') : null; };
+  // 場次可用 earlyUntil／lateUntil 指定早鳥、晚鳥最後一天（含當天）；沒填才用 4 週／3 週規則
+  var dayOf = function(v){ return v ? new Date(v+'T00:00:00') : null; };
   var tierOf = function(s){
+    if(s.earlyUntil || s.lateUntil){
+      var e=dayOf(s.earlyUntil), l=dayOf(s.lateUntil);
+      if(e && today<=e) return 'early';
+      if(l && today<=l) return 'late';
+      return 'regular';
+    }
     var st=startOf(s); if(!st) return 'regular';
     var days=Math.round((st-today)/DAY);
     return days>=28?'early':(days>=21?'late':'regular');
@@ -23,6 +31,8 @@
   var money = function(t){ return P[t] ? 'NT$'+Number(P[t]).toLocaleString('en-US') : '<em class="ph">【'+TN[t]+'金額待確認】</em>'; };
   var md = function(d){ return (d.getMonth()+1)+'/'+d.getDate(); };
   var deadlineText = function(s,t){
+    if(t==='early' && s.earlyUntil) return '早鳥價報名至 '+md(dayOf(s.earlyUntil))+' 23:59';
+    if(t==='late' && s.lateUntil) return '晚鳥價報名至 '+md(dayOf(s.lateUntil))+' 23:59';
     var st=startOf(s); if(!st) return '';
     if(t==='early') return '早鳥價報名至 '+md(new Date(st-28*DAY));
     if(t==='late') return '晚鳥價報名至 '+md(new Date(st-21*DAY));
@@ -91,9 +101,10 @@
       else {
         t=dateTier;
         var dl=deadlineText(s,t);
-        reason = t==='early' ? '開課前 4 週以上報名，適用早鳥價'+(dl?'（'+dl+'）':'')
-               : t==='late' ? '開課前 3 週以上報名，適用晚鳥價'+(dl?'（'+dl+'）':'')
-               : '距開課已不到 3 週，適用一般價（定價）';
+        var fixed = s.earlyUntil || s.lateUntil;
+        reason = t==='early' ? (fixed?'目前為早鳥報名期間，適用早鳥價':'開課前 4 週以上報名，適用早鳥價')+(dl?'（'+dl+'）':'')
+               : t==='late' ? (fixed?'目前為晚鳥報名期間，適用晚鳥價':'開課前 3 週以上報名，適用晚鳥價')+(dl?'（'+dl+'）':'')
+               : (fixed?'早鳥、晚鳥報名期間已結束，適用一般價（定價）':'距開課已不到 3 週，適用一般價（定價）');
       }
       var amt=P[t]||null, save=(amt&&P.regular)?P.regular-amt:0;
       return {tier:t, plan:plan, session:strip(s.date)+'｜'+strip(s.place), amount:amt, save:save, reason:reason,

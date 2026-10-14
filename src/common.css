@@ -349,3 +349,15 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
  .theme-ai .hero{background:linear-gradient(180deg,rgba(7,13,28,.9),rgba(7,13,28,.82)),url(../static/bg-ai.jpg) 70% center/cover no-repeat,#0a1222}
  .theme-live .hero{background:linear-gradient(180deg,rgba(14,11,8,.88),rgba(14,11,8,.8)),url(../static/bg-live.jpg) center/cover no-repeat,#121212}
 }
+/* 線上分享會 */
+.talks{display:grid;gap:12px;margin-top:22px}
+@media(min-width:860px){.talks.cols2{grid-template-columns:1fr 1fr}}
+.talk{background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.talk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.talk b{display:block;font-size:17px}
+.talk span{font-size:14px;color:var(--muted)}
+.talk .flag{flex:none;font-size:12px;font-weight:900;padding:4px 10px;border-radius:999px;background:var(--accent);color:#fff}
+.talk-note{font-size:14px;color:var(--muted);margin-top:14px}
+.talk-points{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.talk-points{grid-template-columns:repeat(3,1fr)}}
+.opt .ttag{display:inline-block;font-size:12px;font-weight:700;background:#fff0ea;color:var(--accent-dk);padding:1px 8px;border-radius:999px;margin-left:6px}
