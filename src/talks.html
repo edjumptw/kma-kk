@@ -184,9 +184,9 @@
     opts.appendChild(t);
     items.forEach(function(s){
       var l = document.createElement('label'); l.className='opt';
-      var val = c.name+'｜'+s.date+' '+s.time;
+      var val = c.name+'｜'+s.date+' '+s.time+(s.title?'｜'+s.title:'');
       var on = pick ? pick===s.id : false;
-      l.innerHTML = '<input type="checkbox" name="talk" value="'+val+'"'+(on?' checked':'')+'><span><b>'+s.date+'　'+s.time+'</b>'+(s.tag?'<span class="ttag">'+s.tag+'</span>':'')+'<br><small class="addr">線上 Zoom｜免費</small></span>';
+      l.innerHTML = '<input type="checkbox" name="talk" value="'+val+'"'+(on?' checked':'')+'><span><b>'+s.date+'　'+s.time+'</b>'+(s.tag?'<span class="ttag">'+s.tag+'</span>':'')+(s.title?'<br><span class="ttitle">'+s.title+'</span>':'')+'<br><small class="addr">線上 Zoom｜免費</small></span>';
       opts.appendChild(l);
     });
   });

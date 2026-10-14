@@ -17,7 +17,7 @@
     var a = document.createElement('a');
     a.className = 'talk';
     a.href = base + 'talks/?s=' + s.id + keep + '#signup';
-    a.innerHTML = '<div><b>'+s.date+'　'+s.time+'</b>'+
+    a.innerHTML = '<div><small class="tdate">'+s.date+'　'+s.time+'</small><b>'+(s.title||'線上分享會')+'</b>'+
       '<span>'+(only==='all' ? c.name+'｜' : '')+'線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : '')+'</span></div>'+
       '<span class="flag">免費報名</span>';
     box.appendChild(a);
