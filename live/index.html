@@ -333,6 +333,17 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .os-save{text-align:right;font-size:14px;font-weight:700;color:#2e7d32;margin-top:2px}
 .os-note{font-size:13px;color:var(--muted);margin-top:10px}
 .thanks-amt b{color:var(--accent);font-size:20px}
+
+/* ===== 區塊背景圖 ===== */
+.bg-photo{position:relative;background:#121212 var(--bg) no-repeat center/cover;overflow:hidden}
+.bg-photo::before{content:"";position:absolute;inset:0;pointer-events:none}
+.bg-photo > .wrap{position:relative;z-index:1}
+.bg-photo .card{background:rgba(18,18,18,.66);border-color:rgba(255,255,255,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.bg-abilities{background-position:right center}
+.bg-abilities::before{background:linear-gradient(90deg,rgba(10,14,24,.94) 0%,rgba(10,14,24,.8) 45%,rgba(10,14,24,.35) 100%)}
+.bg-resources::before{background:linear-gradient(180deg,rgba(14,12,10,.72) 0%,rgba(14,12,10,.82) 60%,rgba(14,12,10,.92) 100%)}
+.bg-photo .flow span{background:rgba(18,18,18,.7)}
+@media(max-width:719px){.bg-abilities{background-position:72% center}.bg-abilities::before{background:linear-gradient(180deg,rgba(10,14,24,.88),rgba(10,14,24,.78))}}
 </style>
 <script>
 /* ===== 可編輯設定：場次、表單後端 =====
@@ -408,7 +419,7 @@ window.COURSE = {
   </div>
 </section>
 
-<section class="dark" id="resources">
+<section class="dark bg-photo bg-resources" id="resources" style="--bg:url(../static/bg-live.jpg)">
   <div class="wrap">
     <span class="eyebrow">Products &amp; channels</span>
     <h2>不只教你播，還幫你接上商品與供應鏈</h2>
