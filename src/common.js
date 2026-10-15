@@ -10,7 +10,7 @@
   var strip = function(h){return String(h||'').replace(/<[^>]+>/g,'')};
 
   /* ---- 價格規則：開課前 4 週以上＝早鳥價；3 週以上＝晚鳥價；其餘＝一般價（定價）
-         協會會員一律早鳥價；團體報名一律晚鳥價 ---- */
+         協會及協辦單位會員一律早鳥價；團體報名一律晚鳥價 ---- */
   var P = C.price || {};
   var TN = {early:'早鳥價', late:'晚鳥價', regular:'一般價（定價）'};
   var DAY = 864e5;
@@ -93,7 +93,7 @@
       if(!sEl) return null;
       var s=live[+sEl.getAttribute('data-idx')];
       var dateTier=tierOf(s), t, reason;
-      if(plan==='協會會員'){ t='early'; reason='協會會員不論何時報名，一律早鳥價（會員資格由協會核對）'; }
+      if(plan==='協會會員'){ t='early'; reason='協會及協辦單位會員不論何時報名，一律早鳥價（會員資格由協會核對）'; }
       else if(plan==='團體報名'){
         if(dateTier==='early'){ t='early'; reason='目前仍在早鳥期，團體報名同樣適用早鳥價'+(deadlineText(s,'early')?'（'+deadlineText(s,'early')+'）':'')+'，金額為每人費用'; }
         else { t='late'; reason='團體報名（2 人以上）不論何時報名，至少享晚鳥價，金額為每人費用'; }
