@@ -38,14 +38,28 @@
   });
 
   if(!org) return;
-  // 最上方導覽列（固定不動的橫槓）顯示協辦單位
-  var brand = document.querySelector('.nav .brand span');
+  // 最上方導覽列：協辦單位放前面當主角，主辦協會放後面
+  document.body.classList.add('has-partner');
+  if(document.querySelector('.mbar')) document.body.classList.add('has-mbar');
+  var brand = document.querySelector('.nav .brand');
   if(brand){
-    var sm = document.createElement('small');
-    sm.className = 'nav-partner';
-    sm.textContent = '協辦單位｜' + org.name;
-    brand.appendChild(sm);
+    brand.classList.add('with-partner');
+    var host = brand.querySelector('span:last-child b');
+    if(host) host.innerHTML = '社團法人<br class="m-br">高雄市行銷人協會';
+    var pb = document.createElement('span'); pb.className = 'pb-partner';
+    pb.innerHTML = '<small>協辦單位</small><b></b>'; pb.querySelector('b').textContent = org.name;
+    var x = document.createElement('span'); x.className = 'pb-x'; x.textContent = '×';
+    brand.insertBefore(x, brand.firstChild); brand.insertBefore(pb, brand.firstChild);
   }
+  // 首屏標題上方：協辦單位會員專屬
+  var h1 = document.querySelector('.hero h1');
+  if(h1){
+    var hp = document.createElement('p'); hp.className = 'hero-partner';
+    hp.innerHTML = '<span>協辦單位</span><b></b><em>會員一律早鳥價</em>';
+    hp.querySelector('b').textContent = org.name;
+    h1.parentNode.insertBefore(hp, h1);
+  }
+  document.title = org.name + ' × ' + document.title;
   // 站內連結自動帶協會代碼，學員換頁後仍記得從哪個協會進來
   Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){
     var h = a.getAttribute('href');
