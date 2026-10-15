@@ -1,6 +1,6 @@
 # 重新產生頁面：python3 src/build.py（輸出到上一層：live/、ai/、index.html、assets/）
 import pathlib, shutil
-BASE='https://edjumptw.github.io/tma-kk-courses/'
+BASE='https://edjumptw.github.io/kma-kk/'
 here=pathlib.Path(__file__).resolve().parent; s=here; out=here.parent
 css=(s/'common.css').read_text(); talks_js=(s/'talks-block.js').read_text(); js=(s/'common.js').read_text()+'\n'+talks_js; form=(s/'form.html').read_text()
 talks_data=(s/'talks-data.js').read_text()

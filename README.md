@@ -1,6 +1,6 @@
 # KK 老師實戰課程報名頁｜社團法人高雄市行銷人協會
 
-網址：https://edjumptw.github.io/tma-kk-courses/
+網址：https://edjumptw.github.io/kma-kk/（舊網址 tma-kk-courses 已停用）
 
 - `ai/`：AI社群獲客變現實戰營
 - `live/`：KK教母直播實戰二日課
