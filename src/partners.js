@@ -29,15 +29,22 @@
     sel.addEventListener('change', sync); if(other) other.addEventListener('input', sync); sync();
   });
 
+  // 頁尾列出全部協辦單位
+  Array.prototype.forEach.call(document.querySelectorAll('.foot-partners'), function(el){
+    if(!P.length) return;
+    el.innerHTML = '<b>協辦單位</b><span></span>';
+    el.querySelector('span').textContent = P.map(function(p){ return p.name; }).join('、');
+    el.classList.remove('hidden');
+  });
+
   if(!org) return;
-  // 頁面上方顯示協辦單位
-  var nav = document.querySelector('.nav');
-  if(nav){
-    var bar = document.createElement('div');
-    bar.className = 'partner-bar';
-    bar.innerHTML = '<div class="wrap">協辦單位｜<b></b></div>';
-    bar.querySelector('b').textContent = org.name;
-    nav.parentNode.insertBefore(bar, nav.nextSibling);
+  // 最上方導覽列（固定不動的橫槓）顯示協辦單位
+  var brand = document.querySelector('.nav .brand span');
+  if(brand){
+    var sm = document.createElement('small');
+    sm.className = 'nav-partner';
+    sm.textContent = '協辦單位｜' + org.name;
+    brand.appendChild(sm);
   }
   // 站內連結自動帶協會代碼，學員換頁後仍記得從哪個協會進來
   Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){

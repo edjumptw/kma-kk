@@ -366,6 +366,6 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .opt .ttitle{font-weight:700;color:var(--ink)}
 
 /* 協辦單位 */
-.partner-bar{background:#fff;color:#333;border-bottom:1px solid #e6e6e6;font-size:14px}
-.partner-bar .wrap{padding:7px 20px;text-align:center}
-.partner-bar b{font-weight:700}
+.brand .nav-partner{color:var(--gold);font-weight:700;margin-top:1px}
+footer.site .foot-partners{margin-top:10px;line-height:1.7}
+footer.site .foot-partners b{display:block}

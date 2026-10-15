@@ -379,9 +379,9 @@ footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;fon
 .opt .ttitle{font-weight:700;color:var(--ink)}
 
 /* 協辦單位 */
-.partner-bar{background:#fff;color:#333;border-bottom:1px solid #e6e6e6;font-size:14px}
-.partner-bar .wrap{padding:7px 20px;text-align:center}
-.partner-bar b{font-weight:700}
+.brand .nav-partner{color:var(--gold);font-weight:700;margin-top:1px}
+footer.site .foot-partners{margin-top:10px;line-height:1.7}
+footer.site .foot-partners b{display:block}
 
 .home-cards{display:grid;gap:18px;margin-top:32px}
 @media(min-width:860px){.home-cards{grid-template-columns:1fr 1fr}}
@@ -450,7 +450,7 @@ window.PARTNERS = {
   <p class="talk-note"><a id="talk-more" href="talks/">前往分享會報名頁</a></p>
 </div></section>
 <footer class="site" style="padding-bottom:44px"><div class="wrap">
-  <img src="static/logo-horizontal-white.svg" alt="社團法人高雄市行銷人協會" class="foot-logo"><br><b>主辦單位｜社團法人高雄市行銷人協會</b>
+  <img src="static/logo-horizontal-white.svg" alt="社團法人高雄市行銷人協會" class="foot-logo"><br><b>主辦單位｜社團法人高雄市行銷人協會</b><div class="foot-partners hidden"></div>
   <p style="margin-top:8px">電話：<a href="tel:0972234716">0972-234-716</a>　Email：<a href="mailto:tma77org@gmail.com">tma77org@gmail.com</a>　LINE：<a href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener">@bin1641t</a><br>地址：高雄市橋頭區經武路52號20樓之9</p>
   <div class="copy">© 2026 社團法人高雄市行銷人協會</div>
 </div></footer>
@@ -513,15 +513,22 @@ window.PARTNERS = {
     sel.addEventListener('change', sync); if(other) other.addEventListener('input', sync); sync();
   });
 
+  // 頁尾列出全部協辦單位
+  Array.prototype.forEach.call(document.querySelectorAll('.foot-partners'), function(el){
+    if(!P.length) return;
+    el.innerHTML = '<b>協辦單位</b><span></span>';
+    el.querySelector('span').textContent = P.map(function(p){ return p.name; }).join('、');
+    el.classList.remove('hidden');
+  });
+
   if(!org) return;
-  // 頁面上方顯示協辦單位
-  var nav = document.querySelector('.nav');
-  if(nav){
-    var bar = document.createElement('div');
-    bar.className = 'partner-bar';
-    bar.innerHTML = '<div class="wrap">協辦單位｜<b></b></div>';
-    bar.querySelector('b').textContent = org.name;
-    nav.parentNode.insertBefore(bar, nav.nextSibling);
+  // 最上方導覽列（固定不動的橫槓）顯示協辦單位
+  var brand = document.querySelector('.nav .brand span');
+  if(brand){
+    var sm = document.createElement('small');
+    sm.className = 'nav-partner';
+    sm.textContent = '協辦單位｜' + org.name;
+    brand.appendChild(sm);
   }
   // 站內連結自動帶協會代碼，學員換頁後仍記得從哪個協會進來
   Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){
