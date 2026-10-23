@@ -22,6 +22,9 @@ h=(s/'home.html').read_text().replace('{{CSS}}',css).replace('{{TALKS_DATA}}',ta
 assert '{{' not in h, 'home'; (out/'index.html').write_text(h)
 h=(s/'talks.html').read_text().replace('{{CSS}}',css).replace('{{TALKS_DATA}}',talks_data).replace('{{PARTNERS_DATA}}',partners_data).replace('{{PARTNERS_JS}}',partners_js)
 assert '{{' not in h, 'talks'; (out/'talks').mkdir(exist_ok=True); (out/'talks'/'index.html').write_text(h); print(out/'talks', len(h))
+h=(s/'talks-1119.html').read_text().replace('{{CSS}}',css).replace('{{TALKS_DATA}}',talks_data)
+assert '{{' not in h, 'talks-1119'
+d=out/'talks'/'1119'; d.mkdir(parents=True, exist_ok=True); (d/'index.html').write_text(h); print(d, len(h))
 shutil.copytree(s/'assets', out/'static', dirs_exist_ok=True)
 
 # 協辦協會專屬網址：p/代碼/（轉到首頁並帶入協會代碼；LINE、FB 分享時顯示協會名稱）
