@@ -14,6 +14,33 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>{{CSS}}</style>
+<style>
+/* 11/19 與 BNC 合辦場次：只作用於這一場的報名須知 */
+.opt-bundle{display:grid;gap:8px;background:#f4f8fd;border:1.5px solid #d5e4f7;border-radius:16px;padding:8px}
+.opt-bundle > .opt{background:#fff}
+.opt .ttag.bnc-tag{background:var(--gold);color:var(--ink)}
+.bnc-notice{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:16px 16px 8px}
+.bnc-pill{display:inline-block;background:var(--gold);color:var(--ink);font-size:12px;font-weight:900;letter-spacing:.04em;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.bnc-notice h3{font-size:20px;margin:0 0 4px}
+.bnc-sub{font-size:14px;color:var(--muted)}
+.bnc-list{list-style:none;display:grid;gap:8px;margin-top:12px}
+.bnc-list li{background:var(--paper);border-radius:12px;padding:12px 14px;font-size:14.5px;color:var(--ink-2)}
+.bnc-list strong{display:block;font-size:13px;font-weight:900;color:var(--ink);letter-spacing:.04em;margin-bottom:4px}
+.bnc-amt{color:var(--accent-dk);font-weight:900}
+.bnc-notice a{color:var(--accent-dk);font-weight:700}
+.bank{background:#fff;border:1px solid var(--line);border-radius:12px;padding:2px 12px;margin-top:8px}
+.bank-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.bank-row:last-child{border-bottom:0}
+.bank-row span{width:3em;flex:none;color:var(--muted);font-size:13px}
+.bank-row b{font-size:16px;font-weight:700;letter-spacing:.03em;font-variant-numeric:tabular-nums}
+#bnc-account{user-select:all}
+.bnc-copy{margin-left:auto;border:1.5px solid var(--accent);background:#fff;color:var(--accent-dk);font:inherit;font-size:13px;font-weight:700;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bnc-copy:hover{background:#f0f6ff}
+.bnc-fine{margin-top:8px}
+.bnc-fields{margin-top:12px;padding-top:4px;border-top:1px dashed var(--line)}
+.bnc-fields-title{font-weight:900;font-size:15px;margin:10px 0}
+#thanks-bnc{background:#f0f6ff;border:1px solid #d5e4f7;border-radius:12px;padding:12px 14px;font-size:14px;text-align:left;margin:0 auto 12px;max-width:520px}
+</style>
 <script>{{TALKS_DATA}}</script>
 <script>{{PARTNERS_DATA}}</script>
 </head>
@@ -136,10 +163,11 @@
 
       <div id="thanks" class="thanks hidden" role="status" aria-live="polite">
         <div class="ok">✓</div>
-        <h3>報名完成，謝謝你，<span id="thanks-name"></span>！</h3>
+        <h3><span id="thanks-lead">報名完成，謝謝你，</span><span id="thanks-name"></span>！</h3>
+        <p id="thanks-bnc" class="hidden"></p>
         <p>你報名的場次：</p>
         <ul id="thanks-list" style="text-align:left;display:inline-block;margin:6px 0 14px"></ul>
-        <ol>
+        <ol id="thanks-steps">
           <li>分享會前一天，協會會以 Email、簡訊或 LINE 寄送線上會議連結。</li>
           <li>分享會當天請提早 10 分鐘進入會議室。</li>
           <li>沒收到通知，請檢查垃圾信匣，或聯繫協會：電話 0972-234-716、LINE 官方帳號 @bin1641t。</li>
@@ -170,6 +198,66 @@
   </div>
 </footer>
 
+<template id="bnc-notice-tpl">
+  <section class="bnc-notice" aria-labelledby="bnc-notice-title">
+    <span class="bnc-pill">11/19 合辦場次</span>
+    <h3 id="bnc-notice-title">報名須知</h3>
+    <p class="bnc-sub">本場與 BNC「OPC 線上小聚」合辦。</p>
+    <ul class="bnc-list">
+      <li>
+        <strong>參加費用</strong>
+        BNC 會員免費參加。非會員請先付 <b class="bnc-amt">NT$300</b> 訂金，報名才算完成。這筆訂金可以在 3 個月內折抵 BNC 會員費或課程費用。
+      </li>
+      <li>
+        <strong>匯款帳戶</strong>
+        <div class="bank">
+          <div class="bank-row"><span>銀行</span><b>玉山銀行（808）台大分行</b></div>
+          <div class="bank-row"><span>帳號</span><b id="bnc-account">0624-940-202740</b><button type="button" class="bnc-copy" id="bnc-copy">複製帳號</button></div>
+          <div class="bank-row"><span>戶名</span><b>國際人脈商業有限公司</b></div>
+        </div>
+        <p class="bnc-fine">匯款後請填寫或告知帳號後五碼。</p>
+      </li>
+      <li>
+        <strong>會議平台</strong>
+        會議平台是騰訊會議，連結會在報名完成後另外通知。
+      </li>
+      <li>
+        <strong>聯絡信箱</strong>
+        個資與問題聯絡信箱：<a href="mailto:edjumptw@gmail.com">edjumptw@gmail.com</a>
+      </li>
+    </ul>
+    <div id="bnc-fields" class="bnc-fields hidden">
+      <p class="bnc-fields-title">這一場的補充資料</p>
+      <div class="field" id="bnc-member-field">
+        <span class="lbl">是否為 BNC 會員 <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="bncMember" value="是"><span>是，BNC 會員（免費參加）</span></label>
+          <label class="opt"><input type="radio" name="bncMember" value="否"><span>否，非會員（請先付 NT$300 訂金）</span></label>
+        </div>
+        <span class="err">請選擇是否為 BNC 會員</span>
+      </div>
+      <div class="field hidden" id="bnc-last5">
+        <label for="t-last5">匯款帳號後五碼</label>
+        <input id="t-last5" name="transferLast5" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="匯款後填寫 5 碼數字">
+        <span class="hint">匯款後請填寫。若改以 Email 告知 edjumptw@gmail.com，此欄可先留空。</span>
+        <span class="err">請填寫 5 碼數字</span>
+      </div>
+      <div class="field">
+        <label for="t-bnc-source">從哪裡知道這場活動</label>
+        <select id="t-bnc-source" name="bncSource">
+          <option value="">請選擇</option>
+          <option>Threads</option>
+          <option>X</option>
+          <option>LINE</option>
+          <option>微信群</option>
+          <option>朋友介紹</option>
+          <option>其他</option>
+        </select>
+      </div>
+    </div>
+  </section>
+</template>
+
 <script>
 (function(){
   var T = window.TALKS || {};
@@ -191,8 +279,19 @@
       var l = document.createElement('label'); l.className='opt';
       var val = c.name+'｜'+s.date+' '+s.time+(s.title?'｜'+s.title:'');
       var on = pick ? pick===s.id : false;
-      l.innerHTML = '<input type="checkbox" name="talk" value="'+val+'"'+(on?' checked':'')+'><span><b>'+s.date+'　'+s.time+'</b>'+(s.tag?'<span class="ttag">'+s.tag+'</span>':'')+(s.title?'<br><span class="ttitle">'+s.title+'</span>':'')+'<br><small class="addr">線上 Zoom｜免費</small></span>';
-      opts.appendChild(l);
+      var bnc = s.id==='ai-1119';
+      var tag = s.tag || (bnc ? 'BNC 合辦' : '');
+      var meta = bnc ? '與 BNC「OPC 線上小聚」合辦｜騰訊會議' : '線上 Zoom｜免費';
+      l.innerHTML = '<input type="checkbox" name="talk" data-id="'+s.id+'" value="'+val+'"'+(on?' checked':'')+'><span><b>'+s.date+'　'+s.time+'</b>'+(tag?'<span class="ttag'+(bnc?' bnc-tag':'')+'">'+tag+'</span>':'')+(s.title?'<br><span class="ttitle">'+s.title+'</span>':'')+'<br><small class="addr">'+meta+'</small></span>';
+      if(bnc){
+        var bundle = document.createElement('div'); bundle.className='opt-bundle';
+        bundle.appendChild(l);
+        var tpl = document.getElementById('bnc-notice-tpl');
+        if(tpl) bundle.appendChild(tpl.content.cloneNode(true));
+        opts.appendChild(bundle);
+      }else{
+        opts.appendChild(l);
+      }
     });
   });
   if(!live.length){
@@ -208,8 +307,51 @@
   var rules = {
     name: function(v){return v.trim().length>=2},
     mobile: function(v){return /^09\d{8}$/.test(v.replace(/[\s-]/g,''))},
-    email: function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())}
+    email: function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())},
+    transferLast5: function(v){return /^\d{5}$/.test(v.trim())}
   };
+  var bncBox = function(){ return form.querySelector('input[name="talk"][data-id="ai-1119"]'); };
+  var bncOn = function(){ var box=bncBox(); return !!(box && box.checked); };
+  var memberChecked = function(){ return form.querySelector('input[name="bncMember"]:checked'); };
+  var syncBnc = function(){
+    var on = bncOn();
+    var fields = $('#bnc-fields'); if(!fields) return;
+    var nonMember = !!(memberChecked() && memberChecked().value==='否');
+    fields.classList.toggle('hidden', !on);
+    var last5 = $('#bnc-last5');
+    if(last5){
+      last5.classList.toggle('hidden', !(on && nonMember));
+      if(!(on && nonMember)) last5.classList.remove('invalid');
+    }
+    if(!on){ var mf = $('#bnc-member-field'); if(mf) mf.classList.remove('invalid'); }
+    $$('input,select,textarea', fields).forEach(function(el){
+      el.disabled = !on || (el.name==='transferLast5' && !nonMember);
+      if(el.name==='bncMember') el.required = on;
+    });
+    var btn = $('#talk-btn');
+    if(btn && !btn.disabled){
+      btn.textContent = (on && nonMember) ? '送出報名資料' : (on && !memberChecked() ? '送出報名' : '免費報名分享會');
+    }
+  };
+  var copyBtn = $('#bnc-copy');
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var text = '0624-940-202740';
+      var doneCopy = function(){ copyBtn.textContent='已複製'; setTimeout(function(){ copyBtn.textContent='複製帳號'; }, 1600); };
+      var fallback = function(){
+        var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly','');
+        ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); doneCopy(); }catch(err){ copyBtn.textContent='請手動複製'; }
+        ta.remove();
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(doneCopy).catch(fallback);
+      else fallback();
+    });
+  }
+  $$('input[name="bncMember"]', form).forEach(function(el){
+    el.addEventListener('change', function(){ var f=$('#bnc-member-field'); if(f) f.classList.remove('invalid'); syncBnc(); });
+  });
+  syncBnc();
   var check = function(el){
     var f = el.closest('.field'); if(!f) return true;
     var ok = el.checkValidity();
@@ -219,19 +361,30 @@
   $$('input,select,textarea',form).forEach(function(el){
     if(el.type!=='checkbox' && el.type!=='hidden') el.addEventListener('blur', function(){ check(el); });
   });
-  $$('input[name="talk"]',form).forEach(function(el){ el.addEventListener('change', function(){ $('#talk-field').classList.remove('invalid'); }); });
+  $$('input[name="talk"]',form).forEach(function(el){ el.addEventListener('change', function(){ $('#talk-field').classList.remove('invalid'); syncBnc(); }); });
 
   var msg = function(t){ var b=$('#form-msg'); b.textContent=t; b.classList.remove('hidden'); setTimeout(function(){b.classList.add('hidden')},6000); };
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var chosen = $$('input[name="talk"]:checked',form).map(function(x){return x.value});
+    syncBnc();
+    var chosenEls = $$('input[name="talk"]:checked',form);
+    var chosen = chosenEls.map(function(x){return x.value});
+    var hasBnc = chosenEls.some(function(x){ return x.getAttribute('data-id')==='ai-1119'; });
     var ok = true, first = null;
     if(!chosen.length){ ok=false; first=$('#talk-field'); $('#talk-field').classList.add('invalid'); }
     ['name','mobile','email'].forEach(function(n){ var el=form.querySelector('[name="'+n+'"]'); if(!check(el)){ ok=false; if(!first) first=el; } });
+    if(hasBnc){
+      var memberField = $('#bnc-member-field');
+      var picked = memberChecked();
+      if(memberField) memberField.classList.toggle('invalid', !picked);
+      if(!picked){ ok=false; if(!first) first=memberField; }
+      var last5 = form.querySelector('[name="transferLast5"]');
+      if(last5 && !last5.disabled && !check(last5)){ ok=false; if(!first) first=last5; }
+    }
     var pa = form.querySelector('input[name="privacyAgree"]');
     if(!pa.checked){ ok=false; if(!first) first=pa; }
-    if(!ok){ msg('請檢查標示紅字的欄位，並勾選個資同意。'); (first.closest('.field')||first).scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    if(!ok){ msg('請檢查標示紅字的欄位，並勾選個資同意。'); var target=first && (first.closest('.field')||first); if(target && target.scrollIntoView) target.scrollIntoView({behavior:'smooth',block:'center'}); return; }
 
     var btn = $('#talk-btn'); btn.disabled = true; btn.textContent = '送出中…';
     var fd = new FormData(form);
@@ -242,10 +395,48 @@
     fd.append('priceApplied', '免費');
     fd.append('submittedAt', new Date().toLocaleString('zh-TW',{hour12:false}));
     fd.append('page', location.href);
+    if(hasBnc){
+      var isMember = fd.get('bncMember')==='是';
+      var heard = String(fd.get('bncSource')||'');
+      var digits = String(fd.get('transferLast5')||'');
+      var line = '【11/19 與 BNC 合辦】是否為 BNC 會員：'+(isMember?'是':'否')
+        +'；匯款帳號後五碼：'+(isMember?'免付':(digits||'未填，將另行告知'))
+        +'；從哪裡知道這場活動：'+(heard||'未填');
+      var note = String(fd.get('note')||'').trim();
+      fd.set('note', note ? note+'\n'+line : line);
+      if(!String(fd.get('source')||'') && heard) fd.set('source', heard);
+      var onlyThis = chosen.length===1;
+      fd.set('priceApplied', isMember
+        ? (onlyThis ? 'BNC 會員免費' : '11/19：BNC 會員免費；其餘場次：免費')
+        : (onlyThis ? '非會員訂金 NT$300' : '11/19：非會員訂金 NT$300；其餘場次：免費'));
+    }
     var done = function(){
       form.classList.add('hidden');
       $('#thanks-name').textContent = fd.get('name');
       $('#thanks-list').innerHTML = chosen.map(function(v){return '<li>'+v+'</li>'}).join('');
+      if(hasBnc){
+        var isMember = fd.get('bncMember')==='是';
+        var others = chosenEls.some(function(x){ return x.getAttribute('data-id')!=='ai-1119'; });
+        var bncNote = $('#thanks-bnc');
+        var steps = $('#thanks-steps');
+        if(!isMember){
+          $('#thanks-lead').textContent = '資料已送出，謝謝你，';
+          bncNote.textContent = '11/19 這一場請先完成 NT$300 訂金匯款，報名才算完成。';
+          var html = '<li>匯款帳戶：玉山銀行（808）台大分行，帳號 0624-940-202740，戶名 國際人脈商業有限公司。</li>'
+            +'<li>匯款後請填寫或告知帳號後五碼。個資與問題請來信 edjumptw@gmail.com。</li>'
+            +'<li>這筆訂金可以在 3 個月內折抵 BNC 會員費或課程費用。會議平台是騰訊會議，連結會在報名完成後另外通知。</li>';
+          if(others) html += '<li>其餘場次免費參加。線上會議連結會在分享會前一天，以 Email、簡訊或 LINE 通知。</li>';
+          steps.innerHTML = html;
+        }else{
+          bncNote.textContent = '11/19 這一場以 BNC 會員身分免費參加。會議平台是騰訊會議，連結會在報名完成後另外通知。';
+          var htmlM = '<li>騰訊會議連結會在報名完成後另外通知。</li>'
+            +'<li>個資與問題請來信 edjumptw@gmail.com。</li>';
+          if(others) htmlM += '<li>其餘場次的會議連結，會在分享會前一天以 Email、簡訊或 LINE 通知。</li>';
+          else htmlM += '<li>分享會當天請提早 10 分鐘進入會議室。</li>';
+          steps.innerHTML = htmlM;
+        }
+        bncNote.classList.remove('hidden');
+      }
       $('#thanks').classList.remove('hidden');
       $('#thanks').scrollIntoView({behavior:'smooth',block:'start'});
       if(window.gtag) gtag('event','generate_lead',{course:'線上分享會'});
@@ -254,7 +445,7 @@
     if(!T.endpoint){ setTimeout(done,400); return; }
     fetch(T.endpoint,{method:'POST',mode:'no-cors',body:new URLSearchParams(fd)})
       .then(done)
-      .catch(function(){ btn.disabled=false; btn.textContent='免費報名分享會'; msg('網路連線異常，請稍後再試，或直接聯繫協會。'); });
+      .catch(function(){ btn.disabled=false; syncBnc(); msg('網路連線異常，請稍後再試，或直接聯繫協會。'); });
   });
 })();
 </script>
