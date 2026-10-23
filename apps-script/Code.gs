@@ -6,9 +6,9 @@ var FIELDS = [
 ['name','姓名'],['mobile','手機'],['email','Email'],['lineId','LINE ID'],
 ['company','公司／品牌'],['jobTitle','職稱'],['industry','產業別'],
 ['invoiceType','發票／收據'],['taxId','統一編號'],['taxTitle','抬頭'],
-['diet','飲食'],['dietNote','飲食備註'],['source','得知管道'],['note','備註'],
-['privacyAgree','個資同意'],['refundAgree','退費辦法同意'],['newsletter','願收協會訊息'],
-['utm_source','utm_source'],['utm_medium','utm_medium'],['utm_campaign','utm_campaign'],['ref','ref'],['page','來源頁面']
+['diet','飲食'],['dietNote','飲食備註'],['source','得知管道'],['bncMember','是否為 BNC 會員'],['transferLast5','匯款帳號後五碼'],['bncSource','11/19得知管道'],['note','備註'],
+['privacyAgree','個資同意'],['depositAgree','定金規則同意'],['refundAgree','退費辦法同意'],['newsletter','願收協會訊息'],
+['utm_source','utm_source'],['utm_medium','utm_medium'],['utm_campaign','utm_campaign'],['utm_content','utm_content'],['ref','ref'],['page','來源頁面']
 ];
 function doPost(e) {
 var lock = LockService.getScriptLock();
@@ -28,9 +28,11 @@ labels.forEach(function (l) { if (header.indexOf(l) < 0) { header.push(l); sh.ge
 var vals = {};
 FIELDS.forEach(function (f) {
 var v = String(p[f[0]] || '');
-vals[f[1]] = (f[0] === 'mobile' || f[0] === 'taxId' || f[0] === 'referrerContact') && v ? "'" + v : v;
+vals[f[1]] = (f[0] === 'mobile' || f[0] === 'taxId' || f[0] === 'referrerContact' || f[0] === 'transferLast5') && v ? "'" + v : v;
 });
-vals['繳費狀態'] = p.course === '線上分享會' ? '不適用' : '未繳費';
+var payStatus = '未繳費';
+if (p.course === '線上分享會') payStatus = p.bncMember === '否' ? '定金待確認' : (p.bncMember === '是' ? '會員免付' : '不適用');
+vals['繳費狀態'] = payStatus;
 sh.appendRow(header.map(function (h) { return vals.hasOwnProperty(h) ? vals[h] : ''; }));
 if (NOTIFY_EMAIL) {
 MailApp.sendEmail(NOTIFY_EMAIL, '【新報名】' + (p.course || '') + '｜' + (p.name || '') + '｜' + (p.session || ''),

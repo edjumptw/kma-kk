@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2027 社群獲客新玩法｜11/19 線上分享報名</title>
+<meta name="description" content="11/19（四）19:30–20:30，BNC（建橋雲智・國際人脈商業團隊）× KK 老師。線上騰訊會議。BNC 會員免繳定金，非會員繳 NT$300 定金，繳款後報名才算完成。">
+<meta property="og:title" content="2027 社群獲客新玩法：讓 AI 幫你把粉絲變客戶">
+<meta property="og:description" content="11/19（四）19:30–20:30，線上騰訊會議。BNC 會員免繳定金，非會員繳 NT$300 定金，繳款後報名才算完成。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://edjumptw.github.io/kma-kk/static/og-ai.jpg">
+<link rel="icon" type="image/png" href="../../static/favicon.png">
+<meta name="theme-color" content="#0a1222">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>:root{
+  --ink:#121212; --ink-2:#2a2a2a; --paper:#f5f5f3; --white:#fff;
+  --accent:#f16334; --accent-dk:#c9461c; --gold:#ffc24b;
+  --muted:#6b6b6b; --line:#e3e1dc; --ph:#fff1a8; --ph-ink:#7a5200;
+  --radius:14px; --max:1120px;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 16px}
+section{padding:64px 0}
+.eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+h1,h2,h3{line-height:1.3;font-weight:900;letter-spacing:.01em}
+h2{font-size:clamp(26px,5.4vw,40px);margin-bottom:14px}
+h3{font-size:20px;margin-bottom:8px}
+.lead{font-size:17px;color:var(--muted);max-width:720px}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* placeholder */
+.ph{background:var(--ph);color:var(--ph-ink);border-radius:4px;padding:0 4px;font-weight:700;font-style:normal;white-space:normal}
+.dark .ph{background:#fff1a8;color:#5a3c00}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
+  background:var(--accent);color:#fff;font-weight:900;font-size:17px;padding:15px 28px;border-radius:999px;
+  text-decoration:none;box-shadow:0 8px 20px rgba(241,99,52,.35);transition:transform .15s,background .15s;font-family:inherit}
+.btn:hover{background:var(--accent-dk);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:none;border:2px solid currentColor}
+.btn.block{width:100%}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.center .cta-row{justify-content:center}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(18,18,18,.94);backdrop-filter:blur(8px);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{display:flex;flex-direction:column;line-height:1.2;text-decoration:none}
+.brand b{font-size:15px;font-weight:900}
+.brand small{font-size:11px;color:#bbb}
+.nav ul{display:none;list-style:none;gap:22px;font-size:14px}
+.nav ul a{text-decoration:none;color:#ddd}.nav ul a:hover{color:#fff}
+.nav .btn{padding:9px 18px;font-size:14px;box-shadow:none}
+@media(min-width:960px){.nav ul{display:flex}}
+
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(241,99,52,.45),transparent 60%),linear-gradient(160deg,#121212 0%,#1d1d1d 60%,#2a1a14 100%);color:#fff;padding:56px 0 64px;overflow:hidden}
+.hero .tag{display:inline-flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{display:inline-block;font-size:13px;font-weight:700;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.chip.hot{background:var(--accent);border-color:var(--accent)}
+.hero h1{font-size:clamp(34px,8.6vw,64px);margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .sub{font-size:clamp(17px,3.6vw,21px);color:#e6e6e6;max-width:720px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px;max-width:720px}
+.fact{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px}
+.fact span{display:block;font-size:12px;color:#aaa;letter-spacing:.06em}
+.fact b{font-size:16px}
+@media(min-width:720px){.facts{grid-template-columns:repeat(4,1fr)}}
+.hero .note{font-size:13px;color:#aaa;margin-top:14px}
+
+/* cards & grids */
+.grid{display:grid;gap:16px;margin-top:32px}
+@media(min-width:720px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:960px){.g5{grid-template-columns:repeat(5,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:720px) and (max-width:959px){.g5,.g4{grid-template-columns:1fr 1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card .num{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:.1em}
+.card p{color:var(--ink-2);font-size:15px}
+
+/* pain */
+.pain{background:var(--white)}
+.pain-list{list-style:none;display:grid;gap:12px;margin-top:28px}
+@media(min-width:720px){.pain-list{grid-template-columns:1fr 1fr}}
+.pain-list li{display:flex;gap:12px;align-items:flex-start;background:var(--paper);border-radius:12px;padding:16px 18px;font-weight:500}
+.pain-list li::before{content:"✕";flex:none;width:26px;height:26px;border-radius:50%;background:#ffe3d8;color:var(--accent);font-weight:900;display:grid;place-items:center;font-size:13px}
+.turn{margin-top:28px;font-size:19px;font-weight:900}
+.turn em{font-style:normal;color:var(--accent)}
+
+/* dark band */
+.dark{background:var(--ink);color:#fff}
+.dark .lead{color:#bdbdbd}
+.dark .card{background:#1e1e1e;border-color:#2e2e2e;box-shadow:none}
+.dark .card p{color:#cfcfcf}
+
+/* outline */
+.days{display:grid;gap:18px;margin-top:32px}
+@media(min-width:860px){.days{grid-template-columns:1fr 1fr}}
+.day{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.day header{background:var(--ink);color:#fff;padding:18px 22px}
+.day header small{color:var(--gold);font-weight:900;letter-spacing:.1em}
+.day header h3{margin:2px 0 0}
+.day ol{list-style:none;counter-reset:s;padding:8px 22px 18px}
+.day li{counter-increment:s;display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.day li:last-child{border-bottom:0}
+.day li::before{content:counter(s,decimal-leading-zero);font-weight:900;color:var(--accent);min-width:28px}
+.day li b{display:block}
+.day li span{font-size:14px;color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tools i{font-style:normal;font-size:12px;font-weight:700;background:#fff0ea;color:var(--accent-dk);padding:3px 10px;border-radius:999px}
+
+/* benefits */
+.ben{list-style:none;display:grid;gap:10px;margin-top:28px}
+@media(min-width:720px){.ben{grid-template-columns:1fr 1fr}}
+.ben li{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:#1e1e1e;border:1px solid #2e2e2e}
+.ben li::before{content:"✓";flex:none;color:var(--ink);background:var(--gold);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:13px}
+
+/* teachers */
+.teacher{display:grid;gap:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.teacher .avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#ffb38f);display:grid;place-items:center;color:#fff;font-weight:900;font-size:30px;flex:none}
+.teacher .head{display:flex;gap:16px;align-items:center}
+.teacher .role{font-size:13px;color:var(--accent);font-weight:700}
+.teacher ul{padding-left:18px;font-size:14px;color:var(--ink-2)}
+.teacher ul li{margin:3px 0}
+.source{font-size:12px;color:var(--muted);margin-top:18px}
+
+/* who */
+.who .card h3::before{content:"→ ";color:var(--accent)}
+
+/* pricing */
+.price-wrap{display:grid;gap:18px;margin-top:32px}
+@media(min-width:860px){.price-wrap{grid-template-columns:1.1fr .9fr}}
+.plan{background:var(--white);border:2px solid var(--ink);border-radius:20px;padding:26px;position:relative}
+.plan .badge{position:absolute;top:-14px;left:22px;background:var(--accent);color:#fff;font-size:13px;font-weight:900;padding:4px 14px;border-radius:999px}
+.plan .label{font-size:14px;color:var(--muted)}
+.plan .price{font-size:44px;font-weight:900;line-height:1.1;margin:4px 0}
+.plan .price small{font-size:16px;font-weight:700}
+.plan ul{list-style:none;margin:18px 0}
+.plan ul li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.sessions{display:grid;gap:12px}
+.session{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.session.ks{border:2px solid var(--accent);background:#fff7f3}
+.session b{display:block;font-size:17px}
+.session span{font-size:14px;color:var(--muted)}
+.session .flag{flex:none;font-size:12px;font-weight:900;padding:4px 10px;border-radius:999px;background:var(--ink);color:#fff}
+.session.ks .flag{background:var(--accent)}
+
+/* testimonials */
+.tests{display:grid;gap:14px;margin-top:32px}
+@media(min-width:720px){.tests{grid-template-columns:repeat(3,1fr)}}
+.test{background:var(--white);border-radius:var(--radius);padding:22px;border:1px solid var(--line);position:relative}
+.test::before{content:"“";position:absolute;top:2px;right:16px;font-size:64px;color:#f6d3c6;font-weight:900;line-height:1}
+.test p{font-size:15px}
+.test footer{margin-top:12px;font-size:14px;font-weight:700}
+.test footer small{display:block;font-weight:400;color:var(--muted)}
+
+/* faq */
+.faq{max-width:820px;margin:32px auto 0}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 48px 18px 20px;font-weight:700;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--accent)}
+.faq details[open] summary::after{content:"−"}
+.faq details>div{padding:0 20px 18px;color:var(--ink-2);font-size:15px}
+
+/* form */
+.signup{background:linear-gradient(180deg,var(--ink) 0 260px,var(--paper) 260px)}
+.signup .head{color:#fff}
+.signup .head .lead{color:#c9c9c9}
+.form-card{background:var(--white);border-radius:20px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.12);margin-top:28px;max-width:820px;margin-left:auto;margin-right:auto}
+@media(min-width:720px){.form-card{padding:36px}}
+.fset{border:0;margin-bottom:22px}
+.fset legend{font-weight:900;font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.fset legend::before{content:"";width:6px;height:18px;background:var(--accent);border-radius:3px}
+.row{display:grid;gap:14px}
+@media(min-width:720px){.row.two{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label,.field .lbl{font-size:14px;font-weight:700}
+.req{color:var(--accent)}
+.field input,.field select,.field textarea{font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid #d6d3cc;border-radius:10px;background:#fff;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(241,99,52,.18)}
+.field .hint{font-size:12px;color:var(--muted)}
+.field .err{font-size:13px;color:#c62828;display:none}
+.field.invalid .err{display:block}
+.field.invalid input,.field.invalid select{border-color:#c62828}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #d6d3cc;border-radius:10px;padding:12px 14px;cursor:pointer;font-size:15px}
+.opt input{margin-top:5px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+.opt:has(input:checked){border-color:var(--accent);background:#fff7f3}
+.inline-opts{display:flex;flex-wrap:wrap;gap:8px}
+.inline-opts .opt{padding:9px 14px}
+.hidden{display:none!important}
+.privacy{background:var(--paper);border-radius:12px;padding:16px;font-size:13px;color:var(--ink-2);max-height:220px;overflow:auto;margin-bottom:12px}
+.privacy h4{font-size:14px;margin-bottom:6px}
+.privacy ol{padding-left:18px}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin-bottom:10px}
+.agree input{margin-top:5px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+.thanks{text-align:center;padding:12px 0}
+.thanks .ok{width:72px;height:72px;border-radius:50%;background:var(--accent);color:#fff;font-size:36px;display:grid;place-items:center;margin:0 auto 16px}
+.thanks ol{text-align:left;max-width:520px;margin:18px auto;padding-left:20px}
+.thanks ol li{margin:6px 0}
+
+/* notices */
+.notice{max-width:820px;margin:28px auto 0}
+.notice ul{padding-left:20px;font-size:14px;color:var(--ink-2)}
+.notice li{margin:6px 0}
+
+/* footer */
+footer.site{background:#0d0d0d;color:#bdbdbd;padding:44px 0 110px;font-size:14px}
+footer.site .cols{display:grid;gap:22px}
+@media(min-width:720px){footer.site .cols{grid-template-columns:1.4fr 1fr 1fr}}
+footer.site b{color:#fff}
+footer.site a{color:#ddd}
+footer.site .copy{border-top:1px solid #222;margin-top:28px;padding-top:18px;font-size:12px;color:#888}
+@media(min-width:960px){footer.site{padding-bottom:44px}}
+
+/* sticky mobile CTA */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;box-shadow:0 -6px 20px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s}
+.mbar.show{transform:none}
+.mbar .p{flex:1;line-height:1.3}
+.mbar .p small{display:block;font-size:12px;color:var(--muted)}
+.mbar .p b{font-size:18px}
+.mbar .btn{padding:12px 22px;font-size:16px}
+@media(min-width:960px){.mbar{display:none}}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ===== v2 additions ===== */
+.hero-grid{display:grid;gap:28px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.25fr .75fr}}
+.hero-visual img{width:100%;height:auto;max-width:420px;margin:0 auto;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.hero .tagline{font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.08em;margin-bottom:6px}
+
+.res{display:grid;gap:14px;margin-top:28px}
+@media(min-width:720px){.res{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.res{grid-template-columns:repeat(4,1fr)}}
+.res .card{border-top:4px solid var(--accent)}
+.res .big{font-size:28px;font-weight:900;color:var(--accent);line-height:1.2}
+
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;align-items:center}
+.flow span{background:#1e1e1e;border:1px solid #333;color:#fff;font-weight:700;padding:10px 16px;border-radius:999px;font-size:15px}
+.flow i{font-style:normal;color:var(--gold);font-weight:900}
+
+.slogan{margin-top:28px;font-size:clamp(20px,4.6vw,30px);font-weight:900;line-height:1.4}
+.slogan em{font-style:normal;background:linear-gradient(transparent 60%,rgba(255,194,75,.55) 60%)}
+.fine{font-size:12px;color:var(--muted);margin-top:10px}
+.dark .fine{color:#9a9a9a}
+
+.bases{display:grid;gap:14px;margin-top:28px}
+@media(min-width:860px){.bases{grid-template-columns:1fr 1fr}}
+
+.poster{margin-top:24px}
+.poster summary{cursor:pointer;font-weight:700;color:var(--accent);list-style:none}
+.poster summary::-webkit-details-marker{display:none}
+.poster img{max-width:520px;width:100%;margin:14px auto 0;border-radius:14px;box-shadow:var(--shadow)}
+
+/* teacher with photo */
+.teacher .photo{width:100%;aspect-ratio:4/5;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#2a2a2a,#444);position:relative}
+.teacher .photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.teacher .photo .fb{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:40px;font-weight:900}
+@media(min-width:720px){.teacher{grid-template-columns:200px 1fr;align-items:start}}
+
+/* session groups */
+.sgroup{margin-bottom:6px}
+.sgroup h4{font-size:15px;font-weight:900;margin:14px 0 8px;display:flex;align-items:center;gap:8px}
+.sgroup h4 small{font-weight:500;color:var(--muted);font-size:13px}
+.session.tbd{border-style:dashed}
+.opt small.addr{color:var(--muted)}
+.opt-group-title{font-size:14px;font-weight:900;margin:10px 0 2px}
+.teacher .photo img{position:relative;z-index:1}
+@media(max-width:959px){.hero-visual img{max-width:320px}}
+.session .now{display:block;margin-top:6px;font-size:13px;color:var(--accent-dk)}
+.session .now b{font-weight:900}
+.price-summary{background:#fff7f3;border:1px dashed var(--accent);border-radius:10px;padding:12px 14px;font-size:14px;margin-top:4px}
+.tiers{list-style:none;margin:14px 0 0}
+.tiers li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.tiers li span{color:var(--muted);font-size:13px}
+.video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;cursor:pointer}
+.video img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.video::after{content:"▶";position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:24px;padding-left:4px;box-sizing:border-box}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video.on::after{display:none}
+.vcap{font-size:14px;font-weight:700;margin-top:8px}
+.policy{font-size:14px;color:var(--ink-2)}
+.policy li{margin:5px 0}
+.test p,.test footer{position:relative;z-index:1}.test::before{opacity:.6}
+.hero-visual figure{margin:0;max-width:380px;margin-inline:auto;position:relative}
+.hero-visual figure img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;object-position:top;box-shadow:0 24px 60px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12)}
+.hero-visual figcaption{position:absolute;left:14px;bottom:14px;background:rgba(18,18,18,.82);color:#fff;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18)}
+@media(max-width:959px){.hero-visual figure{max-width:260px}}
+.vlink{display:inline-block;font-size:13px;color:var(--accent-dk);margin-top:6px;font-weight:700;text-decoration:none}.vlink:hover{text-decoration:underline}.video:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* ===== 協會品牌強化 ===== */
+.brand{flex-direction:row;align-items:center;gap:10px}
+.brand > span:last-child{display:flex;flex-direction:column;line-height:1.25}
+.brand b{font-size:15px}
+.brand-mark{flex:none;width:34px;height:34px;border-radius:9px;background:var(--gold);color:var(--ink);font-weight:900;font-size:18px;display:grid;place-items:center}
+@media(max-width:420px){.brand b{font-size:13px}.brand small{font-size:10px}}
+.org-bar{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:900;color:var(--ink);background:var(--gold);padding:7px 16px;border-radius:8px;margin-bottom:16px;letter-spacing:.06em}
+.org-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(255,194,75,.45);border-radius:20px;padding:26px;color:#fff;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.org-mark{width:84px;height:84px;border-radius:18px;background:var(--gold);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;line-height:1.2;font-size:15px;margin-bottom:16px}
+.org-card small{display:block;color:var(--gold);font-weight:700;letter-spacing:.12em;font-size:13px}
+.org-card b{display:block;font-size:22px;font-weight:900;margin:2px 0 12px}
+.org-card ul{list-style:none;font-size:15px;color:#ddd}
+.org-card li{padding:6px 0 6px 22px;position:relative;border-top:1px solid rgba(255,255,255,.1)}
+.org-card li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:900}
+.org-teach{margin-top:12px;font-size:13px;color:#aaa}
+.org-line{display:inline-block;margin-top:12px;font-size:14px;font-weight:700;color:var(--gold);text-decoration:none;border-bottom:1px solid currentColor}
+@media(max-width:959px){.org-card{max-width:none}}
+.brand-logo{flex:none;height:34px;width:auto;display:block}
+.foot-logo{height:52px;width:auto;margin-bottom:14px}
+
+/* ===== 報名費用確認 ===== */
+.price-summary small{color:var(--muted)}
+.order-summary{border:2px solid var(--ink);border-radius:16px;padding:18px 20px;margin:4px 0 22px;background:#fff}
+.order-summary .os-empty{color:var(--muted);font-size:14px;text-align:center;padding:8px 0}
+.os-head{font-weight:900;font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.os-head::before{content:"";width:6px;height:18px;background:var(--accent);border-radius:3px}
+.os-row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.os-row span{color:var(--muted);flex:none}
+.os-row b{text-align:right;font-weight:700}
+.os-total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:12px}
+.os-total span{font-weight:900}
+.os-total strong{font-size:32px;font-weight:900;color:var(--accent);line-height:1.1}
+.os-save{text-align:right;font-size:14px;font-weight:700;color:#2e7d32;margin-top:2px}
+.os-note{font-size:13px;color:var(--muted);margin-top:10px}
+.thanks-amt b{color:var(--accent);font-size:20px}
+
+/* ===== 區塊背景圖 ===== */
+.bg-photo{position:relative;background:#121212 var(--bg) no-repeat center/cover;overflow:hidden}
+.bg-photo::before{content:"";position:absolute;inset:0;pointer-events:none}
+.bg-photo > .wrap{position:relative;z-index:1}
+.bg-photo .card{background:rgba(18,18,18,.66);border-color:rgba(255,255,255,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.bg-abilities{background-position:right center}
+.bg-abilities::before{background:linear-gradient(90deg,rgba(10,14,24,.94) 0%,rgba(10,14,24,.8) 45%,rgba(10,14,24,.35) 100%)}
+.bg-resources::before{background:linear-gradient(180deg,rgba(14,12,10,.72) 0%,rgba(14,12,10,.82) 60%,rgba(14,12,10,.92) 100%)}
+.bg-photo .flow span{background:rgba(18,18,18,.7)}
+@media(max-width:719px){.bg-abilities{background-position:72% center}.bg-abilities::before{background:linear-gradient(180deg,rgba(10,14,24,.88),rgba(10,14,24,.78))}}
+
+/* ===== 兩門課視覺區隔：AI 課藍色科技、直播課舞台金橘 ===== */
+.theme-ai{--accent:#2f8cff;--accent-dk:#1c6fd8}
+.theme-ai .hero{background:linear-gradient(90deg,rgba(7,13,28,.96) 0%,rgba(7,13,28,.86) 48%,rgba(7,13,28,.45) 100%),url(../static/bg-ai.jpg) right center/cover no-repeat,#0a1222}
+.theme-ai .btn{box-shadow:0 8px 20px rgba(47,140,255,.35)}
+.theme-ai .btn.ghost{box-shadow:none}
+.theme-ai .pain-list li::before{background:#e1edff}
+.theme-ai .tools i{background:#e8f1ff;color:#1c6fd8}
+.theme-ai .session.ks,.theme-ai .opt:has(input:checked),.theme-ai .price-summary{background:#f0f6ff}
+.theme-ai .test::before{color:#cfe0f7}
+.theme-ai .field input:focus,.theme-ai .field select:focus,.theme-ai .field textarea:focus{box-shadow:0 0 0 3px rgba(47,140,255,.2)}
+.theme-ai .dark{background:#0b1324}
+.theme-ai .dark .card{background:#121d33;border-color:#1f2d4a}
+.theme-ai .signup{background:linear-gradient(180deg,#0b1324 0 260px,var(--paper) 260px)}
+.fig-light img{background:#fff;object-position:center top}
+.theme-live .hero{background:linear-gradient(90deg,rgba(14,11,8,.95) 0%,rgba(14,11,8,.82) 48%,rgba(14,11,8,.45) 100%),url(../static/bg-live.jpg) center/cover no-repeat,#121212}
+@media(max-width:959px){
+ .theme-ai .hero{background:linear-gradient(180deg,rgba(7,13,28,.9),rgba(7,13,28,.82)),url(../static/bg-ai.jpg) 70% center/cover no-repeat,#0a1222}
+ .theme-live .hero{background:linear-gradient(180deg,rgba(14,11,8,.88),rgba(14,11,8,.8)),url(../static/bg-live.jpg) center/cover no-repeat,#121212}
+}
+/* 線上分享會 */
+.talks{display:grid;gap:12px;margin-top:22px}
+@media(min-width:860px){.talks.cols2{grid-template-columns:1fr 1fr}}
+.talk{background:var(--white);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+.talk:hover{border-color:var(--accent);transform:translateY(-2px)}
+.talk b{display:block;font-size:17px}
+.talk span{font-size:14px;color:var(--muted)}
+.talk .flag{flex:none;font-size:12px;font-weight:900;padding:4px 10px;border-radius:999px;background:var(--accent);color:#fff}
+.talk-note{font-size:14px;color:var(--muted);margin-top:14px}
+.talk-points{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.talk-points{grid-template-columns:repeat(3,1fr)}}
+.opt .ttag{display:inline-block;font-size:12px;font-weight:700;background:#fff0ea;color:var(--accent-dk);padding:1px 8px;border-radius:999px;margin-left:6px}
+.talk .tdate{display:block;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:2px}
+.talk b{margin-bottom:2px}
+.opt .ttitle{font-weight:700;color:var(--ink)}
+
+/* 協辦單位 */
+.brand.with-partner{gap:12px}
+.pb-partner{display:flex;flex-direction:column;line-height:1.15}
+.pb-partner small{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.08em}
+.pb-partner b{font-size:22px;font-weight:900;color:#fff}
+.pb-x{font-size:18px;color:#8a8a8a;font-weight:400}
+.brand.with-partner .brand-logo{height:28px}
+.brand.with-partner > span:last-child b{font-size:12px;font-weight:700;color:#d6d6d6}
+.brand.with-partner > span:last-child small{display:none}
+.m-br{display:none}
+.hero-partner{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:rgba(255,194,75,.12);border:1px solid rgba(255,194,75,.55);border-radius:14px;padding:10px 18px;margin:0 0 18px}
+.hero-partner span{font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.08em}
+.hero-partner b{font-size:22px;font-weight:900;color:#fff}
+.hero-partner em{font-style:normal;font-size:14px;color:#e6e6e6}
+@media(max-width:720px){
+  .pb-partner b{font-size:16px;max-width:9.5em}
+  .pb-partner small{font-size:10px}
+  .brand.with-partner{gap:8px}
+  .brand.with-partner .brand-logo{height:24px}
+  .brand.with-partner > span:last-child b{font-size:10.5px;line-height:1.3}
+  .m-br{display:inline}
+  .has-partner .nav .btn{display:none}
+  .hero-partner b{font-size:18px}
+}
+footer.site .foot-partners{margin-top:10px;line-height:1.7}
+footer.site .foot-partners b{display:block}
+
+.teacher.solo{max-width:860px}
+@media(min-width:720px){.teacher.solo{grid-template-columns:300px 1fr;align-items:center;gap:28px}.teacher.solo h3{font-size:24px}.teacher.solo ul{font-size:15px}}
+</style>
+<style>
+body.theme-ai .hero{background:linear-gradient(90deg,rgba(7,13,28,.96) 0%,rgba(7,13,28,.88) 46%,rgba(7,13,28,.55) 100%),url(../../static/bg-ai.jpg) right center/cover no-repeat,#0a1222}
+@media(max-width:959px){body.theme-ai .hero{background:linear-gradient(180deg,rgba(7,13,28,.92),rgba(7,13,28,.84)),url(../../static/bg-ai.jpg) 70% center/cover no-repeat,#0a1222}}
+.hero .org-bar{letter-spacing:.02em;max-width:100%}
+.price-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;max-width:520px}
+.price-pair div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px}
+.price-pair span{display:block;font-size:12px;color:#c5d4ea;letter-spacing:.04em}
+.price-pair b{font-size:18px}
+.take-grid{display:grid;gap:14px;margin-top:26px}
+@media(min-width:860px){.take-grid{grid-template-columns:repeat(3,1fr)}}
+.take-grid .card{height:100%}
+.take-grid .num{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:.08em}
+.deposit-grid{display:grid;gap:16px;margin-top:22px}
+@media(min-width:860px){.deposit-grid{grid-template-columns:1.05fr .95fr;align-items:start}}
+.deposit-points{list-style:none;display:grid;gap:10px}
+.deposit-points li{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px}
+.bank-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:18px 18px 14px;box-shadow:var(--shadow)}
+.bank-card h3{margin-bottom:4px}
+.bank{border:1px solid var(--line);border-radius:12px;padding:2px 12px;margin-top:10px}
+.bank-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.bank-row:last-child{border-bottom:0}
+.bank-row span{width:3em;flex:none;color:var(--muted);font-size:13px}
+.bank-row b{font-size:16px;font-weight:700;letter-spacing:.03em;font-variant-numeric:tabular-nums}
+#bnc-account{user-select:all}
+.bnc-copy{margin-left:auto;border:1.5px solid var(--accent);background:#fff;color:var(--accent-dk);font:inherit;font-size:13px;font-weight:700;border-radius:999px;padding:4px 12px;cursor:pointer}
+.bnc-copy:hover{background:#f0f6ff}
+.fine-line{font-size:13px;color:var(--muted);margin-top:8px}
+#thanks-bnc{background:#f0f6ff;border:1px solid #d5e4f7;border-radius:12px;padding:12px 14px;font-size:14px;text-align:left;margin:0 auto 12px;max-width:520px}
+.series-link{margin-top:22px;text-align:center;font-size:13px}
+.series-link a{color:#9a9a9a}
+</style>
+<script>/* ===== 線上分享會場次（首頁、兩個課程頁、分享會報名頁共用） =====
+   id：場次代碼（報名連結 ?s=代碼 會自動勾選該場）
+   course：ai 或 live
+   start／end：開始與結束時間，過了 end 會自動從頁面與表單隱藏
+   title：分享會主題
+   tag：場次特色標籤（可留空） */
+window.TALKS = {
+  endpoint: "https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec",
+  courses: {
+    ai:   { name: "AI社群獲客變現實戰營", url: "ai/",   info: "高雄場 2027/1/16–17（六、日）正式授課" },
+    live: { name: "KK教母直播實戰二日課", url: "live/", info: "高雄場 2027/3/6–7（六、日）正式授課" }
+  },
+  sessions: [
+    { id: "ai-1119",   course: "ai",   date: "2026/11/19（四）", time: "19:30–20:30", start: "2026-11-19T19:30:00", end: "2026-11-19T20:30:00", tag: "" , title: "2027 社群獲客新玩法：讓 AI 幫你把粉絲變客戶" },
+    { id: "ai-1125",   course: "ai",   date: "2026/11/25（三）", time: "19:30–20:30", start: "2026-11-25T19:30:00", end: "2026-11-25T20:30:00", tag: "" , title: "一支手機加 AI，現場做完一週社群內容" },
+    { id: "ai-1215",   course: "ai",   date: "2026/12/15（二）", time: "14:30–15:30", start: "2026-12-15T14:30:00", end: "2026-12-15T15:30:00", tag: "下午場・老闆專場" , title: "店家老闆、企業主專場：社群獲客怎麼直接帶來生意" },
+    { id: "live-0107", course: "live", date: "2027/1/7（四）",   time: "19:30–20:30", start: "2027-01-07T19:30:00", end: "2027-01-07T20:30:00", tag: "" , title: "不是網紅也能開播：直播帶貨入門" },
+    { id: "live-0120", course: "live", date: "2027/1/20（三）",  time: "19:30–20:30", start: "2027-01-20T19:30:00", end: "2027-01-20T20:30:00", tag: "學員心得分享" , title: "從獲客到成交，直播是最後一哩路" },
+    { id: "live-0218", course: "live", date: "2027/2/18（四）",  time: "19:30–20:30", start: "2027-02-18T19:30:00", end: "2027-02-18T20:30:00", tag: "年後開工場" , title: "開工第一課：今年用直播把業績做起來" }
+  ]
+};
+</script>
+</head>
+<body class="theme-ai">
+
+<nav class="nav" aria-label="主選單">
+  <div class="wrap">
+    <a class="brand" href="../../"><img class="brand-logo" src="../../static/logo-mark.svg" alt="" width="32" height="34"><span><b>BNC × KK 老師</b><small>11/19 線上分享</small></span></a>
+    <ul>
+      <li><a href="#takeaways">你會帶走什麼</a></li>
+      <li><a href="#deposit">定金說明</a></li>
+      <li><a href="#faq">常見問題</a></li>
+    </ul>
+    <a class="btn" href="#signup">報名 11/19</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="org-bar">主辦｜BNC（建橋雲智・國際人脈商業團隊）× KK 老師</p>
+      <div class="tag">
+        <span class="chip hot">11/19（四）19:30–20:30</span>
+        <span class="chip">線上騰訊會議</span>
+        <span class="chip">BNC 會員免繳定金</span>
+      </div>
+      <h1>2027 社群獲客新玩法<br><em>讓 AI 幫你把粉絲變客戶</em></h1>
+      <p class="sub">這一場是 BNC「OPC 線上小聚」與 KK 老師合辦的線上分享。BNC 會員免繳定金，免費參加；非會員請繳 NT$300 定金，繳款後報名才算完成。</p>
+      <div class="price-pair">
+        <div><span>BNC 會員</span><b>免繳定金</b></div>
+        <div><span>非會員</span><b>定金 NT$300</b></div>
+      </div>
+      <div class="cta-row"><a class="btn" href="#signup">報名 11/19</a></div>
+    </div>
+    <div class="hero-visual"><figure><img src="../../static/teacher-kk-ai.jpg" alt="KK 老師" width="720" height="900"><figcaption>KK 老師</figcaption></figure></div>
+  </div>
+</header>
+
+<section id="invite" class="hidden" hidden>
+  <div class="wrap">
+    <span class="eyebrow">Invitation</span>
+    <h2>邀請短片</h2>
+    <div class="video" id="invite-frame"></div>
+  </div>
+</section>
+
+<section id="takeaways">
+  <div class="wrap">
+    <span class="eyebrow">What you take</span>
+    <h2>你會帶走什麼</h2>
+    <p class="lead">整理自 KK 老師現有課程頁，以及分享會頁對這一場的介紹。</p>
+    <div class="take-grid">
+      <article class="card"><div class="num">01</div><h3>粉絲怎麼接到客戶</h3><p>現有課程頁的說明是：一支手機加上 AI，從定位、短影音、社群經營到私域名單。這場會沿著講題，把這條路徑說清楚。</p></article>
+      <article class="card"><div class="num">02</div><h3>兩天課的內容重點</h3><p>課程頁寫的是：第一天建立自己的 AI 內容團隊，第二天把內容接到商品與生意。分享會會講這些重點，以及學完能帶走的實際做法。</p></article>
+      <article class="card"><div class="num">03</div><h3>適不適合、高雄場怎麼報</h3><p>分享會頁寫的是：說明適合哪些人、需要準備什麼。高雄場的上課日期、早鳥與會員價格、團體報名方式，也會一次說清楚。現場可以提問。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="deposit" style="background:#fff">
+  <div class="wrap">
+    <span class="eyebrow">Deposit</span>
+    <h2>定金說明</h2>
+    <div class="deposit-grid">
+      <ul class="deposit-points">
+        <li>BNC 會員免繳定金，免費參加。</li>
+        <li>非會員請繳 NT$300 定金，繳款後報名才算完成。</li>
+        <li>定金繳了就不退，事前取消也不退。只有在主辦方取消活動時，才全額退還。</li>
+        <li>出席的定義：在線上會議停留 30 分鐘以上。</li>
+        <li>出席的人，定金可以折抵 BNC 會費或課程費用，折抵期限到 2027/3/5。</li>
+        <li>會議平台是騰訊會議，連結會在報名完成後另外通知。</li>
+        <li>個資與問題請寫信至 <a href="mailto:edjumptw@gmail.com">edjumptw@gmail.com</a>。</li>
+      </ul>
+      <div class="bank-card">
+        <h3>匯款帳戶</h3>
+        <p class="fine-line">匯款後請填寫或告知帳號後五碼。</p>
+        <div class="bank">
+          <div class="bank-row"><span>銀行</span><b>玉山銀行（808）台大分行</b></div>
+          <div class="bank-row"><span>帳號</span><b id="bnc-account">0624-940-202740</b><button type="button" class="bnc-copy" id="bnc-copy">複製帳號</button></div>
+          <div class="bank-row"><span>戶名</span><b>國際人脈商業有限公司</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">FAQ</span><h2>常見問題</h2></div>
+    <div class="faq">
+      <details><summary>BNC 會員要繳定金嗎？</summary><div>不用。BNC 會員免繳定金，免費參加。</div></details>
+      <details><summary>非會員怎樣才算完成報名？</summary><div>請先匯款 NT$300 定金。匯款後在報名表填寫帳號後五碼，或來信告知。繳款後，報名才算完成。</div></details>
+      <details><summary>定金可以退嗎？</summary><div>繳了就不退，事前取消也不退。只有在主辦方取消活動時，才全額退還。</div></details>
+      <details><summary>怎樣算出席？定金可以折抵什麼？</summary><div>在線上會議停留 30 分鐘以上，即為出席。出席的人，定金可以折抵 BNC 會費或課程費用，折抵期限到 2027/3/5。</div></details>
+      <details><summary>會議在哪個平台？連結何時通知？</summary><div>騰訊會議。連結會在報名完成後另外通知。</div></details>
+      <details><summary>個資或活動問題要聯絡誰？</summary><div>請寫信至 edjumptw@gmail.com。</div></details>
+    </div>
+    <div class="cta-row" style="justify-content:center"><a class="btn" href="#signup">報名 11/19</a></div>
+  </div>
+</section>
+
+<section id="signup" class="signup">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Registration</span>
+      <h2>報名 11/19</h2>
+      <p class="lead">只報這一場。BNC 會員免繳定金。非會員請繳 NT$300 定金，繳款後報名才算完成。騰訊會議連結會在報名完成後另外通知。</p>
+    </div>
+    <div class="form-card">
+      <form id="talk-form" novalidate>
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+        <fieldset class="fset">
+          <legend>報名資料</legend>
+          <div class="row two">
+            <div class="field"><label for="t-name">姓名 <span class="req">*</span></label>
+              <input id="t-name" name="name" autocomplete="name" required placeholder="請填寫真實姓名">
+              <span class="err">請填寫姓名</span></div>
+            <div class="field"><label for="t-mobile">手機 <span class="req">*</span></label>
+              <input id="t-mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" required placeholder="0912345678">
+              <span class="err">請填寫 09 開頭的 10 碼手機號碼</span></div>
+          </div>
+          <div class="field"><label for="t-email">Email <span class="req">*</span></label>
+            <input id="t-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com">
+            <span class="err">請填寫正確的 Email</span></div>
+          <div class="field" id="bnc-member-field">
+            <span class="lbl">是否為 BNC 會員 <span class="req">*</span></span>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="bncMember" value="是"><span>是，BNC 會員（免繳定金）</span></label>
+              <label class="opt"><input type="radio" name="bncMember" value="否"><span>否，非會員（請先繳 NT$300 定金）</span></label>
+            </div>
+            <span class="err">請選擇是否為 BNC 會員</span>
+          </div>
+          <div class="field hidden" id="bnc-last5">
+            <label for="t-last5">匯款帳號後五碼</label>
+            <input id="t-last5" name="transferLast5" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="匯款後填寫 5 碼數字">
+            <span class="hint">匯款後請填寫。若改以 Email 告知 edjumptw@gmail.com，此欄可先留空。</span>
+            <span class="err">請填寫 5 碼數字</span>
+          </div>
+          <div class="field"><label for="t-source">從哪裡知道這場活動</label>
+            <select id="t-source" name="source">
+              <option value="">請選擇</option>
+              <option>Threads</option><option>X</option><option>FB</option><option>IG</option>
+              <option>YouTube</option><option>Podcast</option><option>EDM</option>
+              <option>LINE 群</option><option>微信群</option><option>BNC 會員群</option>
+              <option>協會群</option><option>朋友介紹</option><option>其他</option>
+            </select>
+          </div>
+        </fieldset>
+        <div class="privacy" id="privacy" tabindex="0">
+          <h4>個人資料蒐集告知事項</h4>
+          <p>本表用於 11/19 線上分享會報名，依《個人資料保護法》第 8 條告知下列事項：</p>
+          <ol>
+            <li>蒐集目的：報名、身分確認、定金核對、騰訊會議連結通知，以及活動聯絡。</li>
+            <li>個人資料類別：姓名、手機、Email、是否為 BNC 會員、匯款帳號後五碼、得知管道，以及你於本表填寫的其他內容。</li>
+            <li>利用期間與地區：自蒐集日起至蒐集目的消失為止；中華民國境內，以及報名系統使用之雲端服務所在地。</li>
+            <li>利用對象與方式：活動主辦單位；資料由現有報名系統代收。以電子文件、Email 或你留下的聯絡方式利用。</li>
+            <li>你的權利：你可請求查詢、閱覽、補充、更正、停止蒐集處理利用或刪除你的個人資料。聯絡信箱：edjumptw@gmail.com。</li>
+            <li>不提供之影響：若未提供必填欄位，將無法完成報名與會前通知。</li>
+          </ol>
+        </div>
+        <div class="field">
+          <label class="agree"><input type="checkbox" name="privacyAgree" value="同意" required><span>我已閱讀並同意上述個人資料蒐集告知事項。 <span class="req">*</span></span></label>
+        </div>
+        <div class="field" id="deposit-agree-field">
+          <label class="agree"><input type="checkbox" name="depositAgree" value="同意" required><span>我已閱讀並同意定金規則 <span class="req">*</span></span></label>
+          <span class="err">請勾選已閱讀並同意定金規則</span>
+        </div>
+        <p id="form-msg" class="hidden" style="background:#fdecea;color:#b71c1c;padding:12px 14px;border-radius:10px;font-size:14px;margin-bottom:12px"></p>
+        <button id="talk-btn" class="btn block" type="submit">送出報名</button>
+      </form>
+      <div id="thanks" class="thanks hidden" role="status" aria-live="polite">
+        <div class="ok">✓</div>
+        <h3><span id="thanks-lead">報名完成，謝謝你，</span><span id="thanks-name"></span>！</h3>
+        <p id="thanks-bnc" class="hidden"></p>
+        <ol id="thanks-steps">
+          <li>騰訊會議連結會在報名完成後另外通知。</li>
+          <li>個資與問題請寫信至 edjumptw@gmail.com。</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <b>主辦</b>
+        <p style="margin-top:8px">BNC（建橋雲智・國際人脈商業團隊）× KK 老師</p>
+      </div>
+      <div>
+        <b>聯絡</b>
+        <p style="margin-top:8px">個資與問題：<a href="mailto:edjumptw@gmail.com">edjumptw@gmail.com</a></p>
+      </div>
+      <div>
+        <b>這一場</b>
+        <p style="margin-top:8px">11/19（四）19:30–20:30<br>線上騰訊會議</p>
+      </div>
+    </div>
+    <p class="series-link"><a href="../">查看 KK 老師全系列分享會</a></p>
+    <div class="copy">© 2026 BNC × KK 老師</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var T = window.TALKS || {};
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var q = new URLSearchParams(location.search);
+  var form = $('#talk-form');
+  var INVITE_VIDEO = '';
+  if(INVITE_VIDEO){
+    var sec = $('#invite');
+    sec.hidden = false;
+    sec.classList.remove('hidden');
+    var frame = $('#invite-frame');
+    frame.classList.add('on');
+    var iframe = document.createElement('iframe');
+    iframe.src = INVITE_VIDEO;
+    iframe.title = '邀請短片';
+    iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen','');
+    frame.appendChild(iframe);
+  }
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+    var h = form.querySelector('input[name="'+k+'"]');
+    if(h) h.value = q.get(k)||'';
+  });
+  var rules = {
+    name: function(v){return v.trim().length>=2},
+    mobile: function(v){return /^09\d{8}$/.test(v.replace(/[\s-]/g,''))},
+    email: function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())},
+    transferLast5: function(v){return /^\d{5}$/.test(v.trim())}
+  };
+  var memberChecked = function(){ return form.querySelector('input[name="bncMember"]:checked'); };
+  var syncMember = function(){
+    var nonMember = !!(memberChecked() && memberChecked().value==='否');
+    var last5 = $('#bnc-last5');
+    if(last5){
+      last5.classList.toggle('hidden', !nonMember);
+      if(!nonMember) last5.classList.remove('invalid');
+    }
+    var input = form.querySelector('[name="transferLast5"]');
+    if(input) input.disabled = !nonMember;
+    $$('input[name="bncMember"]', form).forEach(function(el){ el.required = true; });
+  };
+  var copyBtn = $('#bnc-copy');
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var text = '0624-940-202740';
+      var doneCopy = function(){ copyBtn.textContent='已複製'; setTimeout(function(){ copyBtn.textContent='複製帳號'; }, 1600); };
+      var fallback = function(){
+        var ta=document.createElement('textarea'); ta.value=text; ta.setAttribute('readonly','');
+        ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); doneCopy(); }catch(err){ copyBtn.textContent='請手動複製'; }
+        ta.remove();
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(doneCopy).catch(fallback);
+      else fallback();
+    });
+  }
+  $$('input[name="bncMember"]', form).forEach(function(el){
+    el.addEventListener('change', function(){ $('#bnc-member-field').classList.remove('invalid'); syncMember(); });
+  });
+  var depositAgree = form.querySelector('input[name="depositAgree"]');
+  if(depositAgree){
+    depositAgree.addEventListener('change', function(){
+      var box = $('#deposit-agree-field');
+      if(box && depositAgree.checked) box.classList.remove('invalid');
+    });
+  }
+  syncMember();
+  var check = function(el){
+    var f = el.closest('.field'); if(!f) return true;
+    var ok = el.checkValidity();
+    if(ok && rules[el.name] && (el.required || el.value)) ok = rules[el.name](el.value);
+    f.classList.toggle('invalid', !ok); return ok;
+  };
+  $$('input,select,textarea', form).forEach(function(el){
+    if(el.type!=='checkbox' && el.type!=='hidden' && el.type!=='radio') el.addEventListener('blur', function(){ check(el); });
+  });
+  var msg = function(t){ var b=$('#form-msg'); b.textContent=t; b.classList.remove('hidden'); setTimeout(function(){b.classList.add('hidden')},6000); };
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    syncMember();
+    var ok = true, first = null;
+    ['name','mobile','email'].forEach(function(n){ var el=form.querySelector('[name="'+n+'"]'); if(!check(el)){ ok=false; if(!first) first=el; } });
+    var picked = memberChecked();
+    $('#bnc-member-field').classList.toggle('invalid', !picked);
+    if(!picked){ ok=false; if(!first) first=$('#bnc-member-field'); }
+    var last5 = form.querySelector('[name="transferLast5"]');
+    if(last5 && !last5.disabled && !check(last5)){ ok=false; if(!first) first=last5; }
+    var pa = form.querySelector('input[name="privacyAgree"]');
+    if(!pa.checked){ ok=false; if(!first) first=pa; }
+    var da = form.querySelector('input[name="depositAgree"]');
+    var daField = $('#deposit-agree-field');
+    if(daField) daField.classList.toggle('invalid', !(da && da.checked));
+    if(!da || !da.checked){ ok=false; if(!first) first=da; }
+    if(!ok){ msg('請檢查標示紅字的欄位，並勾選定金規則與個資同意。'); var target=first && (first.closest('.field')||first); if(target && target.scrollIntoView) target.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    var btn = $('#talk-btn'); btn.disabled = true; btn.textContent = '送出中…';
+    var fd = new FormData(form);
+    var isMember = fd.get('bncMember')==='是';
+    var heard = String(fd.get('source')||'');
+    var digits = String(fd.get('transferLast5')||'');
+    fd.set('bncSource', heard);
+    fd.append('course', '線上分享會');
+    fd.append('session', '2026/11/19（四）19:30–20:30｜2027 社群獲客新玩法：讓 AI 幫你把粉絲變客戶｜BNC × KK');
+    fd.append('plan', '11/19 單場');
+    fd.append('priceApplied', isMember ? 'BNC 會員免繳定金' : '非會員定金 NT$300');
+    fd.append('submittedAt', new Date().toLocaleString('zh-TW',{hour12:false}));
+    fd.append('page', location.href);
+    var utmLine = ['utm_source','utm_medium','utm_campaign','utm_content'].map(function(k){
+      return k+'='+(fd.get(k)||'');
+    }).join('；');
+    var line = '【11/19】是否為 BNC 會員：'+(isMember?'是':'否')
+      +'；匯款帳號後五碼：'+(isMember?'免付':(digits||'未填，將另行告知'))
+      +'；從哪裡知道：'+(heard||'未填')
+      +'；已閱讀並同意定金規則：'+(fd.get('depositAgree')==='同意'?'是':'否')
+      +'\n【UTM】'+utmLine;
+    fd.set('note', line);
+    var done = function(){
+      form.classList.add('hidden');
+      $('#thanks-name').textContent = fd.get('name');
+      var bncNote = $('#thanks-bnc');
+      if(!isMember){
+        $('#thanks-lead').textContent = '資料已送出，謝謝你，';
+        bncNote.textContent = '請先完成 NT$300 定金匯款，繳款後報名才算完成。定金繳了就不退，事前取消也不退；只有主辦方取消活動時才全額退還。出席是指在線上會議停留 30 分鐘以上。出席的人，定金可以折抵 BNC 會費或課程費用，折抵期限到 2027/3/5。';
+        $('#thanks-steps').innerHTML = '<li>匯款帳戶：玉山銀行（808）台大分行，帳號 0624-940-202740，戶名 國際人脈商業有限公司。</li>'
+          +'<li>匯款後請填寫或告知帳號後五碼。個資與問題請寫信至 edjumptw@gmail.com。</li>'
+          +'<li>會議平台是騰訊會議，連結會在報名完成後另外通知。</li>';
+      }else{
+        bncNote.textContent = '你以 BNC 會員身分參加，免繳定金。會議平台是騰訊會議，連結會在報名完成後另外通知。';
+      }
+      bncNote.classList.remove('hidden');
+      $('#thanks').classList.remove('hidden');
+      $('#thanks').scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    if(!T.endpoint){ setTimeout(done,400); return; }
+    fetch(T.endpoint,{method:'POST',mode:'no-cors',body:new URLSearchParams(fd)})
+      .then(done)
+      .catch(function(){ btn.disabled=false; btn.textContent='送出報名'; msg('網路連線異常，請稍後再試，或寫信至 edjumptw@gmail.com。'); });
+  });
+})();
+</script>
+</body>
+</html>
