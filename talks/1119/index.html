@@ -463,6 +463,22 @@ window.TALKS = {
   ]
 };
 </script>
+<script>/* ===== 協辦推廣協會（首頁、兩個課程頁、分享會報名頁共用） =====
+   code：協會代碼，用在專屬網址，只能用英文小寫、數字、減號，例：kh-ia
+         專屬網址會變成 https://edjumptw.github.io/kma-kk/p/代碼/
+   name：協會全名（顯示在頁面上方「協辦單位」與報名表下拉選單）
+   active：true 才會出現在下拉選單、產生專屬網址；名稱未確認前請保持 false
+   新增協會：照格式多加一行，改完執行 python3 src/build.py */
+window.PARTNERS = {
+  list: [
+    { code: "muyang",  name: "沐氧國際美學協會", active: true },
+    { code: "hook",    name: "新竹縣社群自媒體職業工會", active: true },
+    { code: "khchair", name: "高雄市理事長協進會", active: true },
+    { code: "kingdom", name: "社團法人天國行在地上促進會", active: true },
+    { code: "lohas",   name: "社團法人高雄市創意樂活協會", active: true }
+  ]
+};
+</script>
 </head>
 <body class="theme-ai">
 
@@ -556,7 +572,7 @@ window.TALKS = {
       <details><summary>定金可以退嗎？</summary><div>繳了就不退，事前取消也不退。只有在主辦方取消活動時，才全額退還。</div></details>
       <details><summary>怎樣算出席？定金可以折抵什麼？</summary><div>在線上會議停留 30 分鐘以上，即為出席。出席的人，定金可以折抵 BNC 會費或課程費用，折抵期限到 2027/3/5。</div></details>
       <details><summary>會議在哪個平台？連結何時通知？</summary><div>騰訊會議。連結會在報名完成後另外通知。</div></details>
-      <details><summary>個資或活動問題要聯絡誰？</summary><div>請寫信至 edjumptw@gmail.com。</div></details>
+      <details><summary>個資或活動問題要聯絡誰？</summary><div>請寫信至 edjumptw@gmail.com，或加入協會 LINE 官方帳號 <a href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener">@bin1641t</a>。</div></details>
     </div>
     <div class="cta-row" style="justify-content:center"><a class="btn" href="#signup">報名 11/19</a></div>
   </div>
@@ -571,7 +587,7 @@ window.TALKS = {
     </div>
     <div class="form-card">
       <form id="talk-form" novalidate>
-        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content">
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="ref">
         <fieldset class="fset">
           <legend>報名資料</legend>
           <div class="row two">
@@ -609,6 +625,20 @@ window.TALKS = {
             </select>
           </div>
         </fieldset>
+        <fieldset class="fset" id="referrer-set">
+          <legend>推薦人</legend>
+          <p class="hint" style="font-size:13px;color:var(--muted);margin:-4px 0 10px">如果是協辦協會、朋友或會員邀請你來，請選擇推薦單位或填寫推薦人。</p>
+          <div class="field partner-field"><label for="t-partner">推薦單位（協辦協會）</label>
+            <select id="t-partner"><option value="">無，自行報名</option><option value="其他">其他單位</option></select>
+            <input type="hidden" name="partnerOrg">
+            <div class="partner-other hidden" style="margin-top:8px"><input aria-label="其他單位名稱" placeholder="請填寫單位名稱"></div></div>
+          <div class="row two">
+            <div class="field"><label for="t-referrer">推薦人姓名</label>
+              <input id="t-referrer" name="referrer" placeholder="選填，例：王小明"></div>
+            <div class="field"><label for="t-referrer-phone">推薦人手機或推薦碼</label>
+              <input id="t-referrer-phone" name="referrerContact" placeholder="選填，同名時協助辨識"></div>
+          </div>
+        </fieldset>
         <div class="privacy" id="privacy" tabindex="0">
           <h4>個人資料蒐集告知事項</h4>
           <p>本表用於 11/19 線上分享會報名，依《個人資料保護法》第 8 條告知下列事項：</p>
@@ -616,7 +646,7 @@ window.TALKS = {
             <li>蒐集目的：報名、身分確認、定金核對、騰訊會議連結通知，以及活動聯絡。</li>
             <li>個人資料類別：姓名、手機、Email、是否為 BNC 會員、匯款帳號後五碼、得知管道，以及你於本表填寫的其他內容。</li>
             <li>利用期間與地區：自蒐集日起至蒐集目的消失為止；中華民國境內，以及報名系統使用之雲端服務所在地。</li>
-            <li>利用對象與方式：活動主辦單位；資料由現有報名系統代收。以電子文件、Email 或你留下的聯絡方式利用。</li>
+            <li>利用對象與方式：活動主辦單位；若你選填推薦單位或推薦人，活動主辦單位將提供你的姓名及報名場次予該推薦單位或推薦人，用於核對推廣成果。資料由現有報名系統代收。以電子文件、Email 或你留下的聯絡方式利用。</li>
             <li>你的權利：你可請求查詢、閱覽、補充、更正、停止蒐集處理利用或刪除你的個人資料。聯絡信箱：edjumptw@gmail.com。</li>
             <li>不提供之影響：若未提供必填欄位，將無法完成報名與會前通知。</li>
           </ol>
@@ -638,7 +668,9 @@ window.TALKS = {
         <ol id="thanks-steps">
           <li>騰訊會議連結會在報名完成後另外通知。</li>
           <li>個資與問題請寫信至 edjumptw@gmail.com。</li>
+          <li>請加入協會 LINE 官方帳號 @bin1641t，傳訊息告訴我們你的姓名，方便我們聯繫你、確認繳費。</li>
         </ol>
+        <a class="btn ghost" href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener" style="color:var(--accent)">加入協會 LINE 官方帳號</a>
       </div>
     </div>
   </div>
@@ -653,7 +685,7 @@ window.TALKS = {
       </div>
       <div>
         <b>聯絡</b>
-        <p style="margin-top:8px">個資與問題：<a href="mailto:edjumptw@gmail.com">edjumptw@gmail.com</a></p>
+        <p style="margin-top:8px">個資與問題：<a href="mailto:edjumptw@gmail.com">edjumptw@gmail.com</a><br>LINE 官方帳號：<a href="https://line.me/R/ti/p/%40bin1641t" target="_blank" rel="noopener">@bin1641t</a></p>
       </div>
       <div>
         <b>這一場</b>
@@ -686,10 +718,12 @@ window.TALKS = {
     iframe.setAttribute('allowfullscreen','');
     frame.appendChild(iframe);
   }
-  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+  ['utm_source','utm_medium','utm_campaign','utm_content','ref'].forEach(function(k){
     var h = form.querySelector('input[name="'+k+'"]');
     if(h) h.value = q.get(k)||'';
   });
+  if(q.get('ref') && $('#t-referrer') && !$('#t-referrer').value) $('#t-referrer').value=q.get('ref');
+  if(q.get('refc') && $('#t-referrer-phone') && !$('#t-referrer-phone').value) $('#t-referrer-phone').value=q.get('refc');
   var rules = {
     name: function(v){return v.trim().length>=2},
     mobile: function(v){return /^09\d{8}$/.test(v.replace(/[\s-]/g,''))},
@@ -779,6 +813,9 @@ window.TALKS = {
     var line = '【11/19】是否為 BNC 會員：'+(isMember?'是':'否')
       +'；匯款帳號後五碼：'+(isMember?'免付':(digits||'未填，將另行告知'))
       +'；從哪裡知道：'+(heard||'未填')
+      +'；推薦單位：'+(fd.get('partnerOrg')||'未填')
+      +'；推薦人：'+(fd.get('referrer')||'未填')
+      +'；推薦人手機或推薦碼：'+(fd.get('referrerContact')||'未填')
       +'；已閱讀並同意定金規則：'+(fd.get('depositAgree')==='同意'?'是':'否')
       +'\n【UTM】'+utmLine;
     fd.set('note', line);
@@ -791,7 +828,8 @@ window.TALKS = {
         bncNote.textContent = '請先完成 NT$300 定金匯款，繳款後報名才算完成。定金繳了就不退，事前取消也不退；只有主辦方取消活動時才全額退還。出席是指在線上會議停留 30 分鐘以上。出席的人，定金可以折抵 BNC 會費或課程費用，折抵期限到 2027/3/5。';
         $('#thanks-steps').innerHTML = '<li>匯款帳戶：玉山銀行（808）台大分行，帳號 0624-940-202740，戶名 國際人脈商業有限公司。</li>'
           +'<li>匯款後請填寫或告知帳號後五碼。個資與問題請寫信至 edjumptw@gmail.com。</li>'
-          +'<li>會議平台是騰訊會議，連結會在報名完成後另外通知。</li>';
+          +'<li>會議平台是騰訊會議，連結會在報名完成後另外通知。</li>'
+          +'<li>請加入協會 LINE 官方帳號 @bin1641t，傳訊息告訴我們你的姓名，方便我們聯繫你、確認繳費。</li>';
       }else{
         bncNote.textContent = '你以 BNC 會員身分參加，免繳定金。會議平台是騰訊會議，連結會在報名完成後另外通知。';
       }
@@ -803,6 +841,77 @@ window.TALKS = {
     fetch(T.endpoint,{method:'POST',mode:'no-cors',body:new URLSearchParams(fd)})
       .then(done)
       .catch(function(){ btn.disabled=false; btn.textContent='送出報名'; msg('網路連線異常，請稍後再試，或寫信至 edjumptw@gmail.com。'); });
+  });
+})();
+</script>
+<script>/* 協辦協會：專屬網址（?org=代碼）顯示協辦單位、站內連結自動帶代碼、報名表「推薦單位」下拉選單自動帶入 */
+(function(){
+  var P = (window.PARTNERS && window.PARTNERS.list || []).filter(function(p){ return p.active; });
+  var byCode = {}; P.forEach(function(p){ byCode[p.code] = p; });
+  var q = new URLSearchParams(location.search);
+  var code = q.get('org') || '';
+  try {
+    if(code && byCode[code]) sessionStorage.setItem('tma_org', code);
+    else if(!code) code = sessionStorage.getItem('tma_org') || '';
+  } catch(e){}
+  var org = byCode[code] || null;
+
+  // 下拉選單（課程報名表與分享會報名表）
+  Array.prototype.forEach.call(document.querySelectorAll('.partner-field'), function(box){
+    var sel = box.querySelector('select'), hid = box.querySelector('input[type="hidden"]'),
+        otherWrap = box.querySelector('.partner-other'), other = otherWrap && otherWrap.querySelector('input');
+    if(!P.length){ box.classList.add('hidden'); return; }
+    P.forEach(function(p){ var o = document.createElement('option'); o.value = p.name; o.textContent = p.name; sel.insertBefore(o, sel.lastElementChild); });
+    if(org) sel.value = org.name;
+    var form = box.closest('form');
+    var sync = function(){
+      var v = sel.value;
+      if(otherWrap) otherWrap.classList.toggle('hidden', v !== '其他');
+      hid.value = v === '其他' ? ('其他' + (other && other.value.trim() ? '：' + other.value.trim() : '')) : v;
+      // 試算表尚未更新欄位前的備援：來源欄沒有值時，記在 utm_source
+      var u = form && form.querySelector('input[name="utm_source"]');
+      if(u && !q.get('utm_source')) u.value = hid.value ? '推薦單位-' + hid.value : '';
+    };
+    sel.addEventListener('change', sync); if(other) other.addEventListener('input', sync); sync();
+  });
+
+  // 頁尾列出全部協辦單位
+  Array.prototype.forEach.call(document.querySelectorAll('.foot-partners'), function(el){
+    if(!P.length) return;
+    el.innerHTML = '<b>協辦單位</b><span></span>';
+    el.querySelector('span').textContent = P.map(function(p){ return p.name; }).join('、');
+    el.classList.remove('hidden');
+  });
+
+  if(!org) return;
+  // 最上方導覽列：協辦單位放前面當主角，主辦協會放後面
+  document.body.classList.add('has-partner');
+  if(document.querySelector('.mbar')) document.body.classList.add('has-mbar');
+  var brand = document.querySelector('.nav .brand');
+  if(brand){
+    brand.classList.add('with-partner');
+    var host = brand.querySelector('span:last-child b');
+    if(host) host.innerHTML = '社團法人<br class="m-br">高雄市行銷人協會';
+    var pb = document.createElement('span'); pb.className = 'pb-partner';
+    pb.innerHTML = '<small>協辦單位</small><b></b>'; pb.querySelector('b').textContent = org.name;
+    var x = document.createElement('span'); x.className = 'pb-x'; x.textContent = '×';
+    brand.insertBefore(x, brand.firstChild); brand.insertBefore(pb, brand.firstChild);
+  }
+  // 首屏標題上方：協辦單位會員專屬
+  var h1 = document.querySelector('.hero h1');
+  if(h1){
+    var hp = document.createElement('p'); hp.className = 'hero-partner';
+    hp.innerHTML = '<span>協辦單位</span><b></b><em>會員一律早鳥價</em>';
+    hp.querySelector('b').textContent = org.name;
+    h1.parentNode.insertBefore(hp, h1);
+  }
+  document.title = org.name + ' × ' + document.title;
+  // 站內連結自動帶協會代碼，學員換頁後仍記得從哪個協會進來
+  Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function(a){
+    var h = a.getAttribute('href');
+    if(!h || /^(#|https?:|mailto:|tel:|javascript:)/i.test(h) || /[?&]org=/.test(h)) return;
+    var hash = '', i = h.indexOf('#'); if(i >= 0){ hash = h.slice(i); h = h.slice(0, i); }
+    a.setAttribute('href', h + (h.indexOf('?') >= 0 ? '&' : '?') + 'org=' + encodeURIComponent(org.code) + hash);
   });
 })();
 </script>
