@@ -47,3 +47,11 @@ for p in plist:
 </head><body><p><a href="{dest}">前往課程報名頁</a></p></body></html>
 """
     d=out/'p'/p['code']; d.mkdir(parents=True, exist_ok=True); (d/'index.html').write_text(page); print(d)
+
+# 同桌專屬實戰乾貨包（密碼保護頁：gift/index.html）
+if (s/'gift.html').exists():
+    h_gift = (s/'gift.html').read_text()
+    d_gift = out/'gift'
+    d_gift.mkdir(parents=True, exist_ok=True)
+    (d_gift/'index.html').write_text(h_gift)
+    print(d_gift, len(h_gift))
