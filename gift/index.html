@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>陳執董的商業社群｜同桌專屬實戰乾貨包</title>
+<meta name="description" content="陳執董的商業社群同桌專屬兩大實戰乾貨包：商務社團 3 句破冰與 72 小時跟進清單、一人公司 1 位 AI 董秘＋4 個 AI 部門實戰配置清單。">
+<meta property="og:title" content="陳執董的商業社群｜同桌專屬實戰乾貨包">
+<meta property="og:description" content="請輸入 LINE 社群「置頂記事本」內的同桌專屬通關密碼以解鎖完整內容。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://edjumptw.github.io/kma-kk/static/og-ai.jpg">
+<link rel="icon" type="image/png" href="../static/favicon.png">
+<meta name="theme-color" content="#0d0f14">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0b0d12;
+  --bg-card: #141821;
+  --bg-card-alt: #1a1f2c;
+  --bg-paper: #f6f5f2;
+  --ink: #14161d;
+  --ink-muted: #5a6072;
+  --text-light: #f3f1ec;
+  --text-dim: #a8adbb;
+  --gold: #d4af37;
+  --gold-light: #f0d57b;
+  --gold-dark: #aa851c;
+  --accent: #e05a2b;
+  --border-gold: rgba(212, 175, 55, 0.28);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --radius: 16px;
+  --max: 980px;
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Sans TC", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: radial-gradient(900px 480px at 80% -10%, rgba(212, 175, 55, 0.16), transparent 65%),
+              radial-gradient(700px 420px at 10% 15%, rgba(224, 90, 43, 0.12), transparent 60%),
+              var(--bg-deep);
+  color: var(--text-light);
+  line-height: 1.78;
+  font-size: 16px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+/* Top Navigation */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(11, 13, 18, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+  gap: 12px;
+}
+.brand-title {
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--gold-light);
+}
+.brand-sub {
+  font-size: 12px;
+  color: var(--text-dim);
+  display: block;
+}
+.top-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-gold);
+  transition: background 0.2s, color 0.2s;
+}
+.top-link:hover {
+  background: rgba(212, 175, 55, 0.15);
+}
+
+/* Lock Screen */
+.lock-screen {
+  min-height: calc(100vh - 62px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+.lock-card {
+  width: 100%;
+  max-width: 560px;
+  background: linear-gradient(165deg, #171b26 0%, #10131b 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 40px 32px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.badge-gold {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+.lock-card h1 {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 900;
+  line-height: 1.35;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.lock-sub {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+.lock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pwd-input {
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pwd-input:focus {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+.pwd-input::placeholder {
+  color: #7c8294;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px 24px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #111318;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.28);
+  transition: transform 0.15s, filter 0.15s;
+  font-family: inherit;
+}
+.btn-gold:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.08);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.18);
+  transform: translateY(-1px);
+}
+.error-msg {
+  display: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff8066;
+  background: rgba(224, 90, 43, 0.14);
+  border: 1px solid rgba(224, 90, 43, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+.helper-box {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-subtle);
+}
+.helper-link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  line-height: 1.6;
+}
+.helper-link:hover {
+  color: #ffffff;
+}
+
+/* Unlocked Content Area */
+.unlocked-content {
+  display: none;
+  padding: 48px 0 80px;
+  animation: fadeIn 0.45s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-banner {
+  background: linear-gradient(160deg, #171c28 0%, #12151f 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 36px 28px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-banner h1 {
+  font-size: clamp(24px, 4.8vw, 36px);
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+.hero-banner p {
+  color: var(--text-dim);
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.notion-bar {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.notion-bar span {
+  font-size: 14px;
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+/* Package Sections */
+.pkg-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 36px 28px;
+  margin-bottom: 36px;
+}
+.pkg-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #111318;
+  background: var(--gold-light);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.pkg-title {
+  font-size: clamp(21px, 4.2vw, 28px);
+  font-weight: 900;
+  line-height: 1.38;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+.pkg-lead {
+  background: rgba(212, 175, 55, 0.08);
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+  color: var(--text-light);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+.sub-heading {
+  font-size: 19px;
+  font-weight: 900;
+  color: var(--gold-light);
+  margin: 28px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.card-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+@media (min-width: 760px) {
+  .card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+.info-card {
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 22px;
+}
+.info-card.highlight {
+  border-color: var(--border-gold);
+  background: linear-gradient(160deg, #1d2231 0%, #151924 100%);
+}
+.info-card .step-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.info-card h4 {
+  font-size: 17px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.bullet-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-light);
+  font-size: 15px;
+}
+.bullet-list li::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--gold);
+  font-weight: 900;
+}
+.bullet-list li b {
+  color: #ffffff;
+}
+.bullet-list li .example {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+/* CTA Section */
+.cta-section {
+  margin-top: 44px;
+}
+.cta-header {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.cta-header h2 {
+  font-size: clamp(22px, 4.5vw, 30px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.cta-header p {
+  color: var(--text-dim);
+  font-size: 15px;
+}
+.cta-card {
+  background: linear-gradient(165deg, #191f2e 0%, #121620 100%);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.cta-card h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+.cta-card p {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.footer {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-dim);
+  font-size: 13px;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 48px;
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div>
+      <span class="brand-title">陳執董的商業社群｜同桌專屬智庫</span>
+      <span class="brand-sub">BNC 建橋雲智商務社群・一人公司 AI 實戰</span>
+    </div>
+    <a class="top-link" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 商業社群</a>
+  </div>
+</header>
+
+<!-- Lock Screen -->
+<main id="lockScreen" class="lock-screen">
+  <div class="lock-card">
+    <span class="badge-gold">VIP TABLEMATE EXCLUSIVE</span>
+    <h1>陳執董的商業社群｜同桌專屬實戰乾貨包</h1>
+    <p class="lock-sub">請輸入 LINE 社群「置頂記事本」內的同桌專屬通關密碼以解鎖完整內容</p>
+
+    <form id="unlockForm" class="lock-form" onsubmit="return handleUnlock(event)">
+      <input
+        id="pwdInput"
+        class="pwd-input"
+        type="password"
+        placeholder="請輸入同桌專屬通關密碼"
+        autocomplete="off"
+        required
+      >
+      <div id="errorMsg" class="error-msg">密碼不正確，請確認 LINE 社群「置頂記事本」內的通關密碼後再試一次。</div>
+      <button type="submit" class="btn-gold">解鎖完整實戰乾貨包</button>
+    </form>
+
+    <div class="helper-box">
+      <a class="helper-link" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
+        還沒拿到密碼？點此免費加入 LINE 社群「陳執董的商業社群」，於置頂記事查看密碼
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- Unlocked Content -->
+<div id="unlockedContent" class="unlocked-content">
+  <div class="wrap">
+
+    <section class="hero-banner">
+      <span class="badge-gold">歡迎入座・我們在這裡彼此稱呼「同桌」</span>
+      <h1>陳執董同桌專屬｜兩大實戰乾貨包完整版</h1>
+      <p>我是陳執董 Jump（陳建蒲），2012 年高雄第一位 BNI（國際商務引薦組織）會員、BNC（建橋雲智商務社群）創辦人、現任台灣行銷人協會與高雄市行銷人協會理事長，同時主持 Podcast《陳執董的商業洞察》，現在也用 1 位 AI 董秘帶 4 個 AI 部門經營一人公司。</p>
+      <p>這個社群不大，我希望它一直是一個不洗廣告、可以好好說話、把人脈真正變成生意的地方。這頁直接送你兩份我每天實戰在用的清單，手機往下滑就能直接看，也歡迎點下方按鈕收藏 Notion 戰情室版本。</p>
+      <div class="notion-bar">
+        <span>想要在手機或電腦版 Notion 長期保存與對照檢視？</span>
+        <a class="btn-outline-gold" href="https://www.notion.so/40467eb6ccfe81e9aa70dea6a1981bfe" target="_blank" rel="noopener">前往 Notion 戰情室版頁面收藏閱讀</a>
+      </div>
+    </section>
+
+    <!-- Package 1 -->
+    <section class="pkg-section">
+      <span class="pkg-tag">實戰乾貨包一</span>
+      <h2 class="pkg-title">《跑遍社團換名片卻沒下文？陳執董的 3 句破冰與 72 小時跟進清單（附讓人脈變生意的 5 個習慣）》</h2>
+      <div class="pkg-lead">
+        很多老闆跑遍扶輪社、獅子會、青商會，飯吃了、酒喝了、名片換了一大盒，回家後卻完全沒下文。問題通常不在社團，而在缺乏一套「換完名片後的 72 小時跟進節奏」。這是我跑商務社團十幾年驗證最管用的做法。
+      </div>
+
+      <h3 class="sub-heading">一、見面當下的「3 句話自我介紹公式」（讓對方轉身就記得你、幫你轉介紹）</h3>
+      <ul class="bullet-list">
+        <li>
+          <b>第一句（我是誰＋代表標籤）：</b>清楚講出我是誰、在哪個城市深耕什麼領域。
+          <span class="example">實戰範例：「我是高雄的陳建蒲 Jump，過去十幾年專門幫中小企業主把商務人脈變成實質合作。」</span>
+        </li>
+        <li>
+          <b>第二句（我幫誰解決什麼卡關）：</b>不要背誦產品型錄，直接講對方聽得懂的具體痛點。
+          <span class="example">實戰範例：「很多一人公司老闆換了一百張名片卻沒空跟進、拍了短影音卻沒客戶，我用一套 AI 部門分工幫老闆把 85 分的雜事做完。」</span>
+        </li>
+        <li>
+          <b>第三句（我最近想認識哪一類同桌）：</b>給出具體的引薦線索，讓別人轉身就能幫你介紹。
+          <span class="example">實戰範例：「我最近正在找高雄在地做專業服務、想把個人品牌與獲客流程做起來的創業者一起喝杯咖啡。」</span>
+        </li>
+      </ul>
+
+      <h3 class="sub-heading">二、現場換名片不冷場的「3 句黃金破冰提問」（先問對方，不急著塞推銷）</h3>
+      <ul class="bullet-list">
+        <li>
+          <b>破冰第一句（問近況重心）：</b>「你最近這三個月花最多心力在忙的主力項目是什麼？最常幫哪一類型的客戶解決問題？」
+        </li>
+        <li>
+          <b>破冰第二句（問理想客戶與自我對焦）：</b>「如果我身邊有朋友剛好需要你的服務，通常他們遇到什麼狀況時找你最對味？」（接著再用三句話講清楚自己做什麼、幫誰解決什麼卡關、目前最想認識哪類合作夥伴。）
+        </li>
+        <li>
+          <b>破冰第三句（問資源互補並當場埋下跟進理由）：</b>「除了找客戶之外，你現在最想認識哪個行業的夥伴？你剛剛提到的某個領域，我手邊剛好有整理一份資料（或認識一位朋友），明天傳給你參考。」
+        </li>
+      </ul>
+
+      <h3 class="sub-heading">三、見完面後的「黃金 72 小時跟進三步驟」（85 分交給 AI 部門，最後 15 分自己補上）</h3>
+      <div class="card-grid cols-3">
+        <div class="info-card">
+          <span class="step-label">STEP 01｜24 小時內</span>
+          <h4>貼標籤留印象・記憶喚醒</h4>
+          <ul class="bullet-list">
+            <li>在 LINE 傳一張現場合照或名片照，加上 50 字以內的簡短訊息。</li>
+            <li>不丟長篇廣告，只提「今天聊到某個具體話題很有收穫」，讓對方在通訊錄裡記住你的臉跟名字。</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <span class="step-label">STEP 02｜48 小時內</span>
+          <h4>先給一個小幫助＋AI 建檔</h4>
+          <ul class="bullet-list">
+            <li>傳送當場答應的小資料、一集相關的 Podcast 筆記、或幫對方介紹一個潛在資源。核心原則是「先給予，不推銷」。</li>
+            <li>同時把對方的名片、產業痛點與需求丟給自己的 AI 行政與營銷部門建檔，標註「未來遇到哪類資源可以轉介紹給他」。</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <span class="step-label">STEP 03｜72 小時至兩週內</span>
+          <h4>邀約一對一或 4 至 6 人深聊</h4>
+          <ul class="bullet-list">
+            <li>大飯局只能換名片，信任是在小桌喝咖啡建立的。</li>
+            <li>對頻率合得來的同桌發出具體邀約：「下週二或週四下午，有沒有空花 40 分鐘喝杯咖啡，對焦一下我們今年各自想找的客戶？」或約 4 到 6 位同頻率同桌喝下午茶對接商業模式。</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">四、讓人脈真正變成生意的 5 個日常習慣</h3>
+      <ul class="bullet-list">
+        <li><b>習慣 1：先問對方需要什麼，再說自己做什麼。</b>先給予的人，才會被放在心上。</li>
+        <li><b>習慣 2：介紹兩個人認識時，先講清楚「為什麼你們兩個見面會有火花」。</b></li>
+        <li><b>習慣 3：固定時間、固定地方見面。</b>信任是一次次見面累積出來的頻率，不是一次飯局喝出來的。</li>
+        <li><b>習慣 4：隨時準備好「三句話自我介紹」（我是誰、做什麼、要找誰）。</b>讓別人轉身就能幫你轉介紹。</li>
+        <li><b>習慣 5：自己當召集人把人聚起來，而不是只去參加別人的局。</b>主動為同桌搭舞台的人，自然成為資源中心。</li>
+      </ul>
+    </section>
+
+    <!-- Package 2 -->
+    <section class="pkg-section">
+      <span class="pkg-tag">實戰乾貨包二</span>
+      <h2 class="pkg-title">《陳執董親測：一人公司把工作拆成「1 位 AI 董秘＋4 個 AI 部門」實戰配置清單》</h2>
+      <div class="pkg-lead">
+        以前我也跟很多創業者一樣，買了一堆 AI 工具，結果同一個時間只能盯一個視窗，專案一多最後還是自己整理到半夜。現在我的核心原則只有一句話：「把重複的雜事交出去，我只做最後的判斷。」設 1 位 AI 董秘，底下拆成 4 個 AI 部門，讓系統先做到 85 分，我自己專心做最後 15 分的決策與見面建關係。
+      </div>
+
+      <div class="info-card highlight" style="margin-bottom: 18px;">
+        <span class="step-label">總樞紐｜CENTRAL HUB</span>
+        <h4>AI 董秘（Kinki）</h4>
+        <ul class="bullet-list">
+          <li><b>負責做什麼：</b>統籌交辦任務、追蹤各部門進度、管理行事曆與信箱。我不對四個部門下零碎指令，所有部門做好的初稿先交給董秘整理成清楚的「結論與是非題方案」再呈報給我拍板。</li>
+          <li><b>我省下什麼：</b>不用自己同時開十幾個視窗來回切換盯進度。</li>
+        </ul>
+      </div>
+
+      <div class="card-grid cols-2">
+        <div class="info-card">
+          <span class="step-label">第一部門｜MARKETING</span>
+          <h4>營銷部（對外推廣、情報與找同桌）</h4>
+          <ul class="bullet-list">
+            <li><b>負責做什麼：</b>規劃活動與貼文推廣文案、巡邏各平台對創業與人脈有興趣的潛在同桌、巡檢社群留言、整理免費乾貨包與同桌小聚互動名單與跟進草稿。</li>
+            <li><b>我省下什麼：</b>省去每天大海撈針找客源與寫第一版開發信的時間。</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <span class="step-label">第二部門｜MEDIA &amp; CONTENT</span>
+          <h4>自媒體部（內容產出與多平台改寫）</h4>
+          <ul class="bullet-list">
+            <li><b>負責做什麼：</b>把《陳執董的商業洞察》Podcast 訪談音檔與我的口述觀點，拆成短影音腳本、AI 數字人對嘴母片與各平台分版貼文初稿，並對齊我平常講話的習慣。</li>
+            <li><b>我省下什麼：</b>省去重聽音檔、上字幕與一篇篇改寫排版的時間。</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <span class="step-label">第三部門｜MONETIZATION</span>
+          <h4>變現部（產品定價、會員方案與營收追蹤）</h4>
+          <ul class="bullet-list">
+            <li><b>負責做什麼：</b>把腦中的商業點子整理成清楚的產品定價、BNC 會員升級折抵規則、合作分潤條件與每週現金流追蹤，確保每一分心力都對準長期價值。</li>
+            <li><b>我省下什麼：</b>省去反覆重算方案與比對名單的時間。</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <span class="step-label">第四部門｜ADMINISTRATION</span>
+          <h4>行政部（日常營運、報名核對與活動標準流程）</h4>
+          <ul class="bullet-list">
+            <li><b>負責做什麼：</b>依照六階段標準流程讀取報名與訂單通知、處理活動報名統計、收款核對、草擬行前通知信與日常軟硬體巡檢。</li>
+            <li><b>我省下什麼：</b>把重複的行政核對交出去，不再被瑣事淹沒。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two CTA Cards -->
+    <section class="cta-section">
+      <div class="cta-header">
+        <h2>同桌下一步：把人脈與 AI 工作流真正落地</h2>
+        <p>看完上面兩份清單，如果你也想把工作流順起來、認識能互相幫襯的實戰老闆，歡迎參加我們接下來的兩場交流：</p>
+      </div>
+
+      <div class="card-grid cols-2">
+        <div class="cta-card">
+          <div>
+            <span class="badge-gold">實體微聚會｜高雄場</span>
+            <h3>高雄 4–6 人免費實體咖啡小聚</h3>
+            <p>完全免費、不收留座定金、不賣課。每次只約 4 到 6 位同桌坐下來喝咖啡（各自點杯飲品），每個人用三句話聊自己正在做的生意、目前卡在哪一關、需要什麼資源，我現場幫大家對焦人脈與 AI 工作流。</p>
+            <p>名額優先留給群內同桌，想參加請直接回 LINE 社群喊一聲「高雄小聚 +1」，我們直接對時間。</p>
+          </div>
+          <a class="btn-outline-gold" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
+            回 LINE 社群喊「高雄小聚 +1」
+          </a>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <span class="badge-gold">線上實戰分享會｜11/19（四）19:30–20:30</span>
+            <h3>《2027 社群獲客新玩法：讓 AI 幫你把粉絲變客戶》</h3>
+            <p>公開拆解我怎麼用這套 AI 部門系統搭配商務社群，把公域流量接進私域，變成真正的客戶與同桌。</p>
+            <p>BNC 會員免費；非 BNC 會員報名僅收留座定金 NT$300，3 個月內可 100% 全額折抵 BNC 會費或課程費用。</p>
+          </div>
+          <a class="btn-gold" href="https://edjumptw.github.io/kma-kk/talks/1119/?utm_source=line&utm_medium=gift_page&utm_campaign=opc1119" target="_blank" rel="noopener">
+            查看 11/19 分享會簡章與立即報名
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      BNC 建橋雲智商務社群｜陳執董的商業社群（同桌專屬智庫）
+    </footer>
+
+  </div>
+</div>
+
+<script>
+function unlockSuccess() {
+  document.getElementById('lockScreen').style.display = 'none';
+  document.getElementById('unlockedContent').style.display = 'block';
+  try { sessionStorage.setItem('bnc_gift_unlocked', '1'); } catch (e) {}
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function handleUnlock(e) {
+  if (e) e.preventDefault();
+  var input = document.getElementById('pwdInput');
+  var err = document.getElementById('errorMsg');
+  var val = (input.value || '').trim().toLowerCase();
+  if (val === 'bnc888') {
+    err.style.display = 'none';
+    unlockSuccess();
+  } else {
+    err.style.display = 'block';
+    input.focus();
+    input.select();
+  }
+  return false;
+}
+
+(function initCheck() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var p = (params.get('pwd') || params.get('code') || '').trim().toLowerCase();
+    if (p === 'bnc888' || sessionStorage.getItem('bnc_gift_unlocked') === '1') {
+      unlockSuccess();
+    }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
