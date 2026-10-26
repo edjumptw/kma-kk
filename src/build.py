@@ -47,6 +47,21 @@ for p in plist:
 </head><body><p><a href="{dest}">前往課程報名頁</a></p></body></html>
 """
     d=out/'p'/p['code']; d.mkdir(parents=True, exist_ok=True); (d/'index.html').write_text(page); print(d)
+# p/ 本身沒有內容，轉回首頁（避免 Search Console 回報 404）
+(out/'p'/'index.html').write_text("""<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>前往課程報名頁</title>
+<link rel="canonical" href="https://edjumptw.github.io/kma-kk/">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0;url=/kma-kk/">
+<script>location.replace('/kma-kk/'+location.search+location.hash)</script>
+</head>
+<body><p><a href="/kma-kk/">前往課程報名頁</a></p></body>
+</html>
+""")
 
 # 同桌專屬實戰乾貨包（密碼保護頁：gift/index.html）
 if (s/'gift.html').exists():
