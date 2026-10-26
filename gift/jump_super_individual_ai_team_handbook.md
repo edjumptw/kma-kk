@@ -644,7 +644,7 @@ https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg
 
 # 附錄：參考文獻與延伸出處（References & Extended Sources）
 
-[1] 陳執董（Jump），《高雄市楠梓區商務人脈與實戰分享部落格》，https://bnikaohsiung.blogspot.com/ 。文章歸屬依站內署名與轉載註記。
+[1] 陳執董（Jump），《BNI 高雄市南區智庫》，https://bnikaohsiung.blogspot.com/ 。文章歸屬依站內署名與轉載註記。
 
 [2] BNI 創辦人 Dr. Ivan Misner，《官方商務人脈 Podcast》，https://www.bnipodcast.com/ 。包含來賓訪談，觀點依各集節目資訊。
 
