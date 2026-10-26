@@ -97,7 +97,7 @@ a { color: inherit; }
   justify-content: center;
   padding: 40px 16px;
 }
-.lock-card {
+.lock-card, .gate-card {
   width: 100%;
   max-width: 560px;
   background: linear-gradient(165deg, #171b26 0%, #10131b 100%);
@@ -120,7 +120,7 @@ a { color: inherit; }
   margin-bottom: 18px;
 }
 .lock-card h1 {
-  font-size: clamp(24px, 5vw, 32px);
+  font-size: clamp(18px, 4.6vw, 24px);
   font-weight: 900;
   line-height: 1.35;
   color: #ffffff;
@@ -170,7 +170,7 @@ a { color: inherit; }
   font-weight: 500;
   letter-spacing: 0.02em;
 }
-.btn-gold {
+.btn-gold, .gate-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -482,9 +482,88 @@ a { color: inherit; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Gate overlay / iPhone RWD (390x844, 375x667) ===== */
+body.gate-locked { overflow: hidden; }
+body.gate-locked .topbar { display: none !important; }
+.gate-overlay, .lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(14px, env(safe-area-inset-top, 14px)) 14px calc(env(safe-area-inset-bottom, 24px) + 110px);
+  background: var(--bg-deep);
+}
+.gate-card, .lock-card { margin: 0 auto; }
+.gate-title, .gate-card h2, .lock-card h1, .lock-card h2 {
+  font-size: clamp(18px, 4.6vw, 24px);
+  font-weight: 900;
+  line-height: 1.35;
+  color: #ffffff;
+  text-align: center;
+  text-wrap: balance;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+.gate-title span, .gate-card h2 span, .lock-card h2 span { white-space: nowrap; color: var(--gold-light); }
+.gate-btn, #unlockSubmitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  padding: 0 12px;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.gate-btn::before, .gate-btn::after, #unlockSubmitBtn::before, #unlockSubmitBtn::after { content: none !important; display: none !important; }
+.draw-banner {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1.5px solid var(--gold);
+  background: linear-gradient(160deg, rgba(240, 213, 123, 0.16) 0%, rgba(20, 24, 33, 0.9) 100%);
+  text-align: center;
+}
+.draw-banner b { display: block; color: #ffffff; font-size: 16px; margin-bottom: 6px; }
+.draw-banner p { color: var(--text-dim); font-size: 14px; margin-bottom: 12px; }
+html, body { overflow-x: hidden; }
+img, video, pre, table { max-width: 100%; }
+pre, code { white-space: pre-wrap; word-break: break-word; }
+.unlocked-content a, .unlocked-content p, .unlocked-content li { overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .topbar .brand-title, .topbar .brand-sub {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 210px;
+  }
+  .topbar-inner > div:first-child { min-width: 0; }
+  .topbar .top-link, .topbar .top-cta {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .gate-card, .lock-card { padding: 18px 16px; border-radius: 16px; margin: 0 auto; }
+  .gate-card .badge-gold, .lock-card .badge-gold { margin-bottom: 8px; }
+  .gate-card p, .lock-card p, .gate-card .lock-sub, .lock-card .lock-sub { font-size: 13.5px; line-height: 1.45; margin-bottom: 12px; }
+  .gate-card form, .lock-card form, .lock-form { gap: 10px; }
+  .gate-card .pwd-input, .lock-card .pwd-input, .gate-card input, .lock-card input { padding: 10px 12px; height: 42px; }
+  .gate-card .lead-label, .lock-card .lead-label { margin-bottom: 4px; line-height: 1.4; }
+  .gate-card .helper-box, .lock-card .helper-box { margin-top: 12px; padding-top: 10px; }
+  .helper-link { font-size: 13px; line-height: 1.45; }
+}
 </style>
 </head>
-<body>
+<body class="gate-locked">
 
 <header class="topbar">
   <div class="wrap topbar-inner">
@@ -492,16 +571,16 @@ a { color: inherit; }
       <span class="brand-title">陳執董的商業社群｜同桌專屬智庫</span>
       <span class="brand-sub">BNC 建橋雲智商務社群・一人公司 AI 實戰</span>
     </div>
-    <a class="top-link" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 商業社群</a>
+    <a class="top-link top-cta" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 社群</a>
   </div>
 </header>
 
 <!-- Lock Screen (Name + Email Lead Capture Gate) -->
-<main id="lockScreen" class="lock-screen">
-  <div class="lock-card">
+<main id="lockScreen" class="lock-screen gate-overlay">
+  <div class="lock-card gate-card">
     <span class="badge-gold">陳執董的商業社群｜同桌專屬領取通道</span>
-    <h1>一人公司 12 人 AI 團隊<br>三大實戰乾貨包＋49 個繁中模板</h1>
-    <p class="lock-sub">歡迎同桌入座！請填寫您的稱呼（姓名）與常用 Email，即可一鍵解鎖全頁三大實戰乾貨包、30 頁《一人公司 AI 團隊超級個體實戰手冊》PDF 與 49 個繁體中文 AI 員工模板，系統並將自動寄送歡迎確認信（附永久閱讀連結與新手教學攻略）至您的信箱。</p>
+    <h2 class="gate-title">一人公司 12 人 AI 團隊<br><span>三大實戰乾貨包 ＋ 49 個繁中模板</span></h2>
+    <p class="lock-sub">點開網址輸入「姓名 ＋ Email」，即可一秒解鎖三大乾貨包（系統同步寄送完整備份信到你信箱），並可立即抽「Claude Pro 一週免費體驗券（限量 2 名）」！</p>
 
     <form id="unlockForm" class="lock-form" onsubmit="return handleUnlock(event)">
       <div class="lead-field">
@@ -529,12 +608,12 @@ a { color: inherit; }
         >
       </div>
       <div id="errorMsg" class="error-msg">請填寫您的稱呼與正確的常用 Email 格式（需包含 @）。</div>
-      <button type="submit" id="unlockSubmitBtn" class="btn-gold">立即解鎖領取三大乾貨包＋49 個繁中模板</button>
+      <button type="submit" id="unlockSubmitBtn" class="btn-gold gate-btn">立即解鎖乾貨包 ＋ 抽 Claude Pro</button>
     </form>
 
     <div class="helper-box">
       <a class="helper-link" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
-        還沒進群？點此免費加入 LINE「陳執董的商業社群」（入群參加密碼：bnc888）
+        還沒進群？免費加入 LINE「陳執董的商業社群」（入群參加密碼：bnc888）
       </a>
     </div>
   </div>
@@ -555,6 +634,12 @@ a { color: inherit; }
         <a class="btn-outline-gold" href="./taiwan_sme_ai_org_templates_zh.md" download>2. 下載《台灣 10 大行業：49 個繁中 AI 模板實戰庫》(.md)</a>
         <a class="btn-outline-gold" href="./grokbot_10steps_56roles_zh.md" download>3. 下載《56 個職位完整 Markdown》(.md)</a>
         <a class="btn-outline-gold" href="https://edjumptw.github.io/jump-ai/" target="_blank" rel="noopener">4. 閱讀《2026 Grok Bot 終極實戰教學＆Marketplace 攻略》</a>
+      </div>
+      <div class="draw-banner" id="claudeDrawBanner">
+        <span class="badge-gold">🎰 Claude Pro 幸運拉霸・即抽即開</span>
+        <b>乾貨包已解鎖！現在立刻抽「Claude Pro 一週免費體驗券（限量 2 名）」</b>
+        <p>點開網址輸入「姓名 ＋ Email」，即可一秒解鎖三大乾貨包（系統同步寄送完整備份信到你信箱），並可立即抽「Claude Pro 一週免費體驗券（限量 2 名）」！沒抽中頭獎也 100% 有獎，每個 Email 限抽一次。</p>
+        <a class="btn-gold" href="https://edjumptw.github.io/jump-ai/claude-draw/">🎰 立即啟動幸運拉霸（即抽即開・100% 人人有獎）</a>
       </div>
     </section>
 
@@ -1024,6 +1109,7 @@ function copyGiftCommand(text,button) {
 var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec';
 
 function unlockSuccess(leadName, leadEmail) {
+  document.body.classList.remove('gate-locked');
   document.getElementById('lockScreen').style.display = 'none';
   document.getElementById('unlockedContent').style.display = 'block';
   try {
@@ -1063,7 +1149,7 @@ function handleUnlock(e) {
   err.style.display = 'none';
   if (btn) {
     btn.disabled = true;
-    btn.textContent = '解鎖並自動寄送歡迎確認信中…';
+    btn.textContent = '解鎖中…';
   }
   var fd = new URLSearchParams();
   fd.append('submittedAt', new Date().toLocaleString('zh-TW', { hour12: false }));
@@ -1074,7 +1160,7 @@ function handleUnlock(e) {
   fd.append('name', nameVal);
   fd.append('email', emailVal);
   fd.append('source', 'LINE商業社群禮物頁 (bnc888)');
-  fd.append('note', '已解鎖三大實戰乾貨包＋30頁手冊PDF＋49個繁中模板（自動寄送歡迎確認信）');
+  fd.append('note', '已解鎖三大實戰乾貨包＋30頁手冊PDF＋49個繁中模板（自動寄送歡迎確認信）；下一步引導【參加 Claude Pro 拉霸即抽即開】');
   fd.append('page', window.location.href);
 
   unlockSuccess(nameVal, emailVal);
