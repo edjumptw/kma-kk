@@ -409,6 +409,25 @@ footer.site .foot-partners b{display:block}
 
 .teacher.solo{max-width:860px}
 @media(min-width:720px){.teacher.solo{grid-template-columns:300px 1fr;align-items:center;gap:28px}.teacher.solo h3{font-size:24px}.teacher.solo ul{font-size:15px}}
+
+/* STRICT VISUAL ALIGNMENT RULES (CSS Grid Equal-Height & Symmetric Centering) */
+.grid, .facts, .pain-list, .days, .ben, .tests, .res, .bases, .talks, .talk-points, .row {
+  display: grid;
+  align-items: stretch;
+}
+.card, .talk, .session {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 </style>
 <style>
 body.theme-ai .hero{background:linear-gradient(90deg,rgba(7,13,28,.96) 0%,rgba(7,13,28,.88) 46%,rgba(7,13,28,.55) 100%),url(../../static/bg-ai.jpg) right center/cover no-repeat,#0a1222}
