@@ -6,13 +6,11 @@
 <title>陳執董的商業社群｜同桌專屬實戰乾貨包</title>
 <meta name="description" content="陳執董的商業社群同桌專屬三大實戰乾貨包：商務社團 3 句破冰與 72 小時跟進清單、一人公司 1 位 AI 董秘＋4 個 AI 部門實戰配置清單。">
 <meta property="og:title" content="陳執董的商業社群｜同桌專屬實戰乾貨包">
-<meta property="og:description" content="請輸入 LINE 社群「置頂記事本」內的同桌專屬通關密碼以解鎖完整內容。">
+<meta property="og:description" content="陳執董的商業社群同桌專屬禮：輸入您的稱呼與常用 Email，即可解鎖三大實戰乾貨包、30 頁 PDF 手冊與台灣 10 大行業 49 個繁中 AI 模板（並自動寄送永久連結至信箱）。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://edjumptw.github.io/kma-kk/static/og-ai.jpg">
-<link rel="icon" type="image/png" href="../static/favicon.png">
+<meta property="og:image" content="https://edjumptw.github.io/jump-ai/static/og-jump-ai.png">
+<link rel="icon" type="image/png" href="https://edjumptw.github.io/jump-ai/static/favicon.png">
 <meta name="theme-color" content="#0d0f14">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -138,13 +136,23 @@ a { color: inherit; }
   flex-direction: column;
   gap: 14px;
 }
+.lead-field {
+  text-align: left;
+}
+.lead-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
 .pwd-input {
   width: 100%;
-  padding: 15px 18px;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-align: center;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: left;
   color: #fff;
   background: rgba(255, 255, 255, 0.06);
   border: 1.5px solid rgba(212, 175, 55, 0.4);
@@ -443,29 +451,45 @@ a { color: inherit; }
   </div>
 </header>
 
-<!-- Lock Screen -->
+<!-- Lock Screen (Name + Email Lead Capture Gate) -->
 <main id="lockScreen" class="lock-screen">
   <div class="lock-card">
-    <span class="badge-gold">VIP TABLEMATE EXCLUSIVE</span>
-    <h1>陳執董的商業社群｜同桌專屬實戰乾貨包</h1>
-    <p class="lock-sub">請輸入 LINE 社群「置頂記事本」內的同桌專屬通關密碼以解鎖完整內容</p>
+    <span class="badge-gold">陳執董的商業社群｜同桌專屬領取通道</span>
+    <h1>一人公司 12 人 AI 團隊<br>三大實戰乾貨包＋49 個繁中模板</h1>
+    <p class="lock-sub">歡迎同桌入座！請填寫您的稱呼（姓名）與常用 Email，即可一鍵解鎖全頁三大實戰乾貨包、30 頁《一人公司 AI 團隊超級個體實戰手冊》PDF 與 49 個繁體中文 AI 員工模板，系統並將自動寄送歡迎確認信（附永久閱讀連結與新手教學攻略）至您的信箱。</p>
 
     <form id="unlockForm" class="lock-form" onsubmit="return handleUnlock(event)">
-      <input
-        id="pwdInput"
-        class="pwd-input"
-        type="password"
-        placeholder="請輸入同桌專屬通關密碼"
-        autocomplete="off"
-        required
-      >
-      <div id="errorMsg" class="error-msg">密碼不正確，請確認 LINE 社群「置頂記事本」內的通關密碼後再試一次。</div>
-      <button type="submit" class="btn-gold">解鎖完整實戰乾貨包</button>
+      <div class="lead-field">
+        <label class="lead-label" for="leadName">您的稱呼（姓名或商務暱稱）*</label>
+        <input
+          id="leadName"
+          name="name"
+          class="pwd-input"
+          type="text"
+          placeholder="例如：陳先生／王老闆／您的稱呼"
+          autocomplete="name"
+          required
+        >
+      </div>
+      <div class="lead-field">
+        <label class="lead-label" for="leadEmail">常用 Email（用於寄送完整 AI 模板與永久解鎖連結）*</label>
+        <input
+          id="leadEmail"
+          name="email"
+          class="pwd-input"
+          type="email"
+          placeholder="例如：name@company.com"
+          autocomplete="email"
+          required
+        >
+      </div>
+      <div id="errorMsg" class="error-msg">請填寫您的稱呼與正確的常用 Email 格式（需包含 @）。</div>
+      <button type="submit" id="unlockSubmitBtn" class="btn-gold">立即解鎖領取三大乾貨包＋49 個繁中模板</button>
     </form>
 
     <div class="helper-box">
       <a class="helper-link" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
-        還沒拿到密碼？點此免費加入 LINE 社群「陳執董的商業社群」，於置頂記事查看密碼
+        還沒進群？點此免費加入 LINE「陳執董的商業社群」（入群參加密碼：bnc888）
       </a>
     </div>
   </div>
@@ -477,9 +501,16 @@ a { color: inherit; }
 
     <section class="hero-banner">
       <span class="badge-gold">歡迎入座・我們在這裡彼此稱呼「同桌」</span>
-      <h1>陳執董同桌專屬｜三大實戰乾貨包完整版</h1>
-      <p>我是陳執董 Jump（陳建蒲），2012 年高雄第一位 BNI（國際商務引薦組織）會員、BNC（建橋雲智商務社群）創辦人、現任台灣行銷人協會與高雄市行銷人協會理事長，同時主持 Podcast《陳執董的商業洞察》，現在也用 1 位 AI 董秘帶 4 個 AI 部門經營一人公司。</p>
-      <p>這個社群不大，我希望它一直是一個不洗廣告、可以好好說話、把人脈真正變成生意的地方。這頁直接送你兩份我每天實戰在用的清單，手機或電腦往下滑就能直接閱讀與保存完整內容。</p>
+      <h1>陳執董同桌專屬｜三大實戰乾貨包＋49 個繁中 AI 模板完整版</h1>
+      <div id="welcomeBanner" style="display:none;background:rgba(212,175,55,0.14);border:1px solid rgba(212,175,55,0.5);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:14.5px;color:#f3d27a;font-weight:700;"></div>
+      <p>我是陳執董 Jump（陳建蒲），2012 年高雄第一位 BNI（國際商務引薦組織）會員、BNC（建橋雲智商務社群）創辦人、現任台灣行銷人協會與高雄市行銷人協會理事長，同時主持 Podcast《陳執董的商業洞察》，現在也用 1 位 AI 董秘帶 4 個 AI 部門＋7 個專員經營一人公司。</p>
+      <p>這個社群不大，我希望它一直是一個不洗廣告、可以好好說話、把人脈真正變成生意的地方。這頁直接送你三大實戰乾貨包、30 頁《一人公司 AI 團隊超級個體實戰手冊》PDF 與台灣 10 大行業 49 個繁體中文 AI 員工模板，手機或電腦往下滑就能直接閱讀與下載保存完整內容。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;">
+        <a class="btn-gold" style="width:auto;" href="./jump_super_individual_ai_team_handbook.pdf" download>1. 下載 30 頁《一人公司 AI 團隊超級個體實戰手冊》PDF</a>
+        <a class="btn-outline-gold" href="./taiwan_sme_ai_org_templates_zh.md" download>2. 下載《台灣 10 大行業：49 個繁中 AI 模板實戰庫》(.md)</a>
+        <a class="btn-outline-gold" href="./grokbot_10steps_56roles_zh.md" download>3. 下載《56 個職位完整 Markdown》(.md)</a>
+        <a class="btn-outline-gold" href="https://edjumptw.github.io/jump-ai/" target="_blank" rel="noopener">4. 閱讀《2026 Grok Bot 終極實戰教學＆Marketplace 攻略》</a>
+      </div>
     </section>
 
     <!-- Package 1 -->
@@ -613,7 +644,7 @@ a { color: inherit; }
       </div>
     </section>
 
-<section class="package-section" id="package-three"><span class="pkg-tag">實戰乾貨包三</span><a class="btn-gold" href="./jump_super_individual_ai_team_handbook.pdf" download>下載 30 頁黑金實戰手冊 PDF</a> <a class="btn-outline-gold" href="./grokbot_10steps_56roles_zh.md" download>下載 56 個職位完整 Markdown</a><h3>Grok Bot 實戰 10 步法與 56 個職位乾貨包</h3>
+<section class="package-section" id="package-three"><span class="pkg-tag">實戰乾貨包三</span><a class="btn-gold" style="width:auto;margin-right:8px;margin-bottom:8px;" href="./jump_super_individual_ai_team_handbook.pdf" download>下載 30 頁黑金實戰手冊 PDF</a> <a class="btn-outline-gold" style="margin-right:8px;margin-bottom:8px;" href="./taiwan_sme_ai_org_templates_zh.md" download>下載 49 個繁中 AI 模板實戰庫 Markdown</a> <a class="btn-outline-gold" style="margin-bottom:8px;" href="./grokbot_10steps_56roles_zh.md" download>下載 56 個職位完整 Markdown</a><h3>Grok Bot 實戰 10 步法、56 個職位與 49 個繁中模板乾貨包</h3>
 <p>把重複的雜事交出去，我只做最後的判斷。</p>
 <p>這是陳執董（Jump）融合十年商務人脈實戰與 12 人 AI 團隊親測的原創實戰體系。給一人公司與小型團隊的做法很直接：先挑一件重複工作，再配角色、寫規則、交草稿、做驗收。</p>
 <p>56 個職位是供選配的工作目錄，分為六大部署領域；目前團隊採用 1 董秘＋4 大部長＋7 專員的十二角色配置，不代表已部署全部 56 個職位。以下用法須依帳號工具、資料許可權與執行環境逐項驗證，數字示例不代表實測成效。</p>
@@ -885,8 +916,8 @@ a { color: inherit; }
 <p>這份乾貨包是我自己一人公司每天在用的版本。12 人團隊的完整分工架構圖、各部門的交辦範本，以及之後陸續更新的 Grok Bot 實戰用法，都放在 LINE 商業社群的置頂記事。</p>
 <ul>
 <li>LINE 商業社群「陳執董的商業社群」：https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg</li>
-<li>入群通關密碼：bnc888</li>
-<li>同桌專屬乾貨包網頁：https://edjumptw.github.io/kma-kk/gift/（輸入同一組密碼 bnc888 即可解鎖）</li>
+<li>入群參加密碼：bnc888（輸入小寫 bnc888 即可入群）</li>
+<li>同桌專屬乾貨包網頁：https://edjumptw.github.io/jump-ai/gift/（輸入稱呼＋常用 Email 即可解鎖全頁並自動寄送歡迎確認信與永久連結至信箱）</li>
 </ul>
 <p>進群之後，歡迎用三句話跟同桌打個招呼：怎麼稱呼、在哪個城市、目前做什麼產品或服務，以及現在最想交出去的一件雜事是什麼。</p>
 <p>這裡是一個讓人脈變成生意的地方。不賣課、不灌廣告，大家把自己實際在用的 AI 用法拿出來交流。</p>
@@ -921,13 +952,13 @@ a { color: inherit; }
 
         <div class="cta-card">
           <div>
-            <span class="badge-gold">OPC×KK 跨界人脈變現線上分享會｜11/19（四）19:30–20:30</span>
-            <h3>OPC×KK 跨界人脈變現線上分享會</h3>
-            <p>此為 KK 活動。陳執董自己的免費線上 AI 實戰分享會（B 場）與 6 天陪跑營另訂時間：近期開辦・確切日期於 LINE 商業社群優先公告。</p>
-            <p>100% 免費報名參加、不收任何定金（會員與非會員一律免費）</p>
+            <span class="badge-gold">線上直播實戰｜陳執董專場（近期於群內投票公告）</span>
+            <h3>陳執董免費線上 AI 實戰分享會</h3>
+            <p>不講空泛理論，直接開螢幕帶你看「1 位 AI 董秘＋4 個 AI 部門＋7 位專員」如何每天自動巡邏爆款、寫文案、管名單並省下外包月費；會後更開放「6 天手把手陪跑營」名額。</p>
+            <p>100% 免費報名參加、不收任何定金（確切日期與主題於 LINE 商業社群投票優先公告）。</p>
           </div>
-          <a class="btn-gold" href="https://edjumptw.github.io/kma-kk/talks/1119/?utm_source=line&utm_medium=gift_page&utm_campaign=opc1119" target="_blank" rel="noopener">
-            查看 11/19 分享會簡章與立即報名
+          <a class="btn-gold" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
+            回 LINE 社群投下你想聽的主題 +1
           </a>
         </div>
       </div>
@@ -945,34 +976,80 @@ function copyGiftCommand(text,button) {
   function fallback(){ var field=document.createElement('textarea'); field.value=text; document.body.appendChild(field); field.select(); var ok=false; try {ok=document.execCommand('copy');} catch(e) {} field.remove(); document.getElementById('copy-status').textContent=ok?'已複製，請到 LINE 社群貼上。':'請手動複製口令：'+text; }
   if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function(){document.getElementById('copy-status').textContent='已複製，請到 LINE 社群貼上。';}).catch(fallback); else fallback();
 }
-function unlockSuccess() {
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec';
+
+function unlockSuccess(leadName, leadEmail) {
   document.getElementById('lockScreen').style.display = 'none';
   document.getElementById('unlockedContent').style.display = 'block';
-  try { sessionStorage.setItem('bnc_gift_unlocked', '1'); } catch (e) {}
+  try {
+    sessionStorage.setItem('bnc_gift_unlocked', '1');
+    localStorage.setItem('bnc_gift_unlocked_v2', '1');
+    if (leadName) localStorage.setItem('bnc_gift_lead_name', leadName);
+    if (leadEmail) localStorage.setItem('bnc_gift_lead_email', leadEmail);
+  } catch (e) {}
+  var savedName = leadName || '';
+  var savedEmail = leadEmail || '';
+  try {
+    if (!savedName) savedName = localStorage.getItem('bnc_gift_lead_name') || '';
+    if (!savedEmail) savedEmail = localStorage.getItem('bnc_gift_lead_email') || '';
+  } catch (e) {}
+  var banner = document.getElementById('welcomeBanner');
+  if (banner && (savedName || savedEmail)) {
+    banner.style.display = 'block';
+    banner.textContent = '歡迎 ' + (savedName || '同桌') + ' 入座！三大 AI 實戰乾貨包、30 頁 PDF 手冊與 49 個繁中模板已全數解鎖' + (savedEmail ? '，歡迎確認信（附禮物頁與教學頁永久連結）亦同步寄送至 ' + savedEmail + '。' : '。');
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function handleUnlock(e) {
   if (e) e.preventDefault();
-  var input = document.getElementById('pwdInput');
+  var nameInput = document.getElementById('leadName');
+  var emailInput = document.getElementById('leadEmail');
   var err = document.getElementById('errorMsg');
-  var val = (input.value || '').trim().toLowerCase();
-  if (val === 'bnc888') {
-    err.style.display = 'none';
-    unlockSuccess();
-  } else {
+  var btn = document.getElementById('unlockSubmitBtn');
+  var nameVal = (nameInput && nameInput.value ? nameInput.value : '').trim();
+  var emailVal = (emailInput && emailInput.value ? emailInput.value : '').trim();
+  if (!nameVal || !emailVal || emailVal.indexOf('@') < 1 || emailVal.indexOf('.') < 1) {
     err.style.display = 'block';
-    input.focus();
-    input.select();
+    if (!nameVal && nameInput) nameInput.focus();
+    else if (emailInput) emailInput.focus();
+    return false;
   }
+  err.style.display = 'none';
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = '解鎖並自動寄送歡迎確認信中…';
+  }
+  var fd = new URLSearchParams();
+  fd.append('submittedAt', new Date().toLocaleString('zh-TW', { hour12: false }));
+  fd.append('course', 'AI乾貨包領取名單');
+  fd.append('session', '三大實戰乾貨包＋49個繁中AI模板');
+  fd.append('plan', '姓名Email免費解鎖');
+  fd.append('priceApplied', '免費（LINE商業社群同桌專屬）');
+  fd.append('name', nameVal);
+  fd.append('email', emailVal);
+  fd.append('source', 'LINE商業社群禮物頁 (bnc888)');
+  fd.append('note', '已解鎖三大實戰乾貨包＋30頁手冊PDF＋49個繁中模板（自動寄送歡迎確認信）');
+  fd.append('page', window.location.href);
+
+  unlockSuccess(nameVal, emailVal);
+
+  try {
+    fetch(ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: fd
+    }).catch(function() {});
+  } catch (ex) {}
   return false;
 }
 
 (function initCheck() {
   try {
     var params = new URLSearchParams(window.location.search);
-    var p = (params.get('pwd') || params.get('code') || '').trim().toLowerCase();
-    if (p === 'bnc888' || sessionStorage.getItem('bnc_gift_unlocked') === '1') {
+    var unlockedParam = params.get('unlocked') === '1';
+    var hasLocalV2 = localStorage.getItem('bnc_gift_unlocked_v2') === '1';
+    if (unlockedParam || hasLocalV2) {
       unlockSuccess();
     }
   } catch (e) {}
