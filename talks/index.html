@@ -638,7 +638,7 @@ window.PARTNERS = {
         var jump = document.createElement('a');
         jump.className = 'session-jump';
         var u = new URLSearchParams();
-        ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){ if(q.get(k)) u.set(k, q.get(k)); });
+        ['utm_source','utm_medium','utm_campaign','utm_content','ref','refc'].forEach(function(k){ if(q.get(k)) u.set(k, q.get(k)); });
         jump.href = '1119/' + (u.toString() ? '?'+u.toString() : '');
         jump.textContent = '前往 11/19 報名頁';
         opts.appendChild(jump);

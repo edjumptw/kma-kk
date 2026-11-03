@@ -453,14 +453,15 @@ window.PARTNERS = {
    end：場次最後一天（YYYY-MM-DD），過了這天會自動從頁面與表單隱藏
    start：開課第一天，用來自動判斷早鳥／晚鳥／一般價
    tbd：true 代表日期確認中，表單顯示為「先登記」
-   earlyUntil／lateUntil：（選填）指定早鳥、晚鳥最後一天（YYYY-MM-DD，含當天），有填就不套用 4 週／3 週規則 */
+   earlyUntil／lateUntil：（選填）指定早鳥、晚鳥最後一天（YYYY-MM-DD，含當天），有填就不套用 4 週／3 週規則
+   regUntil：（選填）報名最後一天（YYYY-MM-DD，含當天），隔天起從頁面與表單隱藏 */
 window.COURSE = {
   courseName: "KK教母直播實戰二日課",
   endpoint: "https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec",
   // 價格：early 早鳥、late 晚鳥、regular 一般價（定價）；填 null 會顯示【金額待確認】
   price: { early: 69800, late: 74800, regular: 79800 },
   sessions: [
-    { region: "台北場", date: "2026/11/5–6（四、五）", start: "2026-11-05", time: "每日 09:00–17:00", place: "台北｜台北市松山區南京東路三段285號9樓之一", end: "2026-11-06" },
+    { region: "台北場", date: "2026/11/5–6（四、五）", start: "2026-11-05", time: "每日 09:00–17:00", place: "台北｜台北市松山區南京東路三段285號9樓之一", end: "2026-11-06", regUntil: "2026-11-04" },
     { region: "高雄場", date: "2027/3/6–7（六、日）", start: "2027-03-06", end: "2027-03-07", earlyUntil: "2027-02-06", lateUntil: "2027-02-20", time: "每日 09:00–17:00", place: "高雄｜上課地點確認中，報名後通知" }
   ]
 };
@@ -487,7 +488,7 @@ window.COURSE = {
   <div class="wrap hero-grid">
     <div>
       <p class="org-bar">社團法人高雄市行銷人協會　主辦</p>
-      <div class="tag"><span class="chip hot">台北場報名中</span><span class="chip">高雄場報名中</span><span class="chip">早鳥優惠</span><span class="chip">2 天實戰</span></div>
+      <div class="tag"><span class="chip hot" id="chip-tp">台北場報名中</span><span class="chip">高雄場報名中</span><span class="chip">早鳥優惠</span><span class="chip">2 天實戰</span></div>
       <p class="tagline">直播企劃 × 鏡頭互動 × 導購實戰</p>
       <h1>KK教母<br><em>直播實戰二日課</em></h1>
       <p class="sub">從選品、開播到成交，接上商品與供應鏈。兩天把一場帶貨直播從準備到開播完整走一次，第二天實際開播、導購、復盤，課後再陪跑一個月。</p>
@@ -976,7 +977,9 @@ window.COURSE = {
   };
   if($('#tp-early')) $('#tp-early').innerHTML = money('early');
   if($('#tp-late')) $('#tp-late').innerHTML = money('late');
-  var live = (C.sessions||[]).filter(function(s){ return !s.end || new Date(s.end+'T23:59:59') >= today; });
+  var live = (C.sessions||[]).filter(function(s){ return (!s.end || new Date(s.end+'T23:59:59') >= today) && (!s.regUntil || new Date(s.regUntil+'T23:59:59') >= today); });
+  // 首屏「台北場報名中」標籤：台北場關閉報名後一併隱藏
+  var tpChip = $('#chip-tp'); if(tpChip && !live.some(function(s){ return /台北/.test(s.region); })) tpChip.classList.add('hidden');
   var regions = [];
   live.forEach(function(s){ if(regions.indexOf(s.region)<0) regions.push(s.region); });
   regions.forEach(function(r){
@@ -1189,10 +1192,12 @@ window.COURSE = {
     var c = (T.courses||{})[s.course] || {};
     var a = document.createElement('a');
     a.className = 'talk';
-    a.href = base + 'talks/?s=' + s.id + keep + '#signup';
+    // 11/19 與 BNC 合辦：騰訊會議、非會員定金，導向單場報名頁
+    var bnc = s.id==='ai-1119';
+    a.href = bnc ? base + 'talks/1119/' + (keep ? '?'+keep.slice(1) : '') + '#signup' : base + 'talks/?s=' + s.id + keep + '#signup';
     a.innerHTML = '<div><small class="tdate">'+s.date+'　'+s.time+'</small><b>'+(s.title||'線上分享會')+'</b>'+
-      '<span>'+(only==='all' ? c.name+'｜' : '')+'線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : '')+'</span></div>'+
-      '<span class="flag">免費報名</span>';
+      '<span>'+(only==='all' ? c.name+'｜' : '')+(bnc ? '線上分享會（騰訊會議）｜與 BNC 合辦｜BNC 會員免繳定金，非會員定金 NT$300' : '線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : ''))+'</span></div>'+
+      '<span class="flag">'+(bnc ? '前往報名' : '免費報名')+'</span>';
     box.appendChild(a);
   });
   var more = document.getElementById('talk-more');
