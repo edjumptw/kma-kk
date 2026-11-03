@@ -1189,10 +1189,12 @@ window.COURSE = {
     var c = (T.courses||{})[s.course] || {};
     var a = document.createElement('a');
     a.className = 'talk';
-    a.href = base + 'talks/?s=' + s.id + keep + '#signup';
+    // 11/19 與 BNC 合辦：騰訊會議、非會員定金，導向單場報名頁
+    var bnc = s.id==='ai-1119';
+    a.href = bnc ? base + 'talks/1119/' + (keep ? '?'+keep.slice(1) : '') + '#signup' : base + 'talks/?s=' + s.id + keep + '#signup';
     a.innerHTML = '<div><small class="tdate">'+s.date+'　'+s.time+'</small><b>'+(s.title||'線上分享會')+'</b>'+
-      '<span>'+(only==='all' ? c.name+'｜' : '')+'線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : '')+'</span></div>'+
-      '<span class="flag">免費報名</span>';
+      '<span>'+(only==='all' ? c.name+'｜' : '')+(bnc ? '線上分享會（騰訊會議）｜與 BNC 合辦｜BNC 會員免繳定金，非會員定金 NT$300' : '線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : ''))+'</span></div>'+
+      '<span class="flag">'+(bnc ? '前往報名' : '免費報名')+'</span>';
     box.appendChild(a);
   });
   var more = document.getElementById('talk-more');
