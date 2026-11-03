@@ -643,7 +643,7 @@ window.COURSE = {
     <h2>還在考慮？先來聽免費線上分享會</h2>
     <p class="lead">高雄場開課前有三場線上分享會，帶你了解課程內容、上課方式和費用，現場開放提問。點選場次就能免費報名。</p>
     <div class="talks" id="talk-list" data-course="ai" data-base="../"></div>
-    <p class="talk-note">每場約 60 分鐘，使用 Zoom。線上會議連結會在分享會前一天通知。<a id="talk-more" href="../talks/">看全部分享會場次</a></p>
+    <p class="talk-note">每場約 60 分鐘，使用 Zoom，線上會議連結會在分享會前一天通知。11/19 與 BNC 合辦，使用騰訊會議，BNC 會員免繳定金，非會員定金 NT$300。<a id="talk-more" href="../talks/">看全部分享會場次</a></p>
   </div>
 </section>
 
@@ -1196,10 +1196,12 @@ window.COURSE = {
     var c = (T.courses||{})[s.course] || {};
     var a = document.createElement('a');
     a.className = 'talk';
-    a.href = base + 'talks/?s=' + s.id + keep + '#signup';
+    // 11/19 與 BNC 合辦：騰訊會議、非會員定金，導向單場報名頁
+    var bnc = s.id==='ai-1119';
+    a.href = bnc ? base + 'talks/1119/' + (keep ? '?'+keep.slice(1) : '') + '#signup' : base + 'talks/?s=' + s.id + keep + '#signup';
     a.innerHTML = '<div><small class="tdate">'+s.date+'　'+s.time+'</small><b>'+(s.title||'線上分享會')+'</b>'+
-      '<span>'+(only==='all' ? c.name+'｜' : '')+'線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : '')+'</span></div>'+
-      '<span class="flag">免費報名</span>';
+      '<span>'+(only==='all' ? c.name+'｜' : '')+(bnc ? '線上分享會（騰訊會議）｜與 BNC 合辦｜BNC 會員免繳定金，非會員定金 NT$300' : '線上分享會（Zoom）'+(s.tag ? '｜'+s.tag : ''))+'</span></div>'+
+      '<span class="flag">'+(bnc ? '前往報名' : '免費報名')+'</span>';
     box.appendChild(a);
   });
   var more = document.getElementById('talk-more');
