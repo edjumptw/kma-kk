@@ -128,3 +128,9 @@ footer.site b{color:var(--ink)}
 footer.site a{color:var(--ink)}
 footer.site .copy{border-top-color:var(--line);color:var(--muted)}
 .foot-logo{filter:invert(1) brightness(.1)}
+
+/* 講師去背照：淺灰底，人物站在底部 */
+.hero-visual figure img,.hero-visual figure .fig-light img{background:var(--tint);object-fit:contain;object-position:center bottom;padding-top:18px}
+.teacher .photo{background:var(--tint)}
+.teacher .photo img{object-fit:contain;object-position:center bottom;padding-top:12px}
+.teacher .photo .fb{color:transparent}
