@@ -1,0 +1,130 @@
+/* ===== 2026-11 外觀改版：白底、黑字、淺灰卡片、黑色膠囊按鈕（參考 Grok Bot 官網的簡潔風格）
+   只覆蓋外觀，不動內容與表單。拿掉這個檔案的 <link> 就會回到舊外觀。 ===== */
+:root{
+  --ink:#0a0a0a; --ink-2:#2b2b2b; --paper:#ffffff; --white:#fff;
+  --accent:#0a0a0a; --accent-dk:#333; --gold:#f2ad38;
+  --muted:#5c5c58; --line:#e6e6e3; --tint:#f4f4f1;
+  --radius:22px; --shadow:none;
+}
+.theme-ai,.theme-live{--accent:#0a0a0a;--accent-dk:#333}
+body{background:#fff;color:var(--ink)}
+h1,h2,h3{font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(28px,5.4vw,44px)}
+section{padding:80px 0}
+.eyebrow{color:var(--muted);text-transform:none;letter-spacing:.02em;font-weight:500;font-size:14px;background:var(--tint);padding:5px 14px;border-radius:999px}
+.lead{color:var(--muted)}
+
+/* 按鈕：黑色膠囊 */
+.btn,.theme-ai .btn{background:var(--ink);color:#fff;box-shadow:none;font-weight:700}
+.btn:hover{background:#333;transform:none}
+.btn.ghost,.theme-ai .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+
+/* 導覽列：白底 */
+.nav{background:rgba(255,255,255,.92);color:var(--ink);border-bottom:1px solid var(--line)}
+.brand small{color:var(--muted)}
+.nav ul a{color:#444}.nav ul a:hover{color:var(--ink)}
+.pb-partner b{color:var(--ink)}
+.pb-partner small{color:var(--muted)}
+.brand.with-partner > span:last-child b{color:#444}
+
+/* 首屏：白底大字 */
+.hero,.theme-ai .hero,.theme-live .hero{background:#fff !important;color:var(--ink);padding:72px 0 64px}
+.hero h1{font-weight:700;letter-spacing:-.03em;line-height:1.15}
+.hero h1 em{color:var(--ink)}
+.hero .sub{color:var(--muted)}
+.hero .note{color:var(--muted)}
+.hero .tagline{color:var(--muted)}
+.chip{background:var(--tint);border:0;color:var(--ink);font-weight:500}
+.chip.hot{background:var(--ink);color:#fff}
+.fact{background:var(--tint);border:0;border-radius:18px}
+.fact span{color:var(--muted)}
+.org-bar{background:var(--tint);color:var(--ink);border-radius:999px;font-weight:700}
+.hero-visual img,.hero-visual figure img{box-shadow:none;border:1px solid var(--line)}
+.hero-partner{background:var(--tint);border:0;border-radius:18px}
+.hero-partner span,.hero-partner em{color:var(--muted)}
+.hero-partner b{color:var(--ink)}
+.org-card{background:var(--tint);border:0;color:var(--ink);box-shadow:none}
+.org-card small,.org-teach{color:var(--muted)}
+.org-card ul{color:#333}
+.org-card li{border-top-color:var(--line)}
+.org-card li::before{color:var(--ink)}
+.org-line{color:var(--ink)}
+
+/* 卡片：淺灰、無陰影 */
+.card,.day,.teacher,.test,.faq details,.talk,.session{box-shadow:none;border-color:var(--line)}
+.card{border-radius:var(--radius)}
+.card .num{color:var(--muted);letter-spacing:.02em;font-weight:700}
+.res .card{border-top:0;background:var(--tint)}
+.res .big{color:var(--ink)}
+.pain-list li{background:var(--tint)}
+.pain-list li::before,.theme-ai .pain-list li::before{background:#fff;color:var(--ink)}
+.turn em{color:var(--ink);background:linear-gradient(transparent 62%,rgba(242,173,56,.5) 62%)}
+
+/* 原本的深色區塊改成淺灰 */
+.dark,.theme-ai .dark{background:var(--tint);color:var(--ink)}
+.dark .lead{color:var(--muted)}
+.dark .card,.theme-ai .dark .card{background:#fff;border-color:var(--line)}
+.dark .card p{color:#333}
+.dark .fine{color:var(--muted)}
+.ben li{background:#fff;border-color:var(--line)}
+.ben li::before{background:var(--ink);color:#fff}
+.flow span,.bg-photo .flow span{background:#fff;border-color:var(--line);color:var(--ink)}
+.flow i{color:var(--ink)}
+.bg-photo{background:var(--tint) !important;color:var(--ink)}
+.bg-photo::before{display:none}
+.bg-photo .card{background:#fff;border-color:var(--line);backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* 課綱 */
+.day header{background:var(--ink)}
+.day header small{color:#bdbdb8}
+.day li::before{color:var(--muted)}
+.tools i,.theme-ai .tools i,.opt .ttag{background:var(--tint);color:var(--ink)}
+
+/* 講師、見證 */
+.teacher .role{color:var(--muted)}
+.teacher .photo{background:var(--tint)}
+.teacher .avatar{background:var(--tint);color:var(--ink)}
+.test::before,.theme-ai .test::before{color:var(--line)}
+.who .card h3::before{color:var(--ink)}
+
+/* 價格、場次、分享會 */
+.plan{border:1.5px solid var(--line);border-radius:var(--radius)}
+.plan .badge{background:var(--ink)}
+.session.ks,.theme-ai .session.ks{border:1.5px solid var(--ink);background:var(--tint)}
+.session .flag,.session.ks .flag,.talk .flag{background:var(--ink);color:#fff}
+.session .now{color:var(--ink)}
+.talk{border-radius:18px}
+.talk:hover{border-color:var(--ink);transform:none}
+.talk .tdate{color:var(--muted)}
+.vlink,.poster summary{color:var(--ink)}
+.video::after{background:var(--ink)}
+
+/* 常見問題 */
+.faq details{border-radius:18px}
+.faq summary::after{color:var(--ink)}
+
+/* 報名表 */
+.signup,.theme-ai .signup{background:#fff}
+.signup .head{color:var(--ink)}
+.signup .head .lead{color:var(--muted)}
+.form-card{background:var(--tint);box-shadow:none;border-radius:28px}
+.fset legend::before,.os-head::before{background:var(--ink)}
+.req{color:#c62828}
+.field input,.field select,.field textarea{border-color:var(--line)}
+.field input:focus,.field select:focus,.field textarea:focus,
+.theme-ai .field input:focus,.theme-ai .field select:focus,.theme-ai .field textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(10,10,10,.08)}
+.opt{border-color:var(--line);background:#fff}
+.opt:has(input:checked),.theme-ai .opt:has(input:checked){border-color:var(--ink);background:#fff}
+.opt input,.agree input{accent-color:var(--ink)}
+.price-summary,.theme-ai .price-summary{background:#fff;border:1px solid var(--line)}
+.order-summary{border:1.5px solid var(--ink);border-radius:20px}
+.os-total strong,.thanks-amt b{color:var(--ink)}
+.thanks .ok{background:var(--ink)}
+.privacy{background:#fff}
+
+/* 頁尾：淺灰 */
+footer.site{background:var(--tint);color:#444;border-top:1px solid var(--line)}
+footer.site b{color:var(--ink)}
+footer.site a{color:var(--ink)}
+footer.site .copy{border-top-color:var(--line);color:var(--muted)}
+.foot-logo{filter:invert(1) brightness(.1)}
